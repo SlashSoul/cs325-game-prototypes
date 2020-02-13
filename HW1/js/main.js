@@ -149,6 +149,8 @@ window.onload = function() {
             player.body.velocity.y = -350;
         }
 
+        baddie.x += 10;
+
     }
 
     function collectStar(player, star) {
@@ -171,6 +173,8 @@ window.onload = function() {
     }
 
     function killPlayer(player, baddie) {
-        player.kill()
+        player.kill();
+        health -= 0;
+        healthText.text = 'Health: ' + health;
     }
 };
