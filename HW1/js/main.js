@@ -98,7 +98,7 @@ window.onload = function() {
         scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
         /* Health */
-        healthText = game.add.text(536, 16, 'Health: 100', { fontSize: '32px', fill: '#000' });
+        healthText = game.add.text(568, 16, 'Health: 100', { fontSize: '32px', fill: '#000' });
 
         /* Cursors */
         cursors = game.input.keyboard.createCursorKeys();
@@ -165,7 +165,7 @@ window.onload = function() {
 
     function collectFirstAid(player, firstAid) {
         firstaid.kill();
-        health += 100;
+        health += 50;
         healthText.text = 'Health: ' + health;
     }
 };
