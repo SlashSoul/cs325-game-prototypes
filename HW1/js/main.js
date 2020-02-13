@@ -41,8 +41,8 @@ window.onload = function() {
         ledge.body.immovable = true;
         ledge = platforms.create(-150, 250, 'ground');
         ledge.body.immovable = true;
-        ledge = platforms.create(200, 400, 'ground');
-        ledge.body.immovable = true;
+        /*ledge = platforms.create(200, 400, 'ground');
+        ledge.body.immovable = true;*/
 
         /* Player */
         player = game.add.sprite(32, game.world.height - 150, 'dude');
