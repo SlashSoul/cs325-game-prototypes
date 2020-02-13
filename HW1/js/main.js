@@ -149,10 +149,7 @@ window.onload = function() {
         if (cursors.up.isDown && player.body.touching.down) {
             player.body.velocity.y = -350;
         }
-
-        if (cursors.left.isDown || cursors.right.isDown || cursors.up.isDown) {
-            baddie.physics.arcade.moveToPointer, game.physics.arcade, false, 200);
-        }
+        
     }
 
     function collectStar(player, star) {
