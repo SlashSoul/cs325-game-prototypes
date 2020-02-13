@@ -61,8 +61,8 @@ window.onload = function() {
         baddie.body.gravity.y = 300;
         baddie.body.collideWorldBounds = true;
 
-        baddie.animations.add('left', [0, 1], 10, true);
-        baddie.animations.add('right', [2, 3], 10, true);
+        /*baddie.animations.add('left', [0, 1], 10, true);
+        baddie.animations.add('right', [2, 3], 10, true);*/
 
         /* Stars */
         stars = game.add.group();
