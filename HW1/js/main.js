@@ -98,7 +98,7 @@ window.onload = function() {
         scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
         /* Health */
-        healthText = game.add.text(568, 16, 'Health: 100', { fontSize: '32px', fill: '#000' });
+        healthText = game.add.text(584, 16, 'Health: 100', { fontSize: '32px', fill: '#000' });
 
         /* Cursors */
         cursors = game.input.keyboard.createCursorKeys();
@@ -122,7 +122,7 @@ window.onload = function() {
         game.physics.arcade.overlap(player, firstaids, collectFirstAid, null, this);
 
         /* Baddie Kills Player */
-        //game.physics.arcade.overlap(player, baddie, player.kill(), null, this);
+        game.physics.arcade.overlap(player, baddie, killPlayer, null, this);
 
         /* Player Movement */
         player.body.velocity.x = 0;
@@ -167,5 +167,9 @@ window.onload = function() {
         firstaid.kill();
         health += 50;
         healthText.text = 'Health: ' + health;
+    }
+
+    function killPlayer(player, baddie) {
+        player.kill()
     }
 };
