@@ -11,7 +11,7 @@ window.onload = function() {
         game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     }
 
-    /* World Building */
+    var player;
     var platforms;
 
     function create() {
@@ -49,6 +49,6 @@ window.onload = function() {
 
     function update() {
         /* Physics - Collisions */
-        //var hitPlatform = game.physics.arcade.collide(player, platforms);
+        var hitPlatform = game.physics.arcade.collide(player, platforms);
     }
 };
