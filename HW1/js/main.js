@@ -122,7 +122,7 @@ window.onload = function() {
         game.physics.arcade.overlap(player, firstaids, collectFirstAid, null, this);
 
         /* Baddie Kills Player */
-        game.physics.arcade.overlap(player, baddie, player.kill(), null, this);
+        //game.physics.arcade.overlap(player, baddie, player.kill(), null, this);
 
         /* Player Movement */
         player.body.velocity.x = 0;
