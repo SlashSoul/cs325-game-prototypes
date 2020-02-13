@@ -42,7 +42,7 @@ window.onload = function() {
         ledge.body.immovable = true;
         ledge = platforms.create(-150, 250, 'ground');
         ledge.body.immovable = true;
-        ledge = platforms.create(200, 400, 'ground');
+        ledge = platforms.create(200, 600, 'ground');
         ledge.body.immovable = true;
 
         /* Player */
