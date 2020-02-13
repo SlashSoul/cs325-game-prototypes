@@ -55,7 +55,7 @@ window.onload = function() {
         player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         /* Baddie */
-        baddie = game.add.sprite(-32, game.world.height, 'baddie');
+        baddie = game.add.sprite(568, game.world.height, 'baddie');
         game.physics.arcade.enable(baddie);
         baddie.body.bounce.y = 0.2;
         baddie.body.gravty.y = 300;
