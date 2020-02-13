@@ -8,6 +8,7 @@ window.onload = function() {
         game.load.image('sky', 'assets/sky.png');
         game.load.image('ground', 'assets/platform.png');
         game.load.image('star', 'assets/star.png');
+
         game.load.spritesheet('dude', 'assets/dude.png', 32, 48);
     }
 
@@ -72,6 +73,7 @@ window.onload = function() {
     function update() {
         /* Physics - Collisions */
         var hitPlatform = game.physics.arcade.collide(player, platforms);
+        game.physics.arcade.collide(stars, platforms);
 
         /* Collect Stars */
         game.physics.arcade.overlap(player, stars, collectStar, null, this);
