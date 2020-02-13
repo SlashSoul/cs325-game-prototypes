@@ -45,7 +45,7 @@ window.onload = function() {
         ledge.body.immovable = true;
 
         /* Player */
-        player = game.add.sprite(-32, game.world.height - 150, 'dude');
+        player = game.add.sprite(32, game.world.height - 150, 'dude');
         game.physics.arcade.enable(player);
         player.body.bounce.y = 0.2;
         player.body.gravity.y = 300;
@@ -55,11 +55,14 @@ window.onload = function() {
         player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         /* Baddie */
-        baddie = game.add.sprite(32, game.world.height, 'baddie');
+        baddie = game.add.sprite(-32, game.world.height, 'baddie');
         game.physics.arcade.enable(baddie);
         baddie.body.bounce.y = 0.2;
         baddie.body.gravty.y = 300;
         baddie.body.collideWorldBounds = true;
+
+        baddie.animations.add('left', [0, 1], 10, true);
+        baddie.animations.add('right', [2, 3], 10, true);
 
         /* Stars */
         stars = game.add.group();
@@ -118,7 +121,10 @@ window.onload = function() {
         /* Collect First Aid */
         game.physics.arcade.overlap(player, firstaids, collectFirstAid, null, this);
 
-        /* Movement */
+        /* Baddie Kills Player */
+        game.physics.arcade.overlap(player, baddie, player.kill(), null, this);
+
+        /* Player Movement */
         player.body.velocity.x = 0;
 
         if (cursors.left.isDown) {
