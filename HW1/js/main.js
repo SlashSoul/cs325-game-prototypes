@@ -58,12 +58,12 @@ window.onload = function() {
         baddie = game.add.sprite(568, game.world.height, 'baddie');
         game.physics.arcade.enable(baddie);
         baddie.body.bounce.y = 0.2;
-        baddie.body.gravty.y = 300;
+        baddie.body.gravity.y = 300;
         baddie.body.collideWorldBounds = true;
 
-        baddie.animations.add('left', [0, 1], 10, true);
-        baddie.animations.add('right', [2, 3], 10, true);
-
+        /*baddie.animations.add('left', [0, 1], 10, true);
+        baddie.animations.add('right', [2, 3], 10, true);*/
+        
         /* Stars */
         stars = game.add.group();
         stars.enableBody = true;
