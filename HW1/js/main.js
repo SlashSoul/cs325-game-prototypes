@@ -21,6 +21,7 @@ window.onload = function() {
     var diamonds;
     var firstaids;
     var baddie;
+    var baddies;
     var score = 0;
     var health = 100;
     var scoreText;
@@ -55,11 +56,19 @@ window.onload = function() {
         player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         /* Baddie */
-        baddie = game.add.sprite(568, game.world.height - 150, 'baddie');
-        game.physics.arcade.enable(baddie);
-        baddie.body.bounce.y = 0.2;
-        baddie.body.gravity.y = 300;
-        baddie.body.collideWorldBounds = true;
+        baddies = game.add.group()
+        baddies.enableBody = true;
+
+        for (var i = 0; i < 3; i++) {
+            var baddie = baddie.create(i * 80, 0, 'baddie');
+            baddie.body.gravity.y = 300;
+            baddie.body.bounce.y = 0.2;
+        }
+        //baddie = game.add.sprite(568, game.world.height - 150, 'baddie');
+        //game.physics.arcade.enable(baddie);
+        //baddie.body.bounce.y = 0.2;
+        //baddie.body.gravity.y = 300;
+        //baddie.body.collideWorldBounds = true;
 
         baddie.animations.add('baddie-left', [0, 1], 10, true);
         baddie.animations.add('baddie-right', [2, 3], 10, true);
@@ -149,8 +158,9 @@ window.onload = function() {
             player.body.velocity.y = -350;
         }
 
-        game.physics.moveToObject(baddie, player, 100, 100)
-
+        if (cursors.left.isDown || cursors.right.isDown || cursors.up.isDown) {
+            baddies.forEach(game.physics.arcade.moveToPointer, game.physics.arcade, false, 200);
+        }
     }
 
     function collectStar(player, star) {
