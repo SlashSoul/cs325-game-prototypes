@@ -55,15 +55,15 @@ window.onload = function() {
         player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         /* Baddie */
-        baddie = game.add.sprite(568, game.world.height, 'baddie');
+        baddie = game.add.sprite(568, game.world.height - 150, 'baddie');
         game.physics.arcade.enable(baddie);
         baddie.body.bounce.y = 0.2;
         baddie.body.gravity.y = 300;
         baddie.body.collideWorldBounds = true;
 
-        /*baddie.animations.add('left', [0, 1], 10, true);
-        baddie.animations.add('right', [2, 3], 10, true);*/
-        
+        baddie.animations.add('left', [0, 1], 10, true);
+        baddie.animations.add('right', [2, 3], 10, true);
+
         /* Stars */
         stars = game.add.group();
         stars.enableBody = true;
@@ -79,7 +79,7 @@ window.onload = function() {
         diamonds.enableBody = true;
 
         for (var i = 0; i < 12; i++) {
-          var diamond = diamonds.create(i * 20, 0, 'diamond');
+          var diamond = diamonds.create(i * 120, 0, 'diamond');
           diamond.body.gravity.y = 300;
           diamond.body.bounce.y = 0.7 + Math.random() * 0.2;
         }
@@ -89,7 +89,7 @@ window.onload = function() {
         firstaids.enableBody = true;
 
         for (var i = 0; i < 2; i++) {
-            var firstaid = firstaids.create(i * 50, 0, 'firstaid');
+            var firstaid = firstaids.create(i * 60, 0, 'firstaid');
             firstaid.body.gravity.y = 300;
             firstaid.body.bounce.y = 0.7 + Math.random() * 0.2;
         }
@@ -98,7 +98,7 @@ window.onload = function() {
         scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
         /* Health */
-        healthText = game.add.text(-16, 16, 'Health: 100', { fontSize: '32px', fill: '#000' });
+        healthText = game.add.text(536, 16, 'Health: 100', { fontSize: '32px', fill: '#000' });
 
         /* Cursors */
         cursors = game.input.keyboard.createCursorKeys();
