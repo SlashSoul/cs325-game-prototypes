@@ -47,6 +47,10 @@ window.onload = function() {
     }
 
     function update() {
+        // Parallax Background
+        mountainsBack.tilePosition.x -= 0.05;
+        mountainsMid1.tilePosition.x -= 0.03;
+        mountainsMid2.tilePosition.x -= 0.75;
 
     }
 };
