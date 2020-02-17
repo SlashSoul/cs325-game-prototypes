@@ -7,6 +7,7 @@ window.onload = function() {
         game.load.image('mountains-back', 'assets/mountains-back.png');
         game.load.image('mountains-mid1', 'assets/mountains-mid1.png');
         game.load.image('mountains-mid2', 'assets/mountains-mid2.png');
+        game.load.image('ground', 'assets/ground.png');
         //game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
         //game.load.image('ghost', 'assets/ghost.png');
         //game.load.image('fireball', 'assets/fireball.png');
@@ -39,6 +40,11 @@ window.onload = function() {
         mountainsMid1 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid1').height, game.width, game.cache.getImage('mountains-mid1').height, 'mountains-mid1');
         mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
+        // Ground
+        var ground = game.add.group();
+        ground.enableBody = true;
+        ground.create(0, game.world.height - 64, 'ground');
+        ground.body.immovable = true;
 
 
     }
