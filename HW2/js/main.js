@@ -16,6 +16,8 @@ window.onload = function() {
     var mountainsBack;
     var mountainsMid1;
     var mountainsMid2;
+    var ground;
+    var player;
 
     function create() {
         /*game.stage.backgroundColor = 0xC2C3C7;
@@ -40,11 +42,17 @@ window.onload = function() {
         mountainsMid1 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid1').height, game.width, game.cache.getImage('mountains-mid1').height, 'mountains-mid1');
         mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
-        // Ground
-        var ground = game.add.group();
+        // Create the Ground/Platform
         ground.enableBody = true;
         ground.create(0, game.world.height - 64, 'ground');
         ground.body.immovable = true;
+
+        // Create the Player
+        player = game.add.sprite(32, game.world.height - 150, 'ghost');
+        game.physics.arcade.enable(player);
+        player.body.bounce.y = 0.2;
+        player.body.gravity.y = 300;
+        player.body.collideWorldBounds = true;
 
 
     }
@@ -55,5 +63,7 @@ window.onload = function() {
         mountainsMid1.tilePosition.x -= 0.30;
         mountainsMid2.tilePosition.x -= 0.75;
 
+        // Handling collisions
+        game.physics.arcade.collide(player, ground);
     }
 };
