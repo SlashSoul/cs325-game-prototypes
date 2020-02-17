@@ -15,6 +15,10 @@ window.onload = function() {
         game.load.image('enemy2', 'assets/enemy2.png');*/
     }
 
+    var mountainsBack;
+    var mountainsMid1;
+    var mountainsMid2;
+
     function create() {
         /*game.stage.backgroundColor = 0xC2C3C7;
         var instructions = game.add.text(game.world.centerX, game.world.centerY, 'Click to Kill all the Ghosts!', {font: '32px Arial', fill: '#FFFFFF', align: 'center'});
