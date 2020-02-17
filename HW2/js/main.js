@@ -14,9 +14,9 @@ window.onload = function() {
 
     function create() {
         game.stage.backgroundColor = 0xC2C3C7;
-        instructions = game.add.text(game.world.centerX, game.world.centerY, 'Click to Kill all the Ghosts!', {font: '98px Arial', fill: '#FFFFFF', align: 'center'});
+        instructions = game.add.text(game.world.centerX, game.world.centerY, 'Click to Kill all the Ghosts!', {font: '12px Arial', fill: '#FFFFFF', align: 'center'});
         instructions.anchor.set(0.5);
-        
+
     }
 
     function update() {
