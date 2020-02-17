@@ -1,12 +1,12 @@
 "use strict";
 
 window.onload = function() {
-    var game = new Phaser.Game(2000, 900, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
+    var game = new Phaser.Game(1000, 800, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
-        game.load.image('pixel-mountains-back', 'assets/pixel-mountains-back.png');
-        game.load.image('pixel-mountains-mid1', 'assets/pixel-mountains-mid1.png');
-        game.load.image('pixel-mountains-mid2', 'assets/pixel-mountains-mid2.png');
+        game.load.image('mountains-back', 'assets/mountains-back.png');
+        game.load.image('mountains-mid1', 'assets/mountains-mid1.png');
+        game.load.image('mountains-mid2', 'assets/mountains-mid2.png');
         //game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
         //game.load.image('ghost', 'assets/ghost.png');
         //game.load.image('fireball', 'assets/fireball.png');
@@ -38,9 +38,9 @@ window.onload = function() {
         game.stage.backgroundColor = '#697e96';
 
         // Create the Background
-        mountainsBack = game.add.tileSprite(0, game.height - game.cache.getImage('pixel-mountains-back').height, game.width, game.cache.getImage('pixel-mountains-back').height, 'pixel-mountains-back');
-        mountainsMid1 = game.add.tileSprite(0, game.height - game.cache.getImage('pixel-mountains-mid1').height, game.width, game.cache.getImage('pixel-mountains-mid1').height, 'pixel-mountains-mid1');
-        mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('pixel-mountains-mid2').height, game.width, game.cache.getImage('pixel-mountains-mid2').height, 'pixel-mountains-mid2');
+        mountainsBack = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-back').height, game.width, game.cache.getImage('mountains-back').height, 'mountains-back');
+        mountainsMid1 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid1').height, game.width, game.cache.getImage('mountains-mid1').height, 'mountains-mid1');
+        mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
 
 
