@@ -10,9 +10,6 @@ window.onload = function() {
         //game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
         //game.load.image('ghost', 'assets/ghost.png');
         //game.load.image('fireball', 'assets/fireball.png');
-        /*game.load.image('tile', 'assets/tile.png');
-        game.load.image('enemy', 'assets/enemy.png');
-        game.load.image('enemy2', 'assets/enemy2.png');*/
     }
 
     var mountainsBack;
@@ -47,9 +44,9 @@ window.onload = function() {
     }
 
     function update() {
-        // Parallax Background
+        // Simulate a Parallax Background
         mountainsBack.tilePosition.x -= 0.05;
-        mountainsMid1.tilePosition.x -= 0.03;
+        mountainsMid1.tilePosition.x -= 0.30;
         mountainsMid2.tilePosition.x -= 0.75;
 
     }
