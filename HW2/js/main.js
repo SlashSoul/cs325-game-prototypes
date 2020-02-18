@@ -115,6 +115,9 @@ window.onload = function() {
             // jump = game.time.now + 750;
 
         }
+        else if (cursors.down.isDown) {
+          player.body.velocity.y = 100;
+        }
         /*else if (fireballKey.isDown) {
             fireball.fire();
         }*/
