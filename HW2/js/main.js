@@ -43,9 +43,10 @@ window.onload = function() {
         mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
         // Create the Ground/Platform
-        //ground.enableBody = true;
+        ground = game.add.group();
+        ground.enableBody = true;
         ground.create(0, game.world.height - 64, 'ground');
-        //ground.body.immovable = true;
+        ground.body.immovable = true;
 
         // Create the Player
         player = game.add.sprite(32, game.world.height - 150, 'ghost');
