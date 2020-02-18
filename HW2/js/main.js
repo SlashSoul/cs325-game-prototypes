@@ -48,14 +48,11 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(32, game.world.heigh - 150, 'dude');
+        player = game.add.sprite(32, game.world.heigh - 150, 'ghost');
         game.physics.arcade.enable(player);
         player.body.bounce.y = 0.20;
         player.body.gravity.y = 300;
         player.body.collideWorldBounds = true;
-
-        player.animations.add('left', [0, 1, 2, 3], 10, true);
-        player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         /* ninja = game.add.sprite(10, 10, 'ninja');
         ninja.scale.setTo(0.15,0.15);
