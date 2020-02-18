@@ -1,7 +1,7 @@
 "use strict";
 
 window.onload = function() {
-    var game = new Phaser.Game(1000, 800, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
+    var game = new Phaser.Game(1500, 800, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
         game.load.image('mountains-back', 'assets/mountains-back.png');
@@ -71,12 +71,12 @@ window.onload = function() {
 
         fireball = game.add.weapon(1000, 'fireball');
         fireball.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        fireball.bulletSpeed = 1000;
-        fireball.fireRate = 100;
+        fireball.bulletSpeed = 500; /* 1000 */
+        fireball.fireRate = 10; /* 100 */
 
         //game.time.desiredFps = 30;
         //game.physics.arcade.gravity.y = 250;
-        fireball.trackSprite(player, 280, 115, true);
+        fireball.trackSprite(player, 100, 35, true);
 
         cursors = game.input.keyboard.createCursorKeys();
         fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
