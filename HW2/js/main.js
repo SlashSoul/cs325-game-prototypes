@@ -13,7 +13,6 @@ window.onload = function() {
         game.load.image('ghost', 'assets/ghost.png');
         game.load.image('fireball', 'assets/orange_fireball.png');
         game.load.spritesheet('enemy', 'assets/dude.png');
-        //game.load.image('fireball', 'assets/fireball.png');
     }
 
     var mountainsBack;
@@ -27,17 +26,6 @@ window.onload = function() {
     var fireballKey;
 
     function create() {
-        /*game.stage.backgroundColor = 0xC2C3C7;
-        var instructions = game.add.text(game.world.centerX, game.world.centerY, 'Click to Kill all the Ghosts!', {font: '32px Arial', fill: '#FFFFFF', align: 'center'});
-        instructions.anchor.set(0.5);
-
-        var walls = game.add.group();
-        walls.enableBody = true;
-
-        for (var i = 16; x < game.world.width; x+= 32) {
-
-        }*/
-
         // Enable Aracde Physics
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -61,7 +49,7 @@ window.onload = function() {
         player = game.add.sprite(64, game.world.height - 200, 'ghost'); /* 150 */
         game.physics.arcade.enable(player);
         player.body.bounce.y = 0.2;
-        player.body.gravity.y = 100;
+        player.body.gravity.y = 1000;
         player.body.collideWorldBounds = true;
 
         // Create the enemies
