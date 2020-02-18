@@ -44,7 +44,7 @@ window.onload = function() {
         ground.enableBody = true;
 
         var platform = ground.create(0, game.world.height - 64, 'platform');
-        platform.scale.setTo(2,2);
+        //platform.scale.setTo(2,2);
         platform.body.immovable = true;
 
         // Create the Player
@@ -53,6 +53,9 @@ window.onload = function() {
         player.body.bounce.y = 0.20;
         player.body.gravity.y = 300;
         player.body.collideWorldBounds = true;
+
+        player.animations.add('left', [0, 1, 2, 3], 10, true);
+        player.animations.add('right', [5, 6, 7, 8], 10, true);
 
         /* ninja = game.add.sprite(10, 10, 'ninja');
         ninja.scale.setTo(0.15,0.15);
