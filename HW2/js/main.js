@@ -9,6 +9,7 @@ window.onload = function() {
         game.load.image('mountains-mid2', 'assets/mountains-mid2.png');
         game.load.image('platform', 'assets/ground.png');
         //game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
+        game.load.image('player', 'assets/reaper1.png');
         game.load.image('ghost', 'assets/ghost.png');
         game.load.image('fireball', 'assets/orange_fireball.png');
         game.load.spritesheet('enemy', 'assets/dude.png');
@@ -22,7 +23,7 @@ window.onload = function() {
     var player;
     var enemies;
     var fireball;
-    var cursorKeys;
+    var cursors;
     var fireballKey;
 
     function create() {
@@ -57,16 +58,16 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(32, game.world.height - 100, 'ghost'); /* 150 */
-        //game.physics.arcade.enable(player);
-        //player.body.bounce.y = 0.2;
-        //player.body.gravity.y = 300;
+        player = game.add.sprite(32, game.world.height - 100, 'player'); /* 150 */
+        game.physics.arcade.enable(player);
+        player.body.bounce.y = 0.2;
+        player.body.gravity.y = 300;
         player.body.collideWorldBounds = true;
 
         // Create the enemies
-        enemies = game.add.group();
+        /*enemies = game.add.group();
         enemies.enableBody = true;
-        enemies.physicsBodyType = Phaser.Physics.ARCADE;
+        enemies.physicsBodyType = Phaser.Physics.ARCADE;*/
 
         fireball = game.add.weapon(1000, 'fireball');
         fireball.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
@@ -77,7 +78,7 @@ window.onload = function() {
         //game.physics.arcade.gravity.y = 250;
         fireball.trackSprite(player, 15, 15, true);
 
-        cursorKeys = game.input.keyboard.createCursorKeys();
+        cursors = game.input.keyboard.createCursorKeys();
         fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
     }
@@ -90,5 +91,28 @@ window.onload = function() {
 
         // Handling collisions
         game.physics.arcade.collide(player, ground);
+
+        // Controls
+        if (cursors.left.isDown) {
+            player.body.velocity.x = -100;
+            //player.animations.play('left');
+        }
+        else if (cursors.right.isDown) {
+            player.body.velocity.x = 100;
+            //player.animations.play('right');
+        }
+        else if (cursors.up.isDown && player.body.touching.down) {
+            player.body.velocity.y = -100;
+            // jump = game.time.now + 750;
+
+        }
+        else if (fireballKey.isDown) {
+            fireball.fire();
+        }
+
+
+        /*if(newEnemy.x === 0) {
+            this.newEnemy.kill();
+        }*/
     }
 };
