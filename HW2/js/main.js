@@ -1,7 +1,7 @@
 "use strict";
 
 window.onload = function() {
-    var game = new Phaser.Game(1500, 600, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
+    var game = new Phaser.Game(1800, 800, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
         game.load.image('mountains-back', 'assets/mountains-back.png');
@@ -39,9 +39,7 @@ window.onload = function() {
         mountainsMid1 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid1').height, game.width, game.cache.getImage('mountains-mid1').height, 'mountains-mid1');
         mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
-        mountainsBack.scale.setTo(0.80);
-        mountainsMid1.scale.setTo(0.80);
-        mountainsMid2.scale.setTo(0.80);
+
 
         // Create the Ground/Platform
         ground = game.add.group();
