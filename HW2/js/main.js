@@ -84,7 +84,7 @@ window.onload = function() {
         //fireball.trackSprite(player, 55, 25, true);
 
         /* Score Tracking */
-        scoreText = game.add.text(0, 0, 'Score: 0', {font: '25px Arial', fill: '#000000'});
+        scoreText = game.add.text(16, 16, 'Score: 0', {font: '25px Arial', fill: '#000000'});
 
         cursors = game.input.keyboard.createCursorKeys();
         //fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
