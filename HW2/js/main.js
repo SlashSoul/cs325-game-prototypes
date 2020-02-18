@@ -10,6 +10,8 @@ window.onload = function() {
         game.load.image('platform', 'assets/ground.png');
         //game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
         game.load.image('ghost', 'assets/ghost.png');
+        game.load.image('fireball', 'assets/orange_fireball.png');
+        game.load.spritesheet('enemy', 'assets/dude.png');
         //game.load.image('fireball', 'assets/fireball.png');
     }
 
@@ -18,6 +20,10 @@ window.onload = function() {
     var mountainsMid2;
     var ground;
     var player;
+    var enemies;
+    var fireball;
+    var cursorKeys;
+    var fireballKey;
 
     function create() {
         /*game.stage.backgroundColor = 0xC2C3C7;
@@ -51,12 +57,28 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(32, game.world.height - 150, 'ghost');
+        player = game.add.sprite(32, game.world.height - 100, 'ghost'); /* 150 */
         //game.physics.arcade.enable(player);
         //player.body.bounce.y = 0.2;
         //player.body.gravity.y = 300;
         player.body.collideWorldBounds = true;
 
+        // Create the enemies
+        enemies = game.add.group();
+        enemies.enableBody = true;
+        enemies.physicsBodyType = Phaser.Physics.ARCADE;
+
+        fireball = game.add.weapon(1000, 'fireball');
+        fireball.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        fireball.bulletSpeed = 1000;
+        fireball.fireRate = 100;
+
+        //game.time.desiredFps = 30;
+        //game.physics.arcade.gravity.y = 250;
+        fireball.trackSprite(player, 15, 15, true);
+
+        cursorKeys = game.input.keyboard.createCursorKeys();
+        fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
     }
 
