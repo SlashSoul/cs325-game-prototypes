@@ -45,7 +45,7 @@ window.onload = function() {
         // Create the Ground/Platform
         platforms = game.add.group();
         platforms.enableBody = true;
-        
+
         var ground = platforms.create(0, game.world.height - 64, 'ground');
         ground.scale.setTo(2,2);
         ground.body.immovable = true;
@@ -67,6 +67,6 @@ window.onload = function() {
         mountainsMid2.tilePosition.x -= 0.75;
 
         // Handling collisions
-        game.physics.arcade.collide(player, ground);
+        game.physics.arcade.collide(player, platforms);
     }
 };
