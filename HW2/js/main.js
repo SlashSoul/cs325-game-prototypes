@@ -12,7 +12,7 @@ window.onload = function() {
         game.load.image('player', 'assets/reaper1.png');
         game.load.image('ghost', 'assets/ghost.png');
         game.load.image('fireball', 'assets/orange_fireball.png');
-        game.load.spritesheet('enemy', 'assets/dude.png');
+        game.load.spritesheet('dude', 'assets/dude.png', 32, 32);
     }
 
     var mountainsBack;
@@ -20,10 +20,11 @@ window.onload = function() {
     var mountainsMid2;
     var ground;
     var player;
-    var enemies;
-    var fireball;
+    //var enemy;
+    //var enemies;
+    //var fireball;
     var cursors;
-    var fireballKey;
+    //var fireballKey;
 
     function create() {
         // Enable Aracde Physics
@@ -46,28 +47,43 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(64, game.world.height - 200, 'ghost'); /* 150 */
-        game.physics.arcade.enable(player);
+        player = game.add.sprite(32, 32, 'dude');
+        game.physics.enable(player, Phaser.PHYSICS.ARCADE);
+        player.body.bounce.y = 0.20;
+        player.body.collideWorldBounds = true;
+
+        /* ninja = game.add.sprite(10, 10, 'ninja');
+        ninja.scale.setTo(0.15,0.15);
+        game.physics.enable( ninja, Phaser.Physics.ARCADE );
+        ninja.body.bounce.y = 0.2;
+        ninja.body.collideWorldBounds = true;
+        star.trackSprite(ninja, 15,15, true);*/
+
+
+
+
+        //player = game.add.sprite(64, game.world.height - 200, 'ghost'); /* 150 */
+        /*game.physics.arcade.enable(player);
         player.body.bounce.y = 0.2;
         player.body.gravity.y = 1000;
         player.body.collideWorldBounds = true;
-
+        */
         // Create the enemies
         /*enemies = game.add.group();
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;*/
 
-        fireball = game.add.weapon(1, 'fireball');
+        /*fireball = game.add.weapon(1, 'fireball');
         fireball.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        fireball.bulletSpeed = 100; /* 1000 */
-        fireball.fireRate = 10; /* 100 */
+        fireball.bulletSpeed = 100;*/ /* 1000 */
+        //fireball.fireRate = 10; /* 100 */
 
         //game.time.desiredFps = 30;
         //game.physics.arcade.gravity.y = 250;
-        fireball.trackSprite(player, 55, 25, true);
+        //fireball.trackSprite(player, 55, 25, true);
 
         cursors = game.input.keyboard.createCursorKeys();
-        fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
+        //fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
     }
 
@@ -94,9 +110,9 @@ window.onload = function() {
             // jump = game.time.now + 750;
 
         }
-        else if (fireballKey.isDown) {
+        /*else if (fireballKey.isDown) {
             fireball.fire();
-        }
+        }*/
         else {
             player.body.velocity.x = 0;
             player.body.velocity.y = 0;
@@ -105,6 +121,10 @@ window.onload = function() {
 
 
     }
+
+    //function spawn(number) {
+
+    //}
 
     function death(player, enemy) {
         music = game.add.audio('GhostPain');
