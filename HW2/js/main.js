@@ -23,6 +23,7 @@ window.onload = function() {
     //var enemy;
     //var enemies;
     //var fireball;
+    var scoreText;
     var cursors;
     //var fireballKey;
 
@@ -82,6 +83,9 @@ window.onload = function() {
         //game.physics.arcade.gravity.y = 250;
         //fireball.trackSprite(player, 55, 25, true);
 
+        /* Score Tracking */
+        scoreText = game.add.text(0, 0, 'Score: 0', {font: '25px Arial', fill: '#000000'});
+
         cursors = game.input.keyboard.createCursorKeys();
         //fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
@@ -130,6 +134,6 @@ window.onload = function() {
         music = game.add.audio('GhostPain');
         music.play();
         player.kill();
-        var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#FFFFFF'})
+        var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000'});
     }
 };
