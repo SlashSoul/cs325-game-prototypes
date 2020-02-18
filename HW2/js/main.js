@@ -16,7 +16,7 @@ window.onload = function() {
     var mountainsBack;
     var mountainsMid1;
     var mountainsMid2;
-    var platforms;
+    var ground;
     var player;
 
     function create() {
@@ -43,10 +43,9 @@ window.onload = function() {
         mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
         // Create the Ground/Platform
-        platforms = game.add.group();
-        platforms.enableBody = true;
-
-        var ground = platforms.create(0, game.world.height - 64, 'ground');
+        ground = game.add.group();
+        ground.enableBody = true;
+        ground.create(0, game.world.height - 64, 'ground');
         ground.scale.setTo(2,2);
         ground.body.immovable = true;
 
@@ -67,6 +66,6 @@ window.onload = function() {
         mountainsMid2.tilePosition.x -= 0.75;
 
         // Handling collisions
-        game.physics.arcade.collide(player, platforms);
+        game.physics.arcade.collide(player, ground);
     }
 };
