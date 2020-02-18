@@ -69,7 +69,7 @@ window.onload = function() {
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;*/
 
-        fireball = game.add.weapon(1000, 'fireball');
+        fireball = game.add.weapon(1, 'fireball');
         fireball.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         fireball.bulletSpeed = 500; /* 1000 */
         fireball.fireRate = 10; /* 100 */
