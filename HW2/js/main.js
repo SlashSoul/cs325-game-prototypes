@@ -76,7 +76,7 @@ window.onload = function() {
 
         //game.time.desiredFps = 30;
         //game.physics.arcade.gravity.y = 250;
-        fireball.trackSprite(player, 15, 15, true);
+        fireball.trackSprite(player, 280, 115, true);
 
         cursors = game.input.keyboard.createCursorKeys();
         fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
