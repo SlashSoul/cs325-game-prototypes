@@ -46,7 +46,7 @@ window.onload = function() {
         ground.enableBody = true;
 
         var platform = ground.create(0, game.world.height - 64, 'platform');
-        platform.scale.setTo(1,1);
+        platform.scale.setTo(2);
         platform.body.immovable = true;
 
         // Create the Player
