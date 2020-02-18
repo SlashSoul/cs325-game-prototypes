@@ -58,7 +58,7 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(64, game.world.height - 150, 'player'); /* 150 */
+        player = game.add.sprite(64, game.world.height - 200, 'player'); /* 150 */
         game.physics.arcade.enable(player);
         player.body.bounce.y = 0.2;
         player.body.gravity.y = 300;
