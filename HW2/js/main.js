@@ -48,7 +48,7 @@ window.onload = function() {
 
         // Create the Player
         player = game.add.sprite(32, 32, 'dude');
-        game.physics.enable(player, Phaser.PHYSICS.ARCADE);
+        //game.physics.enable(player, Phaser.PHYSICS.ARCADE);
         player.body.bounce.y = 0.20;
         player.body.collideWorldBounds = true;
 
