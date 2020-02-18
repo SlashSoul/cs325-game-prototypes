@@ -39,8 +39,6 @@ window.onload = function() {
         mountainsMid1 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid1').height, game.width, game.cache.getImage('mountains-mid1').height, 'mountains-mid1');
         mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
-
-
         // Create the Ground/Platform
         ground = game.add.group();
         ground.enableBody = true;
@@ -52,8 +50,8 @@ window.onload = function() {
         // Create the Player
         player = game.add.sprite(32, game.world.height - 150, 'ghost');
         game.physics.arcade.enable(player);
-        player.body.bounce.y = 0.20
-        player.body.gravity.y = 300;
+        //player.body.bounce.y = 0.20
+        //player.body.gravity.y = 300;
         player.body.collideWorldBounds = true;
 
         /* ninja = game.add.sprite(10, 10, 'ninja');
