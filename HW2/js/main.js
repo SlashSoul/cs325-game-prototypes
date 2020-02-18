@@ -51,7 +51,7 @@ window.onload = function() {
         player = game.add.sprite(32, game.world.height - 150, 'ghost');
         game.physics.arcade.enable(player);
         //player.body.bounce.y = 0.20
-        //player.body.gravity.y = 300;
+        player.body.gravity.y = 200;
         player.body.collideWorldBounds = true;
 
         /* ninja = game.add.sprite(10, 10, 'ninja');
