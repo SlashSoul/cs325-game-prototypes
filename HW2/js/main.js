@@ -58,7 +58,7 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(32, game.world.height - 100, 'player'); /* 150 */
+        player = game.add.sprite(64, game.world.height - 150, 'player'); /* 150 */
         game.physics.arcade.enable(player);
         player.body.bounce.y = 0.2;
         player.body.gravity.y = 300;
@@ -71,12 +71,12 @@ window.onload = function() {
 
         fireball = game.add.weapon(1, 'fireball');
         fireball.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        fireball.bulletSpeed = 500; /* 1000 */
+        fireball.bulletSpeed = 100; /* 1000 */
         fireball.fireRate = 10; /* 100 */
 
         //game.time.desiredFps = 30;
         //game.physics.arcade.gravity.y = 250;
-        fireball.trackSprite(player, 100, 35, true);
+        fireball.trackSprite(player, 55, 25, true);
 
         cursors = game.input.keyboard.createCursorKeys();
         fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
