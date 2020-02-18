@@ -48,9 +48,10 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(32, 32, 'dude');
+        player = game.add.sprite(32, game.world.heigh - 150, 'dude');
         game.physics.arcade.enable(player);
         player.body.bounce.y = 0.20;
+        player.body.gravity.y = 300;
         player.body.collideWorldBounds = true;
 
         /* ninja = game.add.sprite(10, 10, 'ninja');
@@ -129,6 +130,8 @@ window.onload = function() {
     //function spawn(number) {
 
     //}
+
+
 
     function death(player, enemy) {
         music = game.add.audio('GhostPain');
