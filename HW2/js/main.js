@@ -39,9 +39,9 @@ window.onload = function() {
         mountainsMid1 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid1').height, game.width, game.cache.getImage('mountains-mid1').height, 'mountains-mid1');
         mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
-        mountainsBack.scale.setTo(0.80, 0.80);
-        mountainsMid1.scale.setTo(0.80, 0.80);
-        mountainsMid2.scale.setTo(0.80, 0.80);
+        mountainsBack.scale.setTo(0.80);
+        mountainsMid1.scale.setTo(0.80);
+        mountainsMid2.scale.setTo(0.80);
 
         // Create the Ground/Platform
         ground = game.add.group();
