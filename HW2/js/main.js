@@ -109,6 +109,10 @@ window.onload = function() {
         else if (fireballKey.isDown) {
             fireball.fire();
         }
+        else {
+            player.body.velocity.x = 0;
+            player.body.velocity.y = 0;
+        }
 
 
         /*if(newEnemy.x === 0) {
