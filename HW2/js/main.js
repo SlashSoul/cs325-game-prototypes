@@ -1,7 +1,7 @@
 "use strict";
 
 window.onload = function() {
-    var game = new Phaser.Game(1800, 800, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
+    var game = new Phaser.Game(1000, 300, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
         game.load.image('mountains-back', 'assets/mountains-back.png');
@@ -110,7 +110,7 @@ window.onload = function() {
             player.body.velocity.x = 100;
             //player.animations.play('right');
         }
-        else if (cursors.up.isDown && player.body.touching.down) {
+        else if (cursors.up.isDown) {
             player.body.velocity.y = -100;
             // jump = game.time.now + 750;
 
