@@ -1,14 +1,14 @@
 "use strict";
 
 window.onload = function() {
-    var game = new Phaser.Game(1500, 800, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
+    var game = new Phaser.Game(1500, 600, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
         game.load.image('mountains-back', 'assets/mountains-back.png');
         game.load.image('mountains-mid1', 'assets/mountains-mid1.png');
         game.load.image('mountains-mid2', 'assets/mountains-mid2.png');
         game.load.image('platform', 'assets/ground.png');
-        //game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
+        game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
         game.load.image('player', 'assets/reaper1.png');
         game.load.image('ghost', 'assets/ghost.png');
         game.load.image('fireball', 'assets/orange_fireball.png');
@@ -115,8 +115,13 @@ window.onload = function() {
         }
 
 
-        /*if(newEnemy.x === 0) {
-            this.newEnemy.kill();
-        }*/
+
+    }
+
+    function death(player, enemy) {
+        music = game.add.audio('GhostPain');
+        music.play();
+        player.kill();
+        var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#FFFFFF'})
     }
 };
