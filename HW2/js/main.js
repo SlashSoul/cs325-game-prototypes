@@ -58,10 +58,10 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(64, game.world.height - 200, 'dude'); /* 150 */
+        player = game.add.sprite(64, game.world.height - 200, 'ghost'); /* 150 */
         game.physics.arcade.enable(player);
         player.body.bounce.y = 0.2;
-        player.body.gravity.y = 300;
+        player.body.gravity.y = 100;
         player.body.collideWorldBounds = true;
 
         // Create the enemies
