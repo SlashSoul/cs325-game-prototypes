@@ -7,7 +7,7 @@ window.onload = function() {
         game.load.image('mountains-back', 'assets/mountains-back.png');
         game.load.image('mountains-mid1', 'assets/mountains-mid1.png');
         game.load.image('mountains-mid2', 'assets/mountains-mid2.png');
-        game.load.image('ground', 'assets/ground.png');
+        game.load.image('platform', 'assets/ground.png');
         //game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
         game.load.image('ghost', 'assets/ghost.png');
         //game.load.image('fireball', 'assets/fireball.png');
@@ -45,9 +45,10 @@ window.onload = function() {
         // Create the Ground/Platform
         ground = game.add.group();
         ground.enableBody = true;
-        ground.create(0, game.world.height - 64, 'ground');
-        ground.scale.setTo(2,2);
-        ground.body.immovable = true;
+
+        var platform = ground.create(0, game.world.height - 64, 'platform');
+        platform.scale.setTo(2,2);
+        platform.body.immovable = true;
 
         // Create the Player
         player = game.add.sprite(32, game.world.height - 150, 'ghost');
