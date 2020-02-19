@@ -123,7 +123,7 @@ window.onload = function() {
 
     function spawn(number) {
         enemy = enemies.create(number*5, number, 'ghost');
-        game.physics.enable(enemy, Phaser.PHYSICS.ARCADE);
+        game.physics.enable(enemy, Phaser.Physics.ARCADE);
         enemy.body.collideWorldBounds = true;
     }
 
