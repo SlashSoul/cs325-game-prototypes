@@ -60,7 +60,7 @@ window.onload = function() {
         weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         weapon.bulletSpeed = 1000;
         weapon.fireRate = 100;
-        weapon.trackSprite(player, 380, 120, true);
+        weapon.trackSprite(player, 65, 25, true);
 
         // Create the Enemies
 
