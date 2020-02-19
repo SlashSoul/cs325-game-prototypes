@@ -64,7 +64,7 @@ window.onload = function() {
         enemies = game.add.group();
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;
-        //spawn(Math.floor(Math.random() * 100));
+        spawn(Math.floor(Math.random() * 100));
 
         // Score Tracking
         scoreText = game.add.text(16, 16, 'Score: 0', {font: '25px Arial', fill: '#000000'});
@@ -115,9 +115,9 @@ window.onload = function() {
         }
 
         // Enemy Movement
-        /*enemies.forEachAlive(function(enemy) {
+        enemies.forEachAlive(function(enemy) {
             enemy.body.velocity.x = -100;
-        });*/
+        });
 
     }
 
