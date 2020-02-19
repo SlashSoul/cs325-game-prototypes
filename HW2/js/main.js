@@ -82,6 +82,8 @@ window.onload = function() {
 
         // Handling collisions
         game.physics.arcade.collide(player, ground);
+        game.physics.arcade.collide(enemies, ground);
+        game.physics.arcade.collide(enemies, enemies);
 
         // Handle interactions between objects
         game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
