@@ -88,9 +88,9 @@ window.onload = function() {
         game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
-        number = Math.floor(Math.random() * 100);
+        var number = Math.floor(Math.random() * 100);
         if (number > 99) {
-            //spawn(number);
+            spawn(number);
         }
 
         // Player Controls
@@ -121,11 +121,11 @@ window.onload = function() {
 
     }
 
-    /*function spawn(number) {
+    function spawn(number) {
         enemy = enemies.create(number*5, number, 'ghost');
         game.physics.enable(enemy, Phaser.PHYSICS.ARCADE);
         enemy.body.collideWorldBounds = true;
-    }*/
+    }
 
     function killEnemies(weapon, enemies) {
         music = game.add.audio('GhostPain');
