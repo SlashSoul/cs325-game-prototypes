@@ -1,7 +1,7 @@
 "use strict";
 
 window.onload = function() {
-    var game = new Phaser.Game(1600, 400, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
+    var game = new Phaser.Game(1200, 400, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
         game.load.image('mountains-back', 'assets/mountains-back.png');
@@ -58,16 +58,11 @@ window.onload = function() {
         // Add the Weapon
         weapon = game.add.weapon(1000, 'fireball');
         weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        weapon.bulletSpeed = 100;
+        weapon.bulletSpeed = 1000;
         weapon.fireRate = 100;
         weapon.trackSprite(player, 380, 120, true);
 
-        /* ninja = game.add.sprite(10, 10, 'ninja');
-        ninja.scale.setTo(0.15,0.15);
-        game.physics.enable( ninja, Phaser.Physics.ARCADE );
-        ninja.body.bounce.y = 0.2;
-        ninja.body.collideWorldBounds = true;
-        star.trackSprite(ninja, 15,15, true);*/
+        // Create the Enemies
 
         // Create the enemies
         /*enemies = game.add.group();
