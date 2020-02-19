@@ -60,7 +60,7 @@ window.onload = function() {
         weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         weapon.bulletSpeed = 100;
         weapon.fireRate = 100;
-        weapon.trackSprite(player, 15, 15,true);
+        weapon.trackSprite(player, 380, 120, true);
 
         /* ninja = game.add.sprite(10, 10, 'ninja');
         ninja.scale.setTo(0.15,0.15);
