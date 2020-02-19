@@ -22,25 +22,23 @@ window.onload = function() {
     var player;
     var weapon;
     //var enemy;
-    //var enemies;
-    //var fireball;
+    var enemies;
     var scoreText;
     var cursors;
-    //var fireballKey;
 
     function create() {
-        // Enable Aracde Physics
+        // Enable aracde physics
         game.physics.startSystem(Phaser.Physics.ARCADE);
 
-        // Set the Background Color
+        // Set the background color
         game.stage.backgroundColor = '#697e96';
 
-        // Create the Background
+        // Create the background
         mountainsBack = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-back').height, game.width, game.cache.getImage('mountains-back').height, 'mountains-back');
         mountainsMid1 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid1').height, game.width, game.cache.getImage('mountains-mid1').height, 'mountains-mid1');
         mountainsMid2 = game.add.tileSprite(0, game.height - game.cache.getImage('mountains-mid2').height, game.width, game.cache.getImage('mountains-mid2').height, 'mountains-mid2');
 
-        // Create the Ground/Platform
+        // Create the ground/platform
         ground = game.add.group();
         ground.enableBody = true;
 
@@ -48,39 +46,31 @@ window.onload = function() {
         platform.scale.setTo(2);
         platform.body.immovable = true;
 
-        // Create the Player
+        // Create the player
         player = game.add.sprite(32, game.world.height - 150, 'reaper1');
         player.scale.setTo(0.20);
         game.physics.arcade.enable(player);
         player.body.gravity.y = 200;
         player.body.collideWorldBounds = true;
 
-        // Add the Weapon
+        // Add the weapon
         weapon = game.add.weapon(1000, 'fireball');
         weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
         weapon.bulletSpeed = 1000;
         weapon.fireRate = 100;
         weapon.trackSprite(player, 65, 25, true);
 
-        // Create the Enemies
-
-        // Create the enemies
-        /*enemies = game.add.group();
+        // Create enemies
+        enemies = game.add.group();
         enemies.enableBody = true;
-        enemies.physicsBodyType = Phaser.Physics.ARCADE;*/
-
-
-        //game.time.desiredFps = 30;
-        //game.physics.arcade.gravity.y = 250;
-        //fireball.trackSprite(player, 55, 25, true);
+        enemies.physicsBodyType = Phaser.Physics.ARCADE;
+        spawn(Math.floor(Math.random() * 100));
 
         // Score Tracking
         scoreText = game.add.text(16, 16, 'Score: 0', {font: '25px Arial', fill: '#000000'});
 
         // Cursors
         cursors = game.input.keyboard.createCursorKeys();
-
-        //fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
     }
 
@@ -92,6 +82,15 @@ window.onload = function() {
 
         // Handling collisions
         game.physics.arcade.collide(player, ground);
+
+        // Handle interactions between objects
+        game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
+        game.physics.arcade.overlap(player, enemies, death, null, this);
+
+        // Spawn enemies
+        if ((Math.floor(Math.random() * 100)) > 99) {
+            spawn(Math.random.floor(Math.random() * 100));
+        }
 
         // Player Controls
         if (cursors.left.isDown) {
@@ -114,20 +113,28 @@ window.onload = function() {
             player.body.velocity.y = 0;
         }
 
-
-
     }
 
-    //function spawn(number) {
+    function spawn(number) {
+        var enemy = enemies.create(number, number, 'enemy');
+        game.physics.enable(enemy, Phaser.PHYSICS.ARCADE);
+        enemy.body.collideWorldBounds = true;
+    }
 
-    //}
-
-
+    function killEnemies(weapon, enemies) {
+        music = game.add.audio('GhostPain');
+        music.play();
+        enemies.kill();
+        //music.stop();
+        score += 1;
+        scoreText.text = 'Score: ' + score;
+    }
 
     function death(player, enemy) {
         music = game.add.audio('GhostPain');
         music.play();
         player.kill();
+        // music.stop();
         var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000'});
     }
 };
