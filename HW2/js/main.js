@@ -9,7 +9,7 @@ window.onload = function() {
         game.load.image('mountains-mid2', 'assets/mountains-mid2.png');
         game.load.image('platform', 'assets/ground.png');
         game.load.audio('GhostPain', ['assets/GhostPain.mp3', 'assets/GhostPain.ogg', 'assets/GhostPain.wav', 'assets/GhostPain.flac']);
-        game.load.image('player', 'assets/reaper1.png');
+        game.load.image('reaper1', 'assets/reaper1.png');
         game.load.image('ghost', 'assets/ghost.png');
         game.load.image('fireball', 'assets/orange_fireball.png');
         game.load.spritesheet('dude', 'assets/dude.png', 32, 32);
@@ -20,6 +20,7 @@ window.onload = function() {
     var mountainsMid2;
     var ground;
     var player;
+    var weapon;
     //var enemy;
     //var enemies;
     //var fireball;
@@ -48,11 +49,18 @@ window.onload = function() {
         platform.body.immovable = true;
 
         // Create the Player
-        player = game.add.sprite(32, game.world.height - 150, 'ghost');
+        player = game.add.sprite(32, game.world.height - 150, 'reaper1');
+        player.scale.setTo(0.20);
         game.physics.arcade.enable(player);
-        //player.body.bounce.y = 0.20
         player.body.gravity.y = 200;
         player.body.collideWorldBounds = true;
+
+        // Add the Weapon
+        weapon = game.add.weapon(1000, 'fireball');
+        weapon.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
+        weapon.bulletSpeed = 100;
+        weapon.fireRate = 100;
+        weapon.trackSprite(player, 15, 15,true);
 
         /* ninja = game.add.sprite(10, 10, 'ninja');
         ninja.scale.setTo(0.15,0.15);
@@ -61,24 +69,11 @@ window.onload = function() {
         ninja.body.collideWorldBounds = true;
         star.trackSprite(ninja, 15,15, true);*/
 
-
-
-
-        //player = game.add.sprite(64, game.world.height - 200, 'ghost'); /* 150 */
-        /*game.physics.arcade.enable(player);
-        player.body.bounce.y = 0.2;
-        player.body.gravity.y = 1000;
-        player.body.collideWorldBounds = true;
-        */
         // Create the enemies
         /*enemies = game.add.group();
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;*/
 
-        /*fireball = game.add.weapon(1, 'fireball');
-        fireball.bulletKillType = Phaser.Weapon.KILL_WORLD_BOUNDS;
-        fireball.bulletSpeed = 100;*/ /* 1000 */
-        //fireball.fireRate = 10; /* 100 */
 
         //game.time.desiredFps = 30;
         //game.physics.arcade.gravity.y = 250;
