@@ -21,7 +21,7 @@ window.onload = function() {
     var ground;
     var player;
     var weapon;
-    var enemy;
+    //var enemy;
     var enemies;
     var scoreText;
     var cursors;
@@ -116,7 +116,7 @@ window.onload = function() {
     }
 
     function spawn(number) {
-        var enemy = enemies.create(number, number, 'enemy');
+        var enemy = enemies.create(number, number, 'ghost');
         game.physics.enable(enemy, Phaser.PHYSICS.ARCADE);
         enemy.body.collideWorldBounds = true;
     }
