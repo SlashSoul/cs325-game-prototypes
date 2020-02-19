@@ -89,7 +89,7 @@ window.onload = function() {
 
         // Spawn enemies
         if ((Math.floor(Math.random() * 100)) > 99) {
-          var enemy = enemies.create(number, number, 'ghost');
+          var enemy = enemies.create(Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), 'ghost');
           game.physics.enable(enemy, Phaser.PHYSICS.ARCADE);
           enemy.body.collideWorldBounds = true;
         }
