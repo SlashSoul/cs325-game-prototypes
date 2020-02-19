@@ -88,11 +88,9 @@ window.onload = function() {
         game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
-        if ((Math.floor(Math.random() * 100)) > 99) {
-            //var enemy = enemies.create(Math.floor(Math.random() * 100), Math.floor(Math.random() * 100), 'ghost');
-            //game.physics.enable(enemy, Phaser.PHYSICS.ARCADE);
-            //enemy.body.collideWorldBounds = true;
-            spawn(Math.floor(Math.random() * 100));
+        number = Math.floor(Math.random() * 100);
+        if (number > 99) {
+            spawn(number);
         }
 
         // Player Controls
@@ -124,7 +122,7 @@ window.onload = function() {
     }
 
     function spawn(number) {
-        enemy = enemies.create(number, number, 'ghost');
+        enemy = enemies.create(number*5, number, 'ghost');
         game.physics.enable(enemy, Phaser.PHYSICS.ARCADE);
         enemy.body.collideWorldBounds = true;
     }
