@@ -64,7 +64,7 @@ window.onload = function() {
         enemies = game.add.group();
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;
-        spawn(Math.floor(Math.random() * 100));
+        //spawn(Math.floor(Math.random() * 100));
 
         // Score Tracking
         scoreText = game.add.text(16, 16, 'Score: 0', {font: '25px Arial', fill: '#000000'});
@@ -90,7 +90,7 @@ window.onload = function() {
         // Spawn enemies
         number = Math.floor(Math.random() * 100);
         if (number > 99) {
-            spawn(number);
+            //spawn(number);
         }
 
         // Player Controls
@@ -115,17 +115,17 @@ window.onload = function() {
         }
 
         // Enemy Movement
-        enemies.forEachAlive(function(enemy) {
+        /*enemies.forEachAlive(function(enemy) {
             enemy.body.velocity.x = -100;
-        });
+        });*/
 
     }
 
-    function spawn(number) {
+    /*function spawn(number) {
         enemy = enemies.create(number*5, number, 'ghost');
         game.physics.enable(enemy, Phaser.PHYSICS.ARCADE);
         enemy.body.collideWorldBounds = true;
-    }
+    }*/
 
     function killEnemies(weapon, enemies) {
         music = game.add.audio('GhostPain');
