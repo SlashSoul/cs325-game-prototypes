@@ -79,10 +79,12 @@ window.onload = function() {
         //game.physics.arcade.gravity.y = 250;
         //fireball.trackSprite(player, 55, 25, true);
 
-        /* Score Tracking */
+        // Score Tracking
         scoreText = game.add.text(16, 16, 'Score: 0', {font: '25px Arial', fill: '#000000'});
 
+        // Cursors
         cursors = game.input.keyboard.createCursorKeys();
+
         //fireballKey = game.input.keyboard.addKey(Phaser.KeyCode.SPACEBAR);
 
     }
@@ -96,26 +98,22 @@ window.onload = function() {
         // Handling collisions
         game.physics.arcade.collide(player, ground);
 
-        // Controls
+        // Player Controls
         if (cursors.left.isDown) {
             player.body.velocity.x = -100;
-            //player.animations.play('left');
         }
         else if (cursors.right.isDown) {
             player.body.velocity.x = 100;
-            //player.animations.play('right');
         }
         else if (cursors.up.isDown) {
             player.body.velocity.y = -100;
-            // jump = game.time.now + 750;
-
         }
         else if (cursors.down.isDown) {
-          player.body.velocity.y = 100;
+            player.body.velocity.y = 100;
         }
-        /*else if (fireballKey.isDown) {
-            fireball.fire();
-        }*/
+        else if (game.input.activePointer.leftButton.isDown) {
+            weapon.fire();
+        }
         else {
             player.body.velocity.x = 0;
             player.body.velocity.y = 0;
