@@ -24,6 +24,7 @@ window.onload = function() {
     var count = 0;
     var enemy;
     var enemies;
+    var music;
     var scoreText;
     var cursors;
 
@@ -100,7 +101,7 @@ window.onload = function() {
         //game.physics.arcade.collide(enemies, enemies);
 
         // Handle interactions between objects
-        game.physics.arcade.overlap(weapon.bullets, enemy, killEnemies, null, this);
+        //game.physics.arcade.overlap(weapon.bullets, enemy, killEnemies, null, this);
         //game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
