@@ -114,6 +114,7 @@ window.onload = function() {
 
         // Handle interactions between objects
         game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
+        game.physics.arcade.overlap(player, enemies, playerDeath, null, this);
         //game.physics.arcade.overlap(weapon.bullets, enemy, killEnemies, null, this);
         //game.physics.arcade.overlap(player, enemies, death, null, this);
 
@@ -205,7 +206,7 @@ window.onload = function() {
         scoreText.text = 'Score: ' + score;
     }
 
-    function death(player, enemy) {
+    function playerDeath(player, enemy) {
         music.play('GhostPain');
         player.kill();
         var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#000000' });
