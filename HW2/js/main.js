@@ -63,6 +63,15 @@ window.onload = function() {
         weapon.trackSprite(player, 65, 25, true);
 
         // Create enemies
+        enemies = game.add.group();
+        enemies.enableBody = true;
+
+        for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
+            var enemy = enemies.create(Math.floor(Math.random()*100)+200, 0, 'star');
+            enemy.body.gravity.y = 300;
+            enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
+            count += 1;
+        }
         //enemies = game.add.group();
         //enemies.enableBody = true;
 
@@ -99,6 +108,7 @@ window.onload = function() {
         // Handling collisions
         game.physics.arcade.collide(player, ground);
         game.physics.arcade.collide(enemies, ground);
+        //game.physics.arcade.collide(enemies, ground);
         //game.physics.arcade.collide(enemies, enemies);
 
         // Handle interactions between objects
@@ -107,7 +117,7 @@ window.onload = function() {
 
         // Spawn enemies
         if (count < 20) {
-            for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
+            /*for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
                 var enemy = game.add.sprite(Math.floor(Math.random() * 100 * i) + 200, game.world.height - Math.floor(Math.random() * 150), 'ghost');
                 game.physics.arcade.enable(enemy);
                 game.physics.arcade.collide(enemy, ground);
@@ -115,7 +125,7 @@ window.onload = function() {
                 enemy.body.gravity.y = 300;
                 enemy.body.collideWorldBounds = true;
                 count += 1;
-            }
+            }*/
         }
         //if (count < 20) {
         //    spawn(Math.floor(Math.random() * 100));
