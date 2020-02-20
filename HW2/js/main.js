@@ -66,7 +66,7 @@ window.onload = function() {
         enemies = game.add.group();
         enemies.enableBody = true;
 
-        for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
+        for (var i = 0; i < (Math.floor(Math.random() * 100)); i++) {
             var enemy = enemies.create(200 + (Math.floor(Math.random()*1400)), 0, 'ghost');
             enemy.body.gravity.y = 300;
             enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
@@ -112,6 +112,7 @@ window.onload = function() {
         //game.physics.arcade.collide(enemies, enemies);
 
         // Handle interactions between objects
+        game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
         //game.physics.arcade.overlap(weapon.bullets, enemy, killEnemies, null, this);
         //game.physics.arcade.overlap(player, enemies, death, null, this);
 
@@ -188,6 +189,13 @@ window.onload = function() {
         // music.stop();
         var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000'});
     }*/
+
+    function killEnemies(player, enemy) {
+        enemy.kill();
+        score += 1;
+        count -= 1;
+        scoreText.text = 'Score: ' + score;
+    }
 
     function death(player, enemy) {
         music.play();
