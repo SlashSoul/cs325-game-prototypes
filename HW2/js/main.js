@@ -137,6 +137,7 @@ window.onload = function() {
         for (var i = 0; i < number; i++) {
             var enemy = enemies.create(Math.floor(Math.random() * 100 * i) + 400, game.world.height - Math.floor(Math.random() * 150), 'ghost');
             game.physics.arcade.enable(enemy);
+            game.physics.arcade.collide(enemy, ground);
             enemy.body.bounce.y = 0.2;
             enemy.body.gravity.y = 300;
             enemy.body.collideWorldBounds = true;
