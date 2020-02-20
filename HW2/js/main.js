@@ -96,12 +96,12 @@ window.onload = function() {
         //game.physics.arcade.collide(enemies, enemies);
 
         // Handle interactions between objects
-        //game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
+        game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
         //game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
         var number = Math.floor(Math.random() * 100);
-        if (number > 10) {
+        if (number > 99) {
             spawn(number);
         }
 
@@ -144,21 +144,14 @@ window.onload = function() {
         }
     }
 
-    /*function spawn(number) {
-        enemy = enemies.create(number*5, number, 'ghost');
-        game.physics.enable(enemy, Phaser.Physics.ARCADE);
-        enemy.body.gravity.y = 200;
-        enemy.body.collideWorldBounds = true;
-    }*/
-
-    /*function killEnemies(weapon, enemies) {
+    function killEnemies(weapon, enemies) {
         //music = game.add.audio('GhostPain');
         //music.play();
         enemies.kill();
         //music.stop();
         score += 1;
         scoreText.text = 'Score: ' + score;
-    }*/
+    }
 
     /*function death(player, enemy) {
         //music = game.add.audio('GhostPain');
