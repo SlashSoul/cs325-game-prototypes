@@ -108,7 +108,7 @@ window.onload = function() {
         // Spawn enemies
         if (count < 20) {
             for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
-                var enemy = game.create(Math.floor(Math.random() * 100 * i) + 200, game.world.height - Math.floor(Math.random() * 150), 'ghost');
+                var enemy = game.add.sprite(Math.floor(Math.random() * 100 * i) + 200, game.world.height - Math.floor(Math.random() * 150), 'ghost');
                 game.physics.arcade.enable(enemy);
                 game.physics.arcade.collide(enemy, ground);
                 enemy.body.bounce.y = 0.2;
