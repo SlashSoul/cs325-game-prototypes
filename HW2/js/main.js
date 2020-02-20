@@ -25,6 +25,7 @@ window.onload = function() {
     var enemy;
     var enemies;
     var music;
+    var score = 0;
     var scoreText;
     var cursors;
 
