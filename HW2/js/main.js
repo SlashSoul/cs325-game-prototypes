@@ -136,10 +136,10 @@ window.onload = function() {
     function spawn(number) {
         for (var i = 0; i < number; i++) {
             var enemy = enemies.create(Math.floor(Math.random() * 1200), game.world.height - Math.floor(Math.random() * 150), 'ghost');
-            game.physics.arcade.enable(baddie);
-            baddie.body.bounce.y = 0.2;
-            baddie.body.gravity.y = 300;
-            baddie.body.collideWorldBounds = true;
+            game.physics.arcade.enable(enemy);
+            enemy.body.bounce.y = 0.2;
+            enemy.body.gravity.y = 300;
+            enemy.body.collideWorldBounds = true;
         }
     }
 
