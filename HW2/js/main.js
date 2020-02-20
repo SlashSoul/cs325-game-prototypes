@@ -62,8 +62,8 @@ window.onload = function() {
         weapon.trackSprite(player, 65, 25, true);
 
         // Create enemies
-        enemies = game.add.group();
-        enemies.enableBody = true;
+        //enemies = game.add.group();
+        //enemies.enableBody = true;
 
         //spawn(100);
 
@@ -76,6 +76,9 @@ window.onload = function() {
         enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;
         spawn(Math.floor(Math.random() * 100));*/
+
+        // Music
+        music = game.add.audio('GhostPain');
 
         // Score Tracking
         scoreText = game.add.text(16, 16, 'Score: 0', {font: '25px Arial', fill: '#000000'});
@@ -101,9 +104,9 @@ window.onload = function() {
         //game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
-        if (count < 20) {
-            spawn(Math.floor(Math.random() * 100));
-        }
+        //if (count < 20) {
+        //    spawn(Math.floor(Math.random() * 100));
+        //}
 
         // Player Controls
         if (cursors.left.isDown) {
@@ -131,11 +134,13 @@ window.onload = function() {
             enemy.body.velocity.x = -100;
         });*/
 
+        death(player, enemy);
+
     }
 
-    function spawn(number) {
+    /*function spawn(number) {
         for (var i = 0; i < number; i++) {
-            var enemy = enemies.add.sprite(Math.floor(Math.random() * 100 * i) + 400, game.world.height - Math.floor(Math.random() * 150), 'ghost');
+            var enemy = enemies.create(Math.floor(Math.random() * 100 * i) + 400, game.world.height - Math.floor(Math.random() * 150), 'ghost');
             game.physics.arcade.enable(enemy);
             game.physics.arcade.collide(enemy, ground);
             enemy.body.bounce.y = 0.2;
@@ -143,9 +148,9 @@ window.onload = function() {
             enemy.body.collideWorldBounds = true;
             count += 1;
         }
-    }
+    }*/
 
-    function killEnemies(weapon, enemy) {
+    /*function killEnemies(weapon, enemy) {
         //music = game.add.audio('GhostPain');
         //music.play();
         enemy.kill();
@@ -153,7 +158,7 @@ window.onload = function() {
         score += 1;
         count -= 1;
         scoreText.text = 'Score: ' + score;
-    }
+    }*/
 
     /*function death(player, enemy) {
         //music = game.add.audio('GhostPain');
@@ -162,4 +167,10 @@ window.onload = function() {
         // music.stop();
         var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000'});
     }*/
+
+    function death(player, enemy) {
+        music.play();
+        player.kill();
+        var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000' });
+    }
 };
