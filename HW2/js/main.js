@@ -106,6 +106,17 @@ window.onload = function() {
         //game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
+        if (count < 20) {
+            for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
+                var enemy = game.create(Math.floor(Math.random() * 100 * i) + 200, game.world.height - Math.floor(Math.random() * 150), 'ghost');
+                game.physics.arcade.enable(enemy);
+                game.physics.arcade.collide(enemy, ground);
+                enemy.body.bounce.y = 0.2;
+                enemy.body.gravity.y = 300;
+                enemy.body.collideWorldBounds = true;
+                count += 1;
+            }
+        }
         //if (count < 20) {
         //    spawn(Math.floor(Math.random() * 100));
         //}
