@@ -1,7 +1,7 @@
 "use strict";
 
 window.onload = function() {
-    var game = new Phaser.Game(1200, 400, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
+    var game = new Phaser.Game(1600, 400, Phaser.AUTO, 'game', {preload: preload, create: create, update: update});
 
     function preload() {
         game.load.image('mountains-back', 'assets/mountains-back.png');
@@ -80,6 +80,7 @@ window.onload = function() {
 
         // Music
         music = game.add.audio('GhostPain');
+        music.addMarker('GhostPain', 0, 5, 1, false, false);
 
         // Score Tracking
         scoreText = game.add.text(16, 16, 'Score: 0', {font: '25px Arial', fill: '#000000'});
@@ -123,7 +124,7 @@ window.onload = function() {
             player.body.velocity.y = 100;
         }
         else if (game.input.activePointer.leftButton.isDown) {
-            weapon.fire();
+            weapon.fireAtPointer(game.input.activePointer);
         }
         else {
             player.body.velocity.x = 0;
@@ -134,8 +135,6 @@ window.onload = function() {
         /*enemies.forEachAlive(function(enemy) {
             enemy.body.velocity.x = -100;
         });*/
-
-        death(player, enemy);
 
     }
 
@@ -172,6 +171,6 @@ window.onload = function() {
     function death(player, enemy) {
         music.play();
         player.kill();
-        var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000' });
+        var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#000000' });
     }
 };
