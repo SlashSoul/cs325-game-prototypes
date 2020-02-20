@@ -73,20 +73,6 @@ window.onload = function() {
             enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
             count += 1;
         }
-        //enemies = game.add.group();
-        //enemies.enableBody = true;
-
-        //spawn(100);
-
-        /*enemy = game.add.sprite(568, game.world.height - 150, 'baddie');
-        game.physics.arcade.enable(baddie);
-        baddie.body.bounce.y = 0.2;
-        baddie.body.gravity.y = 300;
-        baddie.body.collideWorldBounds = true;*/
-        /*enemies = game.add.group();
-        enemies.enableBody = true;
-        enemies.physicsBodyType = Phaser.Physics.ARCADE;
-        spawn(Math.floor(Math.random() * 100));*/
 
         // Music
         music = game.add.audio('GhostPain');
@@ -109,14 +95,10 @@ window.onload = function() {
         // Handling collisions
         game.physics.arcade.collide(player, ground);
         game.physics.arcade.collide(enemies, ground);
-        //game.physics.arcade.collide(enemies, ground);
-        //game.physics.arcade.collide(enemies, enemies);
 
         // Handle interactions between objects
         game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
         game.physics.arcade.overlap(player, enemies, playerDeath, null, this);
-        //game.physics.arcade.overlap(weapon.bullets, enemy, killEnemies, null, this);
-        //game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
         if (count < 20) {
@@ -126,19 +108,7 @@ window.onload = function() {
                 enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
                 count += 1;
             }
-            /*for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
-                var enemy = game.add.sprite(Math.floor(Math.random() * 100 * i) + 200, game.world.height - Math.floor(Math.random() * 150), 'ghost');
-                game.physics.arcade.enable(enemy);
-                game.physics.arcade.collide(enemy, ground);
-                enemy.body.bounce.y = 0.2;
-                enemy.body.gravity.y = 300;
-                enemy.body.collideWorldBounds = true;
-                count += 1;
-            }*/
         }
-        //if (count < 20) {
-        //    spawn(Math.floor(Math.random() * 100));
-        //}
 
         // Player Controls
         if (cursors.left.isDown) {
