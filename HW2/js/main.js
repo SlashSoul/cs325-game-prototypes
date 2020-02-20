@@ -64,7 +64,7 @@ window.onload = function() {
         enemies = game.add.group();
         enemies.enableBody = true;
 
-        spawn(100);
+        //spawn(100);
 
         /*enemy = game.add.sprite(568, game.world.height - 150, 'baddie');
         game.physics.arcade.enable(baddie);
@@ -100,10 +100,10 @@ window.onload = function() {
         //game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
-        /*var number = Math.floor(Math.random() * 100);
-        if (number > 99) {
+        var number = Math.floor(Math.random() * 100);
+        if (number > 10) {
             spawn(number);
-        }*/
+        }
 
         // Player Controls
         if (cursors.left.isDown) {
