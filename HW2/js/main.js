@@ -131,8 +131,8 @@ window.onload = function() {
     }
 
     function killEnemies(weapon, enemies) {
-        music = game.add.audio('GhostPain');
-        music.play();
+        //music = game.add.audio('GhostPain');
+        //music.play();
         enemies.kill();
         //music.stop();
         score += 1;
@@ -140,8 +140,8 @@ window.onload = function() {
     }
 
     function death(player, enemy) {
-        music = game.add.audio('GhostPain');
-        music.play();
+        //music = game.add.audio('GhostPain');
+        //music.play();
         player.kill();
         // music.stop();
         var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000'});
