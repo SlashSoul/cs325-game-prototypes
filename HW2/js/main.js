@@ -119,6 +119,12 @@ window.onload = function() {
 
         // Spawn enemies
         if (count < 20) {
+            for (var i = 0; i < (Math.floor(Math.random() * 100)); i++) {
+                var enemy = enemies.create(200 + (Math.floor(Math.random()*1400)), 0, 'ghost');
+                enemy.body.gravity.y = 300;
+                enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
+                count += 1;
+            }
             /*for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
                 var enemy = game.add.sprite(Math.floor(Math.random() * 100 * i) + 200, game.world.height - Math.floor(Math.random() * 150), 'ghost');
                 game.physics.arcade.enable(enemy);
@@ -192,6 +198,8 @@ window.onload = function() {
     }*/
 
     function killEnemies(player, enemy) {
+        music.play('GhostPain');
+        bullet.kill();
         enemy.kill();
         score += 1;
         count -= 1;
@@ -199,7 +207,7 @@ window.onload = function() {
     }
 
     function death(player, enemy) {
-        music.play();
+        music.play('GhostPain');
         player.kill();
         var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#000000' });
     }
