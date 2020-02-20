@@ -162,41 +162,11 @@ window.onload = function() {
         }
 
         // Enemy Movement
-        /*enemies.forEachAlive(function(enemy) {
+        enemies.forEachAlive(function(enemy) {
             enemy.body.velocity.x = -100;
-        });*/
+        });
 
     }
-
-    /*function spawn(number) {
-        for (var i = 0; i < number; i++) {
-            var enemy = enemies.create(Math.floor(Math.random() * 100 * i) + 400, game.world.height - Math.floor(Math.random() * 150), 'ghost');
-            game.physics.arcade.enable(enemy);
-            game.physics.arcade.collide(enemy, ground);
-            enemy.body.bounce.y = 0.2;
-            enemy.body.gravity.y = 300;
-            enemy.body.collideWorldBounds = true;
-            count += 1;
-        }
-    }*/
-
-    /*function killEnemies(weapon, enemy) {
-        //music = game.add.audio('GhostPain');
-        //music.play();
-        enemy.kill();
-        //music.stop();
-        score += 1;
-        count -= 1;
-        scoreText.text = 'Score: ' + score;
-    }*/
-
-    /*function death(player, enemy) {
-        //music = game.add.audio('GhostPain');
-        //music.play();
-        player.kill();
-        // music.stop();
-        var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000'});
-    }*/
 
     function killEnemies(player, enemy) {
         music.play('GhostPain');
