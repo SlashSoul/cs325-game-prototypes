@@ -92,7 +92,7 @@ window.onload = function() {
 
         // Handling collisions
         game.physics.arcade.collide(player, ground);
-        //game.physics.arcade.collide(enemies, ground);
+        game.physics.arcade.collide(enemies, ground);
         //game.physics.arcade.collide(enemies, enemies);
 
         // Handle interactions between objects
@@ -135,7 +135,7 @@ window.onload = function() {
 
     function spawn(number) {
         for (var i = 0; i < number; i++) {
-            var enemy = enemies.create(Math.floor(Math.random() * 100) + 600, game.world.height - Math.floor(Math.random() * 150), 'ghost');
+            var enemy = enemies.create(Math.floor(Math.random() * 100 * i) + 400, game.world.height - Math.floor(Math.random() * 150), 'ghost');
             game.physics.arcade.enable(enemy);
             enemy.body.bounce.y = 0.2;
             enemy.body.gravity.y = 300;
