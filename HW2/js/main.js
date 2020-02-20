@@ -21,6 +21,7 @@ window.onload = function() {
     var ground;
     var player;
     var weapon;
+    var count = 0;
     var enemy;
     var enemies;
     var scoreText;
@@ -100,9 +101,8 @@ window.onload = function() {
         //game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
-        var number = Math.floor(Math.random() * 100);
-        if (number > 99) {
-            spawn(number);
+        if (count < 20) {
+            spawn(Math.floor(Math.random() * 100));
         }
 
         // Player Controls
@@ -141,6 +141,7 @@ window.onload = function() {
             enemy.body.bounce.y = 0.2;
             enemy.body.gravity.y = 300;
             enemy.body.collideWorldBounds = true;
+            count += 1;
         }
     }
 
@@ -150,6 +151,7 @@ window.onload = function() {
         enemies.kill();
         //music.stop();
         score += 1;
+        count -= 1;
         scoreText.text = 'Score: ' + score;
     }
 
