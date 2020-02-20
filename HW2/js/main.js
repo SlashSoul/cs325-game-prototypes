@@ -63,8 +63,18 @@ window.onload = function() {
         // Create enemies
         enemies = game.add.group();
         enemies.enableBody = true;
+
+        spawn(100);
+
+        /*enemy = game.add.sprite(568, game.world.height - 150, 'baddie');
+        game.physics.arcade.enable(baddie);
+        baddie.body.bounce.y = 0.2;
+        baddie.body.gravity.y = 300;
+        baddie.body.collideWorldBounds = true;*/
+        /*enemies = game.add.group();
+        enemies.enableBody = true;
         enemies.physicsBodyType = Phaser.Physics.ARCADE;
-        spawn(Math.floor(Math.random() * 100));
+        spawn(Math.floor(Math.random() * 100));*/
 
         // Score Tracking
         scoreText = game.add.text(16, 16, 'Score: 0', {font: '25px Arial', fill: '#000000'});
@@ -82,18 +92,18 @@ window.onload = function() {
 
         // Handling collisions
         game.physics.arcade.collide(player, ground);
-        game.physics.arcade.collide(enemies, ground);
-        game.physics.arcade.collide(enemies, enemies);
+        //game.physics.arcade.collide(enemies, ground);
+        //game.physics.arcade.collide(enemies, enemies);
 
         // Handle interactions between objects
-        game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
-        game.physics.arcade.overlap(player, enemies, death, null, this);
+        //game.physics.arcade.overlap(weapon.bullets, enemies, killEnemies, null, this);
+        //game.physics.arcade.overlap(player, enemies, death, null, this);
 
         // Spawn enemies
-        var number = Math.floor(Math.random() * 100);
+        /*var number = Math.floor(Math.random() * 100);
         if (number > 99) {
             spawn(number);
-        }
+        }*/
 
         // Player Controls
         if (cursors.left.isDown) {
@@ -117,33 +127,43 @@ window.onload = function() {
         }
 
         // Enemy Movement
-        enemies.forEachAlive(function(enemy) {
+        /*enemies.forEachAlive(function(enemy) {
             enemy.body.velocity.x = -100;
-        });
+        });*/
 
     }
 
     function spawn(number) {
+        for (var i = 0; i < number; i++) {
+            var enemy = enemies.create(Math.floor(Math.random() * 1200), game.world.height - Math.floor(Math.random() * 150), 'ghost');
+            game.physics.arcade.enable(baddie);
+            baddie.body.bounce.y = 0.2;
+            baddie.body.gravity.y = 300;
+            baddie.body.collideWorldBounds = true;
+        }
+    }
+
+    /*function spawn(number) {
         enemy = enemies.create(number*5, number, 'ghost');
         game.physics.enable(enemy, Phaser.Physics.ARCADE);
         enemy.body.gravity.y = 200;
         enemy.body.collideWorldBounds = true;
-    }
+    }*/
 
-    function killEnemies(weapon, enemies) {
+    /*function killEnemies(weapon, enemies) {
         //music = game.add.audio('GhostPain');
         //music.play();
         enemies.kill();
         //music.stop();
         score += 1;
         scoreText.text = 'Score: ' + score;
-    }
+    }*/
 
-    function death(player, enemy) {
+    /*function death(player, enemy) {
         //music = game.add.audio('GhostPain');
         //music.play();
         player.kill();
         // music.stop();
         var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Arial', fill: '#000000'});
-    }
+    }*/
 };
