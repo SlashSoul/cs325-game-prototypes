@@ -67,7 +67,7 @@ window.onload = function() {
         enemies.enableBody = true;
 
         for (var i = 0; i < Math.floor(Math.random() * 100); i++) {
-            var enemy = enemies.create(Math.floor(Math.random()*100)+200, 0, 'star');
+            var enemy = enemies.create(200 + (Math.floor(Math.random()*1400)), 0, 'ghost');
             enemy.body.gravity.y = 300;
             enemy.body.bounce.y = 0.7 + Math.random() * 0.2;
             count += 1;
