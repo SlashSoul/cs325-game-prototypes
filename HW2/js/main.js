@@ -199,7 +199,7 @@ window.onload = function() {
 
     function killEnemies(player, enemy) {
         music.play('GhostPain');
-        bullet.kill();
+        weapon.bullets.kill();
         enemy.kill();
         score += 1;
         count -= 1;
