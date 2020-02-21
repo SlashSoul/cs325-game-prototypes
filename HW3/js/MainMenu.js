@@ -25,7 +25,7 @@ GameStates.makeMainMenu = function(game, shared) {
 						playButton = game.add.button(303, 400, 'playButton', startGame, null, 'over', 'out', 'down');
 				},
 
-				update: function () {
+				update: function() {
 						// Do some nice funky main menu effect here
 				}
 		};
