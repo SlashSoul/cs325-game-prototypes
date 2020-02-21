@@ -11,7 +11,7 @@ GameStates.makePreloader = function(game) {
       // These are the assets we loaded in Boot.js
       // A nice sparkly background and a loading progress bar
       background = game.add.sprite(0, 0, 'preloaderBackground');
-      preloadBar = game.add.text(game.world.centerX, game.world.centerY, 'Loading...', {font: '25px Avenir', fill: '#FFFFFF'});
+      preloadBar = game.add.text(game.world.centerY, game.world.centerX, 'Loading...', {font: '25px Avenir', fill: '#FFFFFF'});
       //preloadBar = game.add.text(350, 440, 'Loading...', {font: '25px Avenir', fill: '#FFFFFF'});
       //preloadBar = game.add.sprite(300, 400, 'preloaderBar');
 
