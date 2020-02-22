@@ -10,7 +10,7 @@
 },
 {
 	"filename": "medium",
-	"frame": {"x":0,"y":79,"w":200,"h":70},
+	"frame": {"x":0,"y":78,"w":200,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":200,"h":70},
