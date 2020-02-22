@@ -21,7 +21,7 @@ GameStates.makeMainMenu = function(game, shared) {
       music.play();
 
       game.add.sprite(0, 0, 'titlePage');
-      game.add.text(16, 16, 'Celebrity Rush', {font: '25px Verdana', fill: '#FFA500'});
+      game.add.text(16, 16, 'Celebrity Rush', {font: '30px Verdana', fill: '#FFA500'});
       //game.add.text(0, 0, '', {font: '25px Arial', fill: '#FFFFFF'});
 
       playButton = game.add.button(303, 400, 'playButton', startGame, null, 'light', 'medium', 'dark');
