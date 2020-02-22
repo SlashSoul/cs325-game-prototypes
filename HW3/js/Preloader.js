@@ -11,12 +11,12 @@ GameStates.makePreloader = function(game) {
       // These are the assets we loaded in Boot.js
       // A nice sparkly background and a loading progress bar
       background = game.add.sprite(0, 0, 'preloaderBackground');
-      preloadBar = game.add.text(game.world.centerX - 40, game.world.centerY + 120, 'Loading...', {font: '30px Open Sans', fill: '#FFFFFF'});
-      //preloadBar = game.add.sprite(300, 400, 'preloaderBar');
+      //preloadBar = game.add.text(game.world.centerX - 40, game.world.centerY + 120, 'Loading...', {font: '30px Open Sans', fill: '#FFFFFF'});
+      preloadBar = game.add.sprite(300, 400, 'preloaderBar');
 
       // This sets the preloadBar sprite as a loader sprite.
       // What that does is automatically crop the sprite from 0 to full-width as the files below are loaded in.
-      //game.load.setPreloadSprite(preloadBar);
+      game.load.setPreloadSprite(preloadBar);
 
       // Here we load the rest of the assets our game needs.
       // As this is just a Project Template I've not provided these assets, swap them for your own.
@@ -29,7 +29,7 @@ GameStates.makePreloader = function(game) {
 
     create: function() {
       // Once the load has finished we disable the crop because we're going to sit in the update loop for a short while as the music decodes
-      //preloadBar.cropEnabled = false;
+      preloadBar.cropEnabled = false;
       //game.state.start('MainMenu');
     },
 
