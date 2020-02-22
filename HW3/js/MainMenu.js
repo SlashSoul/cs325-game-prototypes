@@ -22,7 +22,7 @@ GameStates.makeMainMenu = function(game, shared) {
 
       game.add.sprite(0, 0, 'titlePage');
       game.add.text(16, 16, 'Celebrity Rush', {font: '25px Verdana', fill: '#FFA500'});
-      game.add.text(632, 568, 'Made by Ryan Dang', {font: '16px Verdana', fill: '#FFA500'});
+      game.add.text(624, 568, 'Made by Ryan Dang', {font: '16px Verdana', fill: '#FFA500'});
       //game.add.text(0, 0, '', {font: '25px Arial', fill: '#FFFFFF'});
 
       playButton = game.add.button(303, 400, 'playButton', startGame, null, 'light', 'medium', 'dark');
