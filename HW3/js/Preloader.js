@@ -30,6 +30,7 @@ GameStates.makePreloader = function(game) {
     create: function() {
       // Once the load has finished we disable the crop because we're going to sit in the update loop for a short while as the music decodes
       //preloadBar.cropEnabled = false;
+      game.state.start('MainMenu');
     },
 
     update: function() {
