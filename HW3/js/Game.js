@@ -25,6 +25,7 @@ GameStates.makeGame = function(game, shared) {
       // Create a sprite
       player = game.add.sprite(game.world.centerX, game.world.centerY, 'cat');
       player.animations.add('walk');
+      game.physics.arcade.enable(player);
 
       // Cursors
       cursors = game.input.keyboard.createCursorKeys();
