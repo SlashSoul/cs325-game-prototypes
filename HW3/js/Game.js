@@ -5,6 +5,7 @@ GameStates.makeGame = function(game, shared) {
   //var NUMBER_OF_FOLLOWERS = 10;
   //var bouncy = null;
   var player = null;
+  var cursors = null;
 
   function quitGame() {
     // Here you should destroy anything you no longer need.
@@ -21,8 +22,12 @@ GameStates.makeGame = function(game, shared) {
       // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
       game.stage.backgroundColor = 0x4488cc;
 
+      // Create a sprite
       player = game.add.sprite(game.world.centerX, game.world.centerY, 'cat');
+      player.animations.add('walk');
 
+      // Cursors
+      cursors = game.input.keyboard.createCursorKeys();
 
 
 
@@ -55,6 +60,16 @@ GameStates.makeGame = function(game, shared) {
       // Accelerate the 'logo' sprite towards the cursor, accelerating at 500 pixels/second and moving no faster than 500 pixels/second in X or Y.
       // This function returns the rotation angle that makes it visually match its new trajectory.
       //bouncy.rotation = game.physics.arcade.accelerateToPointer(bouncy, game.input.activePointer, 500, 500, 500);
+
+      if (cursors.right.isDown) {
+        player.body.velocity.x = 100;
+        player.animations.play('walk');
+      }
+      else {
+        player.animations.stop();
+        player.frame = 0;
+      }
+
     }
 
 
