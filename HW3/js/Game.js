@@ -4,8 +4,10 @@ GameStates.makeGame = function(game, shared) {
   // Create your own variables.
   //var NUMBER_OF_FOLLOWERS = 10;
   //var bouncy = null;
-  var player = null;
-  var cursors = null;
+  //var player = null;
+  //var cursors = null;
+  var bird = null;
+  var spaceKey = null;
 
   function quitGame() {
     // Here you should destroy anything you no longer need.
@@ -20,15 +22,35 @@ GameStates.makeGame = function(game, shared) {
   return {
     create: function() {
       // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-      game.stage.backgroundColor = 0x4488cc;
+
+      // Change the background color of the game to blue
+      game.stage.backgroundColor = '#71c5cf';
+
+      // Set the physics system
+      game.physics.startSystem(Phaser.Physics.ARCADE);
+
+      // Display the bird at the position x=100 and y=245
+      bird = game.add.sprite(100, 245, 'bird');
+
+      // Add physics to the bird. Needed for: movements, gravity, collisions, etc.
+      game.physics.arcade.enable(bird);
+
+      // Add gtavity to the bird to make it fall
+      bird.body.gravity.u = 1000;
+
+      // Call the jump function when the spacebar is pressed
+      spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+      spaceKey.onDown.add(jump, this);
+
+      //game.stage.backgroundColor = 0x4488cc;
 
       // Create a sprite
-      player = game.add.sprite(game.world.centerX, game.world.centerY, 'cat');
-      player.animations.add('walk');
-      game.physics.arcade.enable(player);
+      //player = game.add.sprite(game.world.centerX, game.world.centerY, 'cat');
+      //player.animations.add('walk');
+      //game.physics.arcade.enable(player);
 
       // Cursors
-      cursors = game.input.keyboard.createCursorKeys();
+      //cursors = game.input.keyboard.createCursorKeys();
 
 
 
@@ -62,15 +84,24 @@ GameStates.makeGame = function(game, shared) {
       // This function returns the rotation angle that makes it visually match its new trajectory.
       //bouncy.rotation = game.physics.arcade.accelerateToPointer(bouncy, game.input.activePointer, 500, 500, 500);
 
-      if (cursors.right.isDown) {
+      /*if (cursors.right.isDown) {
         player.body.velocity.x = 100;
         player.animations.play('walk');
       }
       else {
         player.animations.stop();
         player.frame = 0;
+      }*/
+
+      // If the bird is out of screen, then call quitGame() function.
+      if (bird.y < 0 || bird.y > 600) {
+        quitGame();
       }
 
+    },
+
+    jump: function() {
+      bird.body.velocity.y = -350;
     }
 
 
