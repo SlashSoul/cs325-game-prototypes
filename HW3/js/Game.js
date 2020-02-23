@@ -40,7 +40,7 @@ GameStates.makeGame = function(game, shared) {
 
       // Call the jump function when the spacebar is pressed
       spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
-      spaceKey.onDown.add(jump, this);
+      spaceKey.onDown.add(this.jump, this);
 
       //game.stage.backgroundColor = 0x4488cc;
 
