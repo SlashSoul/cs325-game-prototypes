@@ -129,7 +129,7 @@ GameStates.makeGame = function(game, shared) {
       game.physics.arcade.enable(pipe);
 
       // Add velocity to the pipe to make it move left
-      pipe.body.veocity.x = -200;
+      pipe.body.velocity.x = -200;
 
       // Automatically kill the pipe when it is no longer visible
       pipe.checkWorldBounds = true;
