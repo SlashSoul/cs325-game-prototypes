@@ -49,7 +49,7 @@ GameStates.makeGame = function(game, shared) {
       pipes = game.add.group();
 
       // Add a set of pipes every 1.5 seconds to the game
-      this.timer = game.time.events.loop(1500, addRowOfPipes, this);
+      this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
 
 
 
@@ -143,7 +143,7 @@ GameStates.makeGame = function(game, shared) {
       // Add 6 pipes with one big hole at position hole and hole + 1
       for (var i = 0; i < 8; i++) {
         if (i != hole && i != hole + 1) {
-          addOnePipe(400, i * 60 + 10);
+          this.addOnePipe(400, i * 60 + 10);
         }
       }
 
