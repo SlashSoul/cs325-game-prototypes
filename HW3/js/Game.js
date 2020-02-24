@@ -7,7 +7,9 @@ GameStates.makeGame = function(game, shared) {
   //var player = null;
   //var cursors = null;
   var bird = null;
+  var pipes = null;
   var spaceKey = null;
+
 
   function quitGame() {
     // Here you should destroy anything you no longer need.
@@ -41,6 +43,16 @@ GameStates.makeGame = function(game, shared) {
       // Call the jump function when the spacebar is pressed
       spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
       spaceKey.onDown.add(this.jump, this);
+
+      /* The Pipes */
+      // Create an empty group
+      pipes = game.add.group();
+
+      // Add a set of pipes every 1.5 seconds to the game
+      this.timer = game.time.events.loop(1500, addRowOfPipes, this);
+
+
+
 
       //game.stage.backgroundColor = 0x4488cc;
 
@@ -98,10 +110,43 @@ GameStates.makeGame = function(game, shared) {
         quitGame();
       }
 
+
+
     },
 
     jump: function() {
       bird.body.velocity.y = -350;
+    },
+
+    addOnePipe: function(x, y) {
+      // Create a pipe at the position x and y
+      var pipe = game.add.sprite(x, y, 'pipe');
+
+      // Add the pipe to the previously created group
+      pipes.add(pipe);
+
+      // Enable physics on the pipe
+      game.physics.arcade.enable(pipe);
+
+      // Add velocity to the pipe to make it move left
+      pipe.body.veocity.x = -200;
+
+      // Automatically kill the pipe when it is no longer visible
+      pipe.checkWorldBounds = true;
+      pipe.outOfBoundsKill = true;
+    },
+
+    addRowOfPipes: function() {
+      // Randomly pick the position of the hole (between 1 to 5) in a set of pipes
+      var hole = Math.floor(Math.random() * 5) + 1;
+
+      // Add 6 pipes with one big hole at position hole and hole + 1
+      for (var i = 0; i < 8; i++) {
+        if (i != hole && i != hole + 1) {
+          addOnePipe(400, i * 60 + 10);
+        }
+      }
+
     }
 
 

@@ -22,7 +22,7 @@ GameStates.makePreloader = function(game) {
       game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
       // + lots of other required assets here
       game.load.image('bird', 'assets/bird.png');
-      //game.load.image('pipe', 'assets/pipe.png');
+      game.load.image('pipe', 'assets/pipe.png');
       //game.load.audio('');
       //game.load.spritesheet('cat', 'assets/cat.png', 118, 150);
     },
