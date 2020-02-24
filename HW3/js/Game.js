@@ -8,8 +8,13 @@ GameStates.makeGame = function(game, shared) {
   //var cursors = null;
   var bird = null;
   var pipes = null;
+  var score = null;
+  var labelScore = null;
   var spaceKey = null;
 
+  function restartGame() {
+    game.state.start('Game');
+  }
 
   function quitGame() {
     // Here you should destroy anything you no longer need.
@@ -50,6 +55,11 @@ GameStates.makeGame = function(game, shared) {
 
       // Add a set of pipes every 1.5 seconds to the game
       this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
+
+      /* Scoring and Collisions */
+      score = 0;
+      labelScore = game.add.text(16, 16, '0', {font: '25px Arial', fill: '#FFFFFF'});
+
 
 
 
@@ -107,8 +117,11 @@ GameStates.makeGame = function(game, shared) {
 
       // If the bird is out of screen, then call quitGame() function.
       if (bird.y < 0 || bird.y > 600) {
-        quitGame();
+        restartGame();
       }
+
+      // Restart the game if the bird collides with a pipe
+      game.physics.arcade.overlap(bird, pipes, restartGame, null, this);
 
 
 
@@ -146,6 +159,10 @@ GameStates.makeGame = function(game, shared) {
           this.addOnePipe(400, i * 60 + 10);
         }
       }
+
+      // Increment the score by 1
+      score += 1;
+      labelScore.text = score;
 
     }
 
