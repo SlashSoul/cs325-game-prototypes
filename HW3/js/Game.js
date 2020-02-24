@@ -35,8 +35,8 @@ GameStates.makeGame = function(game, shared) {
       // Add physics to the bird. Needed for: movements, gravity, collisions, etc.
       game.physics.arcade.enable(bird);
 
-      // Add gtavity to the bird to make it fall
-      bird.body.gravity.u = 1000;
+      // Add gravity to the bird to make it fall
+      this.bird.body.gravity.u = 1000;
 
       // Call the jump function when the spacebar is pressed
       spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
