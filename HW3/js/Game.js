@@ -100,6 +100,8 @@ GameStates.makeGame = function(game, shared) {
         restartGame();
       }
 
+      // If the bird reaches the destination (overlaps with the laundromat), freeze everything and win the game!
+
       // Restart the game if the bird collides with a pipe
       game.physics.arcade.overlap(bird, pipes, this.hitPipe, null, this);
 
@@ -158,7 +160,7 @@ GameStates.makeGame = function(game, shared) {
       // If the bird has not lost all its lives, then only lose a life
       if (bird.health > 1) {
         // Decrement life by 1
-        bird.damage(1);
+        bird.damage();
         labelHealth.text = bird.health;
       } else {
         // If the bird has already hit the pipe, then let the bird fall off the screen
