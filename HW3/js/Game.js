@@ -10,6 +10,7 @@ GameStates.makeGame = function(game, shared) {
   var pipes = null;
   var score = null;
   var labelScore = null;
+  var labelHealth = null;
   var spaceKey = null;
 
   function restartGame() {
@@ -46,6 +47,7 @@ GameStates.makeGame = function(game, shared) {
 
       // Display the bird at the position x=100 and y=245
       bird = game.add.sprite(100, 245, 'cat');
+      bird.scale.setTo(0.5, 50);
 
       // Add physics to the bird. Needed for: movements, gravity, collisions, etc.
       game.physics.arcade.enable(bird);
@@ -67,6 +69,10 @@ GameStates.makeGame = function(game, shared) {
       /* Scoring and Collisions */
       score = 0;
       labelScore = game.add.text(16, 16, '0', {font: '25px Arial', fill: '#FFFFFF'});
+
+      /* Life */
+      bird.health = 3;
+      labelHealth = game.add.text(16, 32, '3', {font: '25px Arial', fill: '#FF0000'});
 
       // Animations
       bird.anchor.setTo(-0.2, 0.5);
@@ -134,6 +140,14 @@ GameStates.makeGame = function(game, shared) {
     },
 
     hitPipe: function() {
+      // If the bird has not lost all its lives, then only lose a life
+      if (bird.health > 1) {
+        // Decrement life by 1
+        bird.health -= 1;
+        labelHealth.text = bird.health;
+        return;
+      }
+
       // If the bird has already hit the pipe, then let the bird fall off the screen
       if (bird.alive == false) {
         return;
