@@ -23,12 +23,22 @@ GameStates.makeGame = function(game, shared) {
     }
   }
 
-  function quitGame() {
+  function endGame() {
     // Here you should destroy anything you no longer need.
     // Stop music, delete sprites, purge caches, free resources, all that good stuff.
 
+    // Reached the laundromat !!
+    // Show the display victory win text
+    var win = game.add.text(game.world.centerX, game.world.centerY, 'Win!', {font: '25px Verdana', fill: '#FFFFFF'});
+    var blah = game.add.text(game.world.centerX, game.world.centerY, 'Press SPACE to return to the Main Menu.', {font: '25px Verdana', fill: '#FFFFFF'});
+    win.anchor.setTo(0.5, 0.0);
+    blah.anchor.setTo(0.5, 0.6);
+
+    if (spaceKey.isDown) {
+      game.state.start('Main Menu');
+    }
     // Then let's go back to the main menu.
-    game.state.start('MainMenu');
+    //game.state.start('MainMenu');
   }
 
   return {
@@ -84,6 +94,11 @@ GameStates.makeGame = function(game, shared) {
 
     update: function() {
       // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+
+      // If the bird falls out of the screen, the game ends.
+      if (bird.y < 0 || bird.y > 600) {
+        restartGame();
+      }
 
       // Restart the game if the bird collides with a pipe
       game.physics.arcade.overlap(bird, pipes, this.hitPipe, null, this);
