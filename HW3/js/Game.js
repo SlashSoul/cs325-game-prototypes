@@ -60,7 +60,8 @@ GameStates.makeGame = function(game, shared) {
       score = 0;
       labelScore = game.add.text(16, 16, '0', {font: '25px Arial', fill: '#FFFFFF'});
 
-
+      // Animations
+      bird.anchor.setTo(-0.2, 0.5);
 
 
 
@@ -121,14 +122,22 @@ GameStates.makeGame = function(game, shared) {
       }
 
       // Restart the game if the bird collides with a pipe
-      game.physics.arcade.overlap(bird, pipes, restartGame, null, this);
+      game.physics.arcade.overlap(bird, pipes, this.hitPipe, null, this);
 
+      // Add Fly Animation
+      if (bird.angle < 20) {
+        bird.angle += 1;
+      }
 
 
     },
 
     jump: function() {
+      if (bird.alive == false) {
+        return;
+      }
       bird.body.velocity.y = -350;
+      game.add.tween(bird).to({angle: -20}, 100).start();
     },
 
     addOnePipe: function(x, y) {
@@ -156,7 +165,7 @@ GameStates.makeGame = function(game, shared) {
       // Add 6 pipes with one big hole at position hole and hole + 1
       for (var i = 0; i < 8; i++) {
         if (i != hole && i != hole + 1) {
-          this.addOnePipe(400, i * 60 + 10);
+          this.addOnePipe(800, i * 60 + 10);
         }
       }
 
@@ -164,6 +173,24 @@ GameStates.makeGame = function(game, shared) {
       score += 1;
       labelScore.text = score;
 
+    },
+
+    hitPipe: function() {
+      // If the bird has already hit the pipe, then let the bird fall off the screen
+      if (bird.alive == false) {
+        return;
+      }
+
+      // Set the bird's alive property to false
+      bird.alive = false;
+
+      // Prevent new pipes from appearing
+      game.time.events.remove(this.timer);
+
+      // Go through all the pipes, and stop their movements
+      this.pipes.forEach(function(p) {
+        p.body.velocity.x = 0;
+      }, this);
     }
 
 
