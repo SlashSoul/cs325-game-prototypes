@@ -72,7 +72,7 @@ GameStates.makeGame = function(game, shared) {
 
       /* Life */
       bird.health = 3;
-      labelHealth = game.add.text(16, 32, '3', {font: '25px Arial', fill: '#FF0000'});
+      labelHealth = game.add.text(16, 57, '3', {font: '25px Arial', fill: '#FF0000'});
 
       // Animations
       bird.anchor.setTo(-0.2, 0.5);
@@ -143,26 +143,25 @@ GameStates.makeGame = function(game, shared) {
       // If the bird has not lost all its lives, then only lose a life
       if (bird.health > 1) {
         // Decrement life by 1
-        bird.health -= 1;
+        bird.damage(1);
         labelHealth.text = bird.health;
-        return;
+      } else {
+        // If the bird has already hit the pipe, then let the bird fall off the screen
+        if (bird.alive == false) {
+          return;
+        }
+
+        // Set the bird's alive property to false
+        bird.alive = false;
+
+        // Prevent new pipes from appearing
+        game.time.events.remove(this.timer);
+
+        // Go through all the pipes, and stop their movements
+        pipes.forEach(function(p) {
+          p.body.velocity.x = 0;
+        }, this);
       }
-
-      // If the bird has already hit the pipe, then let the bird fall off the screen
-      if (bird.alive == false) {
-        return;
-      }
-
-      // Set the bird's alive property to false
-      bird.alive = false;
-
-      // Prevent new pipes from appearing
-      game.time.events.remove(this.timer);
-
-      // Go through all the pipes, and stop their movements
-      pipes.forEach(function(p) {
-        p.body.velocity.x = 0;
-      }, this);
     }
 
   };
