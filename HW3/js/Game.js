@@ -13,9 +13,15 @@ GameStates.makeGame = function(game, shared) {
   var spaceKey = null;
 
   function restartGame() {
-    game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#FFFFFF'});
+    var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#FFFFFF'});
+    gameover.anchor.setTo(0.5, 0.5);
+    var restart = game.add.text(game.world.centerX, game.world.centerY - 100, 'Press SPACE to restart the game.', {font: '25px Arial', fill: '#FFFFFF'});
+    restart.anchor.setTo(0.5, 0.6);
     if (spaceKey.isDown) {
       game.state.start('Game');
+    }
+    else {
+      game.state.start('MainMenu');
     }
     //game.state.start('Game');
   }
@@ -36,6 +42,10 @@ GameStates.makeGame = function(game, shared) {
 
       // Change the background color of the game to blue
       game.stage.backgroundColor = '#71c5cf';
+
+      // Add some instructions
+      var instructions = game.add.text(game.world.centerX, 16, 'Controls: SPACEBAR to Jump.' {font: '25px Verdana', fill: '#9999ff', align: 'center'});
+      instructions.anchor.setTo(0.5, 0.0);
 
       // Set the physics system
       game.physics.startSystem(Phaser.Physics.ARCADE);
@@ -94,12 +104,6 @@ GameStates.makeGame = function(game, shared) {
 
       // Make it bounce off of the world bounds.
       //bouncy.body.collideWorldBounds = true;
-
-      // Add some text using a CSS style.
-      // Center it in X, and position its top 15 pixels from the top of the world.
-      //var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-      //var text = game.add.text(game.world.centerX, 15, "Build something amazing.", style);
-      //text.anchor.setTo(0.5, 0.0);
 
       // When you click on the sprite, you go back to the MainMenu.
       //bouncy.inputEnabled = true;

@@ -10,6 +10,7 @@ GameStates.makePreloader = function(game) {
       // A nice sparkly background and a loading progress bar
       game.stage.backgroundColor = '#000000';
       preloadBar = game.add.text(350, game.world.centerY + 120, 'Loading...', {font: '25px Verdana', fill: '#FFFFFF'});
+      preloadBar.anchor.setTo(0.5, 0.6);
 
       // This sets the preloadBar sprite as a loader sprite.
       // What that does is automatically crop the sprite from 0 to full-width as the files below are loaded in.
