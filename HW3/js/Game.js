@@ -63,6 +63,8 @@ GameStates.makeGame = function(game, shared) {
       // Animations
       bird.anchor.setTo(-0.2, 0.5);
 
+      // Sound
+      this.jumpSound = game.add.audio('jump');
 
 
       //game.stage.backgroundColor = 0x4488cc;
@@ -136,6 +138,7 @@ GameStates.makeGame = function(game, shared) {
       if (bird.alive == false) {
         return;
       }
+      this.jumpSound.play();
       bird.body.velocity.y = -350;
       game.add.tween(bird).to({angle: -20}, 100).start();
     },
@@ -162,9 +165,9 @@ GameStates.makeGame = function(game, shared) {
       // Randomly pick the position of the hole (between 1 to 5) in a set of pipes
       var hole = Math.floor(Math.random() * 5) + 1;
 
-      // Add 6 pipes with one big hole at position hole and hole + 1
-      for (var i = 0; i < 8; i++) {
-        if (i != hole && i != hole + 1) {
+      // Add 6 pipes with one big hole at position hole and hole + 1 and hole + 2
+      for (var i = 0; i < 10; i++) {
+        if (i != hole && i != hole + 1 && i != hole + 2) {
           this.addOnePipe(800, i * 60 + 10);
         }
       }
@@ -188,7 +191,7 @@ GameStates.makeGame = function(game, shared) {
       game.time.events.remove(this.timer);
 
       // Go through all the pipes, and stop their movements
-      this.pipes.forEach(function(p) {
+      pipes.forEach(function(p) {
         p.body.velocity.x = 0;
       }, this);
     }
