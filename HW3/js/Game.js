@@ -159,7 +159,7 @@ GameStates.makeGame = function(game, shared) {
 
     hitPipe: function() {
       // If the bird has not lost all its lives, then only lose a life
-      if (health > 1) {
+      if (health < 1) {
         // Decrement life by 1
         health -= 1;
         labelHealth.text = health;
