@@ -8,6 +8,7 @@ GameStates.makeGame = function(game, shared) {
   //var cursors = null;
   var bird = null;
   var pipes = null;
+  var health = null;
   var score = null;
   var labelScore = null;
   var labelHealth = null;
@@ -81,7 +82,7 @@ GameStates.makeGame = function(game, shared) {
       labelScore = game.add.text(16, 16, '0', {font: '25px Arial', fill: '#FFFFFF'});
 
       /* Life */
-      bird.health = 3;
+      health = 3;
       labelHealth = game.add.text(16, 57, '3', {font: '25px Arial', fill: '#FF0000'});
 
       // Animations
@@ -158,10 +159,10 @@ GameStates.makeGame = function(game, shared) {
 
     hitPipe: function() {
       // If the bird has not lost all its lives, then only lose a life
-      if (bird.health > 1) {
+      if (health > 1) {
         // Decrement life by 1
-        bird.damage();
-        labelHealth.text = bird.health;
+        health -= 1;
+        labelHealth.text = health;
       } else {
         // If the bird has already hit the pipe, then let the bird fall off the screen
         if (bird.alive == false) {
