@@ -44,7 +44,7 @@ GameStates.makeGame = function(game, shared) {
       game.stage.backgroundColor = '#71c5cf';
 
       // Add some instructions
-      var instructions = game.add.text(game.world.centerX, 16, 'Controls: SPACEBAR to Jump.' {font: '25px Verdana', fill: '#9999ff', align: 'center'});
+      var instructions = game.add.text(game.world.centerX, 16, 'Controls: SPACEBAR to Jump.', {font: '25px Verdana', fill: '#9999ff', align: 'center'});
       instructions.anchor.setTo(0.5, 0.0);
 
       // Set the physics system
