@@ -13,7 +13,11 @@ GameStates.makeGame = function(game, shared) {
   var spaceKey = null;
 
   function restartGame() {
-    game.state.start('Game');
+    game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#FFFFFF'});
+    if (spaceKey.isDown) {
+      game.state.start('Game');
+    }
+    //game.state.start('Game');
   }
 
   function quitGame() {
