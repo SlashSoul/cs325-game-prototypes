@@ -15,6 +15,8 @@ GameStates.makeGame = function(game, shared) {
   function restartGame() {
     var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#FFFFFF'});
     var restart = game.add.text(game.world.centerX, game.world.centerY - 100, 'Press SPACE to restart the game.', {font: '25px Arial', fill: '#FFFFFF'});
+    gameover.anchor.setTo(0.5, 0.0);
+    restart.anchor.setTo(0.5, 0.6);
     if (spaceKey.isDown) {
       game.state.start('Game');
     }
@@ -76,11 +78,6 @@ GameStates.makeGame = function(game, shared) {
 
     update: function() {
       // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-
-      // If the bird is out of screen, then call quitGame() function.
-      if (bird.y < 0 || bird.y > 600) {
-        restartGame();
-      }
 
       // Restart the game if the bird collides with a pipe
       game.physics.arcade.overlap(bird, pipes, this.hitPipe, null, this);
