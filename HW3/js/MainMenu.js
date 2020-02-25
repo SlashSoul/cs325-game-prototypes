@@ -25,7 +25,6 @@ GameStates.makeMainMenu = function(game, shared) {
       game.add.text(624, 568, 'Made by Ryan Dang', {font: '16px Verdana', fill: '#FFA500'});
 
       playButton = game.add.button(303, 400, 'playButton', startGame, null, 'light', 'medium', 'dark');
-      playButton.anchor.setTo(0.5, 0.6);
     },
 
     update: function() {
