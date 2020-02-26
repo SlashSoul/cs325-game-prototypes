@@ -113,6 +113,7 @@ GameStates.makeGame = function(game, shared) {
       }
 
       // Handle collisions
+      game.physics.arcade.collide(cat, walls);
       game.physics.arcade.overlap(cat, walls, this.hitWall, null, this);
 
       // Add jumping animation
