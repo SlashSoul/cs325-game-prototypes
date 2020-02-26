@@ -81,7 +81,7 @@ GameStates.makeGame = function(game, shared) {
 
       /* Scoring and Collisions */
       score = 0;
-      labelScore = game.add.text(16, 88, '0', {font: '25px Arial', fill: '#FFFFFF'});
+      labelScore = game.add.text(16, 98, '0', {font: '25px Arial', fill: '#FFFFFF'});
 
       /* Life */
       health = 3;
