@@ -177,7 +177,7 @@ GameStates.makeGame = function(game, shared) {
         }
         else {
           if ((Math.floor(Math.random() * 10) + 1) > 1) {
-            this.addOneShirt(800, hole * 60 + 10);
+            this.addOneShirt(800, i * 60 + 10);
           }
         }
       }
@@ -195,7 +195,7 @@ GameStates.makeGame = function(game, shared) {
       shirts.add(shirt);
 
       // Enable physics on the shirt
-      game.physics.arcade.enable(shirt);
+      //game.physics.arcade.enable(shirt);
 
       // Automatically kill the shirt hen it is no longer visible
       shirt.checkWorldBounds = true;
@@ -210,7 +210,7 @@ GameStates.makeGame = function(game, shared) {
 
     hitWall: function() {
       // If the cat has not lost all its lives, then lose a life
-      if (health > 1) {
+      /*if (health > 1) {
           // Decrement lives by 1
           health -= 1;
           if (health == 2) {
@@ -221,28 +221,25 @@ GameStates.makeGame = function(game, shared) {
           }
 
           cat.x = 100;
+      }*/
+
+
+      // If the cat has already hit the wall, then let the cat fall off the screen
+      if (cat.alive == false) {
+        return;
       }
-      else {
-        // Decrement last remaining life by 1
-        health -= 1;
-        hpbar1.destroy();
 
-        // If the cat has already hit the wall, then let the cat fall off the screen
-        if (cat.alive == false) {
-          return;
-        }
+      // Set the cat's alive property to false
+      cat.alive = false;
 
-        // Set the cat's alive property to false
-        cat.alive = false;
+      // Prevent new walls from appearing
+      game.time.events.remove(this.timer);
 
-        // Prevent new walls from appearing
-        game.time.events.remove(this.timer);
+      // Go through all the walls, and stop their movements
+      walls.forEach(function(w) {
+        w.body.velocity.x = 0;
+      }, this);
 
-        // Go through all the walls, and stop their movements
-        walls.forEach(function(w) {
-          w.body.velocity.x = 0;
-        }, this);
-      }
     }
 
   };
