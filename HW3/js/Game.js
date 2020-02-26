@@ -84,8 +84,8 @@ GameStates.makeGame = function(game, shared) {
       /* Life */
       health = 3;
       game.add.sprite(16, 57, 'heart');
-      game.add.text(20, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
-      labelHealth = game.add.text(24, 57, '3', {font: '25px Arial', fill: '#FF002A'});
+      game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
+      labelHealth = game.add.text(56, 57, '3', {font: '25px Arial', fill: '#FF002A'});
       //labelHealth = game.add.text(16, 57, '3', {font: '25px Arial', fill: '#FF0000'});
 
       // Animations
