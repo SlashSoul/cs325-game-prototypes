@@ -151,8 +151,7 @@ GameStates.makeGame = function(game, shared) {
 
       // Enable physics on the wall
       game.physics.arcade.enable(wall);
-      wall.enableBody = true;
-      //wall.body.immovable = true;
+      wall.body.immovable = true;
 
       // Add velocity to the wall to make it move left
       wall.body.velocity.x = -200;
@@ -190,9 +189,13 @@ GameStates.makeGame = function(game, shared) {
           else {
             hpbar2.destroy();
           }
+
+          cat.x = 100;
       }
       else {
-
+        // Decrement last remaining life by 1
+        health -= 1;
+        hpbar1.destroy();
       }
 
       // If the bird has not lost all its lives, then only lose a life
