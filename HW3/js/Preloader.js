@@ -26,7 +26,7 @@ GameStates.makePreloader = function(game) {
       game.load.image('pipe', 'assets/pipe.png');
       game.load.audio('jump', 'assets/jump.wav');
       //game.load.audio('');
-      game.load.spritesheet('cat', 'assets/cat.png', 118, 150);
+      game.load.image('cat', 'assets/cat.png', 118, 150);
     },
 
     create: function() {

@@ -58,7 +58,7 @@ GameStates.makeGame = function(game, shared) {
 
       // Display the bird at the position x=100 and y=245
       bird = game.add.sprite(100, 245, 'cat');
-      bird.scale.setTo(0.5, 0.2);
+      //bird.scale.setTo(0.5, 0.2);
 
       // Add physics to the bird. Needed for: movements, gravity, collisions, etc.
       game.physics.arcade.enable(bird);
