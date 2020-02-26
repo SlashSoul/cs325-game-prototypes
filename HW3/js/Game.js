@@ -83,9 +83,15 @@ GameStates.makeGame = function(game, shared) {
 
       /* Life */
       health = 3;
-      game.add.sprite(16, 57, 'heart');
-      game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
-      labelHealth = game.add.text(68, 57, '3', {font: '25px Arial', fill: '#FF002A'});
+      var hpbar1 = game.add.sprite(16, 57, 'heart');
+      var hpbar2 = game.add.sprite(68, 57, 'heart');
+      var hpbar3 = game.add.sprite(120, 57, 'heart');
+      var hpbar4 = game.add.sprite(162, 57, 'heart');
+
+      hpbar4.destroy();
+
+      //game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
+      //labelHealth = game.add.text(68, 57, '3', {font: '25px Arial', fill: '#FF002A'});
       //labelHealth = game.add.text(16, 57, '3', {font: '25px Arial', fill: '#FF0000'});
 
       // Animations
