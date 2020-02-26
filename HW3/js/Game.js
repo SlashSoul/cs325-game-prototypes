@@ -90,7 +90,7 @@ GameStates.makeGame = function(game, shared) {
       var hpbar4 = game.add.sprite(202, 16, 'heart');
 
       // +42, spacing x value
-      //^^^^
+      //^^^^//
 
 
       //hpbar4.destroy();
