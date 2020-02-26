@@ -35,7 +35,7 @@ GameStates.makeGame = function(game, shared) {
     // Reached the laundromat !!
     // Show the display victory win text
     var win = game.add.text(game.world.centerX, game.world.centerY, 'Win!', {font: '25px Verdana', fill: '#FFFFFF'});
-    var blah = game.add.text(game.world.centerX, game.world.centerY, 'Press SPACE to return to the Main Menu.', {font: '25px Verdana', fill: '#FFFFFF'});
+    var blah = game.add.text(game.world.centerX, game.world.centerY, 'Press SPACEBAR to return to the Main Menu.', {font: '25px Verdana', fill: '#FFFFFF'});
     win.anchor.setTo(0.5, 0.0);
     blah.anchor.setTo(0.5, 0.6);
 
@@ -92,7 +92,7 @@ GameStates.makeGame = function(game, shared) {
 
       // Display the score
       //labelScore = game.add.text(16, 98, '0', {font: '25px Arial', fill: '#FFFFFF'});
-      labelScore = game.add.text(784, 16, '0', {font: '25px Arial', fill: '#ffffff'});
+      labelScore = game.add.text(768, 16, '0', {font: '25px Arial', fill: '#ffffff'});
       score = 0;
 
       // Handle animations and sounds for the cat's jumping movement
