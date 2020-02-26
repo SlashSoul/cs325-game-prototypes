@@ -24,7 +24,7 @@ GameStates.makePreloader = function(game) {
       game.load.image('heart', 'assets/heart-icon.png');
       game.load.image('shirt', 'assets/shirt-icon.png');
       game.load.image('cat', 'assets/cat.png');
-      game.load.image('pipe', 'assets/wall.png');
+      game.load.image('wall', 'assets/wall.png');
       game.load.audio('jump', 'assets/jump.wav');
       //game.load.audio('');
       //game.load.image('cat', 'assets/cat.png', 118, 150);
