@@ -92,7 +92,7 @@ GameStates.makeGame = function(game, shared) {
 
       // Display the score
       //labelScore = game.add.text(16, 98, '0', {font: '25px Arial', fill: '#FFFFFF'});
-      labelScore = game.add.text(768, 16, '0', {font: '25px Arial', fill: '#ffffff'});
+      labelScore = game.add.text(16, 584, '0', {font: '25px Arial', fill: '#ffffff'});
       score = 0;
 
       // Handle animations and sounds for the cat's jumping movement
