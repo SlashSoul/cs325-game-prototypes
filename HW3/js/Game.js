@@ -2,28 +2,30 @@
 
 GameStates.makeGame = function(game, shared) {
   // Create your own variables.
-  //var NUMBER_OF_FOLLOWERS = 10;
-  //var bouncy = null;
-  //var player = null;
-  //var cursors = null;
-  var bird = null;
-  var pipes = null;
+  var cat = null;
+  var walls = null;
+  var hpbar1 = null;
+  var hpbar2 = null;
+  var hpbar3 = null;
   var health = null;
   var clothes = null;
   var score = null;
-  var labelScore = null;
-  var labelHealth = null;
   var labelClothes = null;
+  var labelScore = null;
   var spaceKey = null;
 
   function restartGame() {
-    var gameover = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#FFFFFF'});
-    var restart = game.add.text(game.world.centerX, game.world.centerY - 100, 'Press SPACE to restart the game.', {font: '25px Arial', fill: '#FFFFFF'});
-    gameover.anchor.setTo(0.5, 0.0);
-    restart.anchor.setTo(0.5, 0.6);
+    // Add text to tell the player that they had lost the game
+    var line1 = game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '25px Verdana', fill: '#ffffff'});
+    var line2 = game.add.text(game.world.centerX, game.world.centerY - 100, 'Press SPACEBAR to restart the game.', {font: '25px Arial', fill: '#ffffff'});
+    line1.anchor.setTo(0.5, 0.0);
+    line2.anchor.setTo(0.5, 0.6);
+
+    // Restart the game when the SPACEBAR is pressed
     if (spaceKey.isDown) {
       game.state.start('Game');
     }
+
   }
 
   function endGame() {
@@ -46,130 +48,125 @@ GameStates.makeGame = function(game, shared) {
 
   return {
     create: function() {
-      // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-
       // Change the background color of the game to blue
       game.stage.backgroundColor = '#71c5cf';
 
       // Add some instructions
-      var instructions = game.add.text(game.world.centerX, 16, 'Press SPACEBAR.', {font: '25px Verdana', fill: '#9999ff', align: 'center'});
+      var instructions = game.add.text(game.world.centerX, 16, 'Press SPACEBAR.', {font: '25px Verdana', fill: '#ffffff', align: 'center'});
       instructions.anchor.setTo(0.5, 0.0);
 
       // Set the physics system
       game.physics.startSystem(Phaser.Physics.ARCADE);
 
-      // Display the bird at the position x=100 and y=245
-      bird = game.add.sprite(100, 245, 'cat');
-      //bird.scale.setTo(0.5, 0.2);
+      // Display the cat at the position x=100 and y=245
+      cat = game.add.sprite(100, 245, 'cat');
 
       // Add physics to the bird. Needed for: movements, gravity, collisions, etc.
-      game.physics.arcade.enable(bird);
+      game.physics.arcade.enable(cat);
 
-      // Add gravity to the bird to make it fall
-      bird.body.gravity.y = 1000;
+      // Add gravity to the cat to make it fall
+      cat.body.gravity.y = 1000;
 
       // Call the jump function when the spacebar is pressed
       spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
       spaceKey.onDown.add(this.jump, this);
 
-      /* The Pipes */
-      // Create an empty group
-      pipes = game.add.group();
+      // Create an empty group of walls to stop the cat
+      walls = game.add.group();
 
-      // Add a set of pipes every 1.5 seconds to the game
-      this.timer = game.time.events.loop(1500, this.addRowOfPipes, this);
+      // Add a set of walls every 1.5 seconds to the game
+      this.timer = game.time.events.loop(1500, this.addRowOfWalls, this);
 
-      /* Scoring and Collisions */
-      score = 0;
-      labelScore = game.add.text(16, 98, '0', {font: '25px Arial', fill: '#FFFFFF'});
-
-      /* Life */
-      health = 3;
+      // Display the number of lives the player has remaining
       game.add.text(16, 16, 'Lives: ', {font: '25px Arial', fill: '#FF002A'});
-      var hpbar1 = game.add.sprite(90, 16, 'heart');
-      var hpbar2 = game.add.sprite(130, 16, 'heart');
-      var hpbar3 = game.add.sprite(170, 16, 'heart');
-      //var hpbar4 = game.add.sprite(210, 16, 'heart');
+      hpbar1 = game.add.sprite(90, 16, 'heart');
+      hpbar2 = game.add.sprite(130, 16, 'heart');
+      hpbar3 = game.add.sprite(170, 16, 'heart');
+      health = 3;
 
-      // +42, spacing x value
-      //^^^^//
-
-
-      //hpbar4.destroy();
-
-      //game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
-      //labelHealth = game.add.text(68, 57, '3', {font: '25px Arial', fill: '#FF002A'});
-      //labelHealth = game.add.text(16, 57, '3', {font: '25px Arial', fill: '#FF0000'});
-
-      /* Clothes */
-      clothes = 0;
+      // Display the number of clothes the player has collected
       game.add.sprite(16, 57, 'shirt');
       game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
       labelClothes = game.add.text(68, 57, '0', {font: '25px Arial', fill: '#FF002A'});
+      clothes = 0;
 
-      // Animations
-      bird.anchor.setTo(-0.2, 0.5);
+      // Display the score
+      //labelScore = game.add.text(16, 98, '0', {font: '25px Arial', fill: '#FFFFFF'});
+      labelScore = game.add.text(784, 16, '0', {font; '25px Arial', fill: '#ffffff'});
+      score = 0;
 
-      // Sound
+      // Handle animations and sounds for the cat's jumping movement
+      cat.anchor.setTo(-0.2, 0.5);
       this.jumpSound = game.add.audio('jump');
-
     },
 
     update: function() {
-      // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+      // If the bird falls out of the screen, restart the game
+      if (cat.y < 0 || cat.y > 600) {
+        // Go through all the walls, and stop their movements
+        walls.forEach(function(w) {
+          w.body.velocity.x = 0;
+        }, this);
 
-      // If the bird falls out of the screen, the game ends.
-      if (bird.y < 0 || bird.y > 600) {
+        // Restart the game
         restartGame();
       }
 
-      // If the bird reaches the destination (overlaps with the laundromat), freeze everything and win the game!
+      // Handle collisions
+      game.physics.arcade.overlap(cat, walls, this.hitWall, null, this);
 
-      // Restart the game if the bird collides with a pipe
-      game.physics.arcade.overlap(bird, pipes, this.hitPipe, null, this);
-
-      // Add Fly Animation
-      if (bird.angle < 20) {
-        bird.angle += 1;
+      // Add jumping animation
+      if (cat.angle < 20) {
+        cat.angle += 1;
       }
+
+
+      // If the bird reaches the destination (overlaps with the laundromat), freeze everything and win the game!
 
     },
 
     jump: function() {
-      if (bird.alive == false) {
+      // Stop jump commands if cat is dead
+      if (cat.alive == false) {
         return;
       }
+
+      // Play the jump sound
       this.jumpSound.play();
-      bird.body.velocity.y = -350;
-      game.add.tween(bird).to({angle: -20}, 100).start();
+
+      // Adjust the cat's position
+      cat.body.velocity.y = -350;
+
+      // Animate the jump
+      game.add.tween(cat).to({angle: -20}, 100).start();
     },
 
-    addOnePipe: function(x, y) {
-      // Create a pipe at the position x and y
-      var pipe = game.add.sprite(x, y, 'pipe');
+    addOneWall: function(x, y) {
+      // Create a wall at the position x and y
+      var wall = game.add.sprite(x, y, 'wall');
 
-      // Add the pipe to the previously created group
-      pipes.add(pipe);
+      // Add the wall to the previously created group
+      walls.add(wall);
 
-      // Enable physics on the pipe
-      game.physics.arcade.enable(pipe);
+      // Enable physics on the wall
+      game.physics.arcade.enable(wall);
 
-      // Add velocity to the pipe to make it move left
-      pipe.body.velocity.x = -200;
+      // Add velocity to the wall to make it move left
+      wall.body.velocity.x = -200;
 
-      // Automatically kill the pipe when it is no longer visible
-      pipe.checkWorldBounds = true;
-      pipe.outOfBoundsKill = true;
+      // Automatically kill the wall when it is no longer visible
+      wall.checkWorldBounds = true;
+      wall.outOfBoundsKill = true;
     },
 
-    addRowOfPipes: function() {
-      // Randomly pick the position of the hole (between 1 to 5) in a set of pipes
+    addRowOfWalls: function() {
+      // Randomly pick the position of the hole (between 1 to 5) in a set of walls
       var hole = Math.floor(Math.random() * 5) + 1;
 
-      // Add 6 pipes with one big hole at position hole and hole + 1 and hole + 2
+      // Add 8 walls with one big hole at position hole and hole + 1 and hole + 2
       for (var i = 0; i < 10; i++) {
         if (i != hole && i != hole + 1 && i != hole + 2) {
-          this.addOnePipe(800, i * 60 + 10);
+          this.addOneWall(800, i * 60 + 10);
         }
       }
 
@@ -179,9 +176,27 @@ GameStates.makeGame = function(game, shared) {
 
     },
 
-    hitPipe: function() {
-      // If the bird has not lost all its lives, then only lose a life
+    hitWall: function() {
+      // If the cat has not lost all its lives, then lose a life
       if (health < 1) {
+          // Decrement lives by 1
+          health -= 1;
+          if (health == 2) {
+            hpbar3.destroy();
+          }
+          else {
+            hpbar2.destroy();
+          }
+      }
+      else {
+
+      }
+
+      // If the bird has not lost all its lives, then only lose a life
+
+
+
+      /*if (health < 1) {
         // Decrement life by 1
         health -= 1;
         labelHealth.text = health;
@@ -201,7 +216,7 @@ GameStates.makeGame = function(game, shared) {
         pipes.forEach(function(p) {
           p.body.velocity.x = 0;
         }, this);
-      }
+      }*/
     }
 
   };
