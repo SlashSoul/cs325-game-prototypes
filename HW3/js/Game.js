@@ -177,7 +177,7 @@ GameStates.makeGame = function(game, shared) {
         }
         else {
           if ((Math.floor(Math.random() * 10) + 1) > 7) {
-            this.addOneShirt(800, i * 60 + 10);
+            this.addOneShirt(800, hole * 60 + 10);
           }
         }
       }
