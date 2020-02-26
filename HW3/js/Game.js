@@ -9,9 +9,11 @@ GameStates.makeGame = function(game, shared) {
   var bird = null;
   var pipes = null;
   var health = null;
+  var clothes = null;
   var score = null;
   var labelScore = null;
   var labelHealth = null;
+  var labelClothes = null;
   var spaceKey = null;
 
   function restartGame() {
@@ -79,7 +81,7 @@ GameStates.makeGame = function(game, shared) {
 
       /* Scoring and Collisions */
       score = 0;
-      labelScore = game.add.text(16, 57, '0', {font: '25px Arial', fill: '#FFFFFF'});
+      labelScore = game.add.text(16, 88, '0', {font: '25px Arial', fill: '#FFFFFF'});
 
       /* Life */
       health = 3;
@@ -87,7 +89,7 @@ GameStates.makeGame = function(game, shared) {
       var hpbar1 = game.add.sprite(90, 16, 'heart');
       var hpbar2 = game.add.sprite(130, 16, 'heart');
       var hpbar3 = game.add.sprite(170, 16, 'heart');
-      var hpbar4 = game.add.sprite(210, 16, 'heart');
+      //var hpbar4 = game.add.sprite(210, 16, 'heart');
 
       // +42, spacing x value
       //^^^^//
@@ -98,6 +100,12 @@ GameStates.makeGame = function(game, shared) {
       //game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
       //labelHealth = game.add.text(68, 57, '3', {font: '25px Arial', fill: '#FF002A'});
       //labelHealth = game.add.text(16, 57, '3', {font: '25px Arial', fill: '#FF0000'});
+
+      /* Clothes */
+      clothes = 0;
+      game.add.sprite(16, 57, 'shirt');
+      game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
+      labelClothes = game.add.text(68, 57, '0', {font: '25px Arial', fill: '#FF002A'});
 
       // Animations
       bird.anchor.setTo(-0.2, 0.5);
