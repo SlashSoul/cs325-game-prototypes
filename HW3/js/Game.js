@@ -103,6 +103,9 @@ GameStates.makeGame = function(game, shared) {
     update: function() {
       // If the bird falls out of the screen, restart the game
       if (cat.y < 0 || cat.y > 600) {
+        cat.x = 100;
+        cat.y = 245;
+
         // Go through all the walls, and stop their movements
         walls.forEach(function(w) {
           w.body.velocity.x = 0;
