@@ -79,14 +79,14 @@ GameStates.makeGame = function(game, shared) {
 
       /* Scoring and Collisions */
       score = 0;
-      labelScore = game.add.text(16, 16, '0', {font: '25px Arial', fill: '#FFFFFF'});
+      labelScore = game.add.text(16, 57, '0', {font: '25px Arial', fill: '#FFFFFF'});
 
       /* Life */
       health = 3;
-      var hpbar1 = game.add.sprite(16, 57, 'heart');
-      var hpbar2 = game.add.sprite(68, 57, 'heart');
-      var hpbar3 = game.add.sprite(120, 57, 'heart');
-      var hpbar4 = game.add.sprite(162, 57, 'heart');
+      var hpbar1 = game.add.sprite(16, 16, 'heart');
+      var hpbar2 = game.add.sprite(58, 16, 'heart');
+      var hpbar3 = game.add.sprite(100, 16, 'heart');
+      var hpbar4 = game.add.sprite(142, 16, 'heart');
 
       //hpbar4.destroy();
 
