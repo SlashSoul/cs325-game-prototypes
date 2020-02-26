@@ -151,7 +151,8 @@ GameStates.makeGame = function(game, shared) {
 
       // Enable physics on the wall
       game.physics.arcade.enable(wall);
-      wall.body.immovable = true;
+      wall.enableBody = true;
+      //wall.body.immovable = true;
 
       // Add velocity to the wall to make it move left
       wall.body.velocity.x = -200;
