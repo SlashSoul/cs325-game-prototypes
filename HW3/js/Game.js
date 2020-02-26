@@ -88,7 +88,7 @@ GameStates.makeGame = function(game, shared) {
       var hpbar3 = game.add.sprite(120, 57, 'heart');
       var hpbar4 = game.add.sprite(162, 57, 'heart');
 
-      hpbar4.destroy();
+      //hpbar4.destroy();
 
       //game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
       //labelHealth = game.add.text(68, 57, '3', {font: '25px Arial', fill: '#FF002A'});
