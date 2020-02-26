@@ -178,7 +178,7 @@ GameStates.makeGame = function(game, shared) {
 
     hitWall: function() {
       // If the cat has not lost all its lives, then lose a life
-      if (health < 1) {
+      if (health > 1) {
           // Decrement lives by 1
           health -= 1;
           if (health == 2) {
