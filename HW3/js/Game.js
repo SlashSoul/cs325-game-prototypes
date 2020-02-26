@@ -84,10 +84,10 @@ GameStates.makeGame = function(game, shared) {
       /* Life */
       health = 3;
       game.add.text(16, 16, 'Lives: ', {font: '25px Arial', fill: '#FF002A'});
-      var hpbar1 = game.add.sprite(106, 16, 'heart');
-      var hpbar2 = game.add.sprite(146, 16, 'heart');
-      var hpbar3 = game.add.sprite(186, 16, 'heart');
-      var hpbar4 = game.add.sprite(226, 16, 'heart');
+      var hpbar1 = game.add.sprite(90, 16, 'heart');
+      var hpbar2 = game.add.sprite(130, 16, 'heart');
+      var hpbar3 = game.add.sprite(170, 16, 'heart');
+      var hpbar4 = game.add.sprite(210, 16, 'heart');
 
       // +42, spacing x value
       //^^^^//
