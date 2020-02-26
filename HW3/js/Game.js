@@ -4,6 +4,7 @@ GameStates.makeGame = function(game, shared) {
   // Create your own variables.
   var cat = null;
   var walls = null;
+  var shirts = null;
   var hpbar1 = null;
   var hpbar2 = null;
   var hpbar3 = null;
@@ -77,6 +78,9 @@ GameStates.makeGame = function(game, shared) {
       // Add a set of walls every 1.5 seconds to the game
       this.timer = game.time.events.loop(1500, this.addRowOfWalls, this);
 
+      // Create an empty group of shirts
+      shirts = game.add.group();
+
       // Display the number of lives the player has remaining
       game.add.text(16, 16, 'Lives: ', {font: '25px Arial', fill: '#FF002A'});
       hpbar1 = game.add.sprite(90, 16, 'heart');
@@ -103,9 +107,6 @@ GameStates.makeGame = function(game, shared) {
     update: function() {
       // If the bird falls out of the screen, restart the game
       if (cat.y < 0 || cat.y > 600) {
-        cat.x = 100;
-        cat.y = 245;
-
         // Go through all the walls, and stop their movements
         walls.forEach(function(w) {
           w.body.velocity.x = 0;
@@ -118,6 +119,7 @@ GameStates.makeGame = function(game, shared) {
       // Handle collisions
       game.physics.arcade.collide(cat, walls);
       game.physics.arcade.overlap(cat, walls, this.hitWall, null, this);
+      game.physics.arcade.overlap(cat, shirts, this.collectShirt, null, this);
 
       // Add jumping animation
       if (cat.angle < 20) {
@@ -173,12 +175,37 @@ GameStates.makeGame = function(game, shared) {
         if (i != hole && i != hole + 1 && i != hole + 2) {
           this.addOneWall(800, i * 60 + 10);
         }
+        else {
+          if ((Math.floor(Math.random() * 10) + 1) > 7) {
+            this.addOneShirt(800, i * 60 + 10);
+          }
+        }
       }
 
       // Increment the score by 1
       score += 1;
       labelScore.text = score;
 
+    },
+
+    addOneShirt: function(x, y) {
+      var shirt = game.add.sprite(x, y, 'shirt');
+
+      // Add the shirt to the previously created group
+      shirts.add(shirt);
+
+      // Enable physics on the shirt
+      game.physics.arcade.enable(shirt);
+
+      // Automatically kill the shirt hen it is no longer visible
+      shirt.checkWorldBounds = true;
+      shirt.outOfBoundsKill = true;
+    },
+
+    collectShirt: function() {
+      shirt.kill();
+      clothes += 1;
+      labelClothes.text = clothes;
     },
 
     hitWall: function() {
@@ -199,33 +226,23 @@ GameStates.makeGame = function(game, shared) {
         // Decrement last remaining life by 1
         health -= 1;
         hpbar1.destroy();
-      }
 
-      // If the bird has not lost all its lives, then only lose a life
-
-
-
-      /*if (health < 1) {
-        // Decrement life by 1
-        health -= 1;
-        labelHealth.text = health;
-      } else {
-        // If the bird has already hit the pipe, then let the bird fall off the screen
-        if (bird.alive == false) {
+        // If the cat has already hit the wall, then let the cat fall off the screen
+        if (cat.alive == false) {
           return;
         }
 
-        // Set the bird's alive property to false
-        bird.alive = false;
+        // Set the cat's alive property to false
+        cat.alive = false;
 
-        // Prevent new pipes from appearing
+        // Prevent new walls from appearing
         game.time.events.remove(this.timer);
 
-        // Go through all the pipes, and stop their movements
-        pipes.forEach(function(p) {
-          p.body.velocity.x = 0;
+        // Go through all the walls, and stop their movements
+        walls.forEach(function(w) {
+          w.body.velocity.x = 0;
         }, this);
-      }*/
+      }
     }
 
   };
