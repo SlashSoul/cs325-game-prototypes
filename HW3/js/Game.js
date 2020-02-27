@@ -195,7 +195,7 @@ GameStates.makeGame = function(game, shared) {
       // Add the shirt to the previously created group
       shirts.add(shirt);
 
-      // Enable physics on the shirt
+      // Enable physics on the shirts
       //game.physics.arcade.enable(shirt);
 
       // Add velocity to the shirt to make it move left
@@ -223,8 +223,6 @@ GameStates.makeGame = function(game, shared) {
           else {
             hpbar2.destroy();
           }
-
-          cat.x = 100;
       }*/
 
 
