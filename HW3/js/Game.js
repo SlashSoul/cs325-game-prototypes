@@ -175,7 +175,7 @@ GameStates.makeGame = function(game, shared) {
         if (i != hole && i != hole + 1 && i != hole + 2) {
           this.addOneWall(800, i * 60 + 10);
         }
-        else {
+        else if (i == hole){
           if ((Math.floor(Math.random() * 10) + 1) > 1) {
             this.addOneShirt(800, i * 60 + 10);
           }
