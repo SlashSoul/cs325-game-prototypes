@@ -80,6 +80,7 @@ GameStates.makeGame = function(game, shared) {
 
       // Create an empty group of shirts
       shirts = game.add.group();
+      game.time.events.loop(1500, this.addOneShirt, this);
 
       // Display the number of lives the player has remaining
       game.add.text(16, 16, 'Lives: ', {font: '25px Arial', fill: '#FF002A'});
