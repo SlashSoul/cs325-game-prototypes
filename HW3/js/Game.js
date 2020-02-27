@@ -80,7 +80,7 @@ GameStates.makeGame = function(game, shared) {
 
       // Create an empty group of shirts
       shirts = game.add.group();
-      game.time.events.loop(1500, this.addOneShirt, this);
+      //game.time.events.loop(1500, this.addOneShirt, this);
 
       // Display the number of lives the player has remaining
       game.add.text(16, 16, 'Lives: ', {font: '25px Arial', fill: '#FF002A'});
@@ -172,7 +172,7 @@ GameStates.makeGame = function(game, shared) {
       var hole = Math.floor(Math.random() * 5) + 1;
 
       // Add 8 walls with one big hole at position hole and hole + 1 and hole + 2
-      for (var i = 0; i < 10; i++) {
+      for (var i = 0; i < 12; i++) {
         if (i != hole && i != hole + 1 && i != hole + 2) {
           this.addOneWall(800, i * 60 + 10);
         }
