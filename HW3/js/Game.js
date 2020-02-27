@@ -198,7 +198,7 @@ GameStates.makeGame = function(game, shared) {
       // Enable physics on the shirt
       //game.physics.arcade.enable(shirt);
 
-      // Add velocity to the wall to make it move left
+      // Add velocity to the shirt to make it move left
       shirt.body.velocity.x = -200;
 
       // Automatically kill the shirt hen it is no longer visible
