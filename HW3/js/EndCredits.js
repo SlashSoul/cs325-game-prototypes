@@ -1,6 +1,6 @@
 "use strict";
 
-var endCredits = {
+var endState = {
   create: function() {
     game.add.sprite(0, 0, 'creditsPage');
     var instructions = game.add.text(game.world.centerX, game.world.centerY, 'Press W to return to the Main Menu');

@@ -41,7 +41,7 @@ GameStates.makeGame = function(game, shared) {
     blah.anchor.setTo(0.5, 0.6);
 
     if (spaceKey.isDown) {
-      game.state.start('EndCredits');
+      game.state.start('End');
     }
     // Then let's go back to the main menu.
     //game.state.start('MainMenu');
