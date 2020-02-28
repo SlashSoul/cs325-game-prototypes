@@ -1,6 +1,6 @@
 "use strict";
 
-GameStates.makeGameOver = function(game, shared) {
+GameStates.makeGame = function(game, shared) {
   // Create your own variables.
   var cat = null;
   var spaceKey = null;
