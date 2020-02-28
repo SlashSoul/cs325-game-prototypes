@@ -145,6 +145,8 @@ GameStates.makeGame = function(game, shared) {
           s.body.velocity.x = 0;
         }, this);
 
+        cat.body.gravity.y = 0;
+
         // End the Game
         endGame();
       }
