@@ -196,7 +196,7 @@ GameStates.makeGame = function(game, shared) {
       shirts.add(shirt);
 
       // Enable physics on the shirt
-      //game.physics.arcade.enable(shirt);
+      game.physics.arcade.enable(shirt);
 
       // Add velocity to the shirt to make it move left
       shirt.body.velocity.x = -200;
