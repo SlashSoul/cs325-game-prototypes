@@ -52,10 +52,6 @@ GameStates.makeGame = function(game, shared) {
       // Change the background color of the game to blue
       game.stage.backgroundColor = '#71c5cf';
 
-      // Add some instructions
-      var instructions = game.add.text(game.world.centerX, 16, 'Press SPACEBAR.', {font: '25px Verdana', fill: '#ffffff', align: 'center'});
-      instructions.anchor.setTo(0.5, 0.0);
-
       // Set the physics system
       game.physics.startSystem(Phaser.Physics.ARCADE);
 
@@ -103,6 +99,10 @@ GameStates.makeGame = function(game, shared) {
       // Handle animations and sounds for the cat's jumping movement
       cat.anchor.setTo(-0.2, 0.5);
       this.jumpSound = game.add.audio('jump');
+
+      // Add some instructions
+      var instructions = game.add.text(game.world.centerX, 16, 'Press SPACEBAR.', {font: '25px Verdana', fill: '#ffffff', align: 'center'});
+      instructions.anchor.setTo(0.5, 0.0);
     },
 
     update: function() {
@@ -134,7 +134,7 @@ GameStates.makeGame = function(game, shared) {
 
 
       // If the bird reaches the destination (overlaps with the laundromat), freeze everything and win the game!
-      if (clothes >= 25) {
+      if (clothes >= 10) {
         // Go through all the walls, and stop their movements
         walls.forEach(function(w) {
           w.body.velocity.x = 0;
