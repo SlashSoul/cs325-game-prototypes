@@ -176,7 +176,7 @@ GameStates.makeGame = function(game, shared) {
         if (i != hole && i != hole + 1 && i != hole + 2) {
           this.addOneWall(800, i * 60 + 10);
         }
-        else if (i == hole){
+        else if (i == hole + 1){
           if ((Math.floor(Math.random() * 10) + 1) > 1) {
             this.addOneShirt(800, i * 60 + 10);
           }
@@ -206,8 +206,8 @@ GameStates.makeGame = function(game, shared) {
       shirt.outOfBoundsKill = true;
     },
 
-    collectShirt: function() {
-      shirts.kill();
+    collectShirt: function(player, shirt) {
+      shirt.kill();
       clothes += 1;
       labelClothes.text = clothes;
     },
