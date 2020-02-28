@@ -232,7 +232,7 @@ GameStates.makeGame = function(game, shared) {
 
     hitWall: function() {
       // If the cat has not lost all its lives, then lose a life
-      /*if (health > 1) {
+      if (health > 1) {
           // Decrement lives by 1
           health -= 1;
           if (health == 2) {
@@ -241,24 +241,24 @@ GameStates.makeGame = function(game, shared) {
           else {
             hpbar2.destroy();
           }
-      }*/
+      } else {
+        // If the cat has already hit the wall, then let the cat fall off the screen
+        if (cat.alive == false) {
+          return;
+        }
 
+        // Set the cat's alive property to false
+        cat.alive = false;
 
-      // If the cat has already hit the wall, then let the cat fall off the screen
-      if (cat.alive == false) {
-        return;
+        // Prevent new walls from appearing
+        game.time.events.remove(this.timer);
+
+        // Go through all the walls, and stop their movements
+        walls.forEach(function(w) {
+          w.body.velocity.x = 0;
+        }, this);
       }
 
-      // Set the cat's alive property to false
-      cat.alive = false;
-
-      // Prevent new walls from appearing
-      game.time.events.remove(this.timer);
-
-      // Go through all the walls, and stop their movements
-      walls.forEach(function(w) {
-        w.body.velocity.x = 0;
-      }, this);
 
     }
 
