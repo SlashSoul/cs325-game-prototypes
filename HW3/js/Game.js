@@ -36,12 +36,12 @@ GameStates.makeGame = function(game, shared) {
     // Reached the laundromat !!
     // Show the display victory win text
     var win = game.add.text(game.world.centerX, game.world.centerY, 'Win!', {font: '25px Verdana', fill: '#FFFFFF'});
-    var blah = game.add.text(game.world.centerX, game.world.centerY, 'Press SPACEBAR to return to the Main Menu.', {font: '25px Verdana', fill: '#FFFFFF'});
+    var blah = game.add.text(game.world.centerX, game.world.centerY, 'Press SPACEBAR to see the credits.', {font: '25px Verdana', fill: '#FFFFFF'});
     win.anchor.setTo(0.5, 0.0);
     blah.anchor.setTo(0.5, 0.6);
 
     if (spaceKey.isDown) {
-      game.state.start('Main Menu');
+      game.state.start('EndCredits');
     }
     // Then let's go back to the main menu.
     //game.state.start('MainMenu');
@@ -113,6 +113,11 @@ GameStates.makeGame = function(game, shared) {
           w.body.velocity.x = 0;
         }, this);
 
+        // Go through all the shirts, and stop their movements
+        shirts.forEach(function(s) {
+          s.body.velocity.x = 0;
+        }, this);
+
         // Restart the game
         restartGame();
       }
@@ -129,7 +134,20 @@ GameStates.makeGame = function(game, shared) {
 
 
       // If the bird reaches the destination (overlaps with the laundromat), freeze everything and win the game!
+      if (clothes >= 25) {
+        // Go through all the walls, and stop their movements
+        walls.forEach(function(w) {
+          w.body.velocity.x = 0;
+        }, this);
 
+        // Go through all the shirts, and stop their movements
+        shirts.forEach(function(s) {
+          s.body.velocity.x = 0;
+        }, this);
+
+        // End the Game
+        endGame();
+      }
     },
 
     jump: function() {

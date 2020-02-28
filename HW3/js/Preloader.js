@@ -20,6 +20,7 @@ GameStates.makePreloader = function(game) {
       game.load.image('titlePage', 'assets/title.jpg');
       game.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
       game.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
+      game.load.image('creditsPage', 'assets/laundromat.png');
       // + lots of other required assets here
       game.load.image('heart', 'assets/heart-icon.png');
       game.load.image('shirt', 'assets/shirt-icon.png');
