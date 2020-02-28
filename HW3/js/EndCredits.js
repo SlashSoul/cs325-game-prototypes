@@ -12,7 +12,7 @@ GameStates.makeGame = function(game, shared) {
       instructions.anchor.setTo(0, 0);
 
       cat = game.add.sprite(100, 245, 'cat');
-      spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.SPACEBAR);
+      spaceKey = game.input.keyboard.addKey(Phaser.Keyboard.X);
 
     },
 
