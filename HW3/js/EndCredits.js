@@ -1,6 +1,6 @@
 "use strict";
 
-GameStates.makeEndCredits = function(game, shared) {
+GameStates.makeGameOver = function(game, shared) {
   // Create your own variables.
   var cat = null;
   var spaceKey = null;
