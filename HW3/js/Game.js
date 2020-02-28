@@ -88,7 +88,7 @@ GameStates.makeGame = function(game, shared) {
       // Display the number of clothes the player has collected
       game.add.sprite(16, 57, 'shirt');
       game.add.text(52, 57, 'x', {font: '25px Arial', fill: '#FF002A'});
-      labelClothes = game.add.text(68, 57, '0', {font: '25px Arial', fill: '#FF002A'});
+      labelClothes = game.add.text(68, 57, '0/10', {font: '25px Arial', fill: '#FF002A'});
       clothes = 0;
 
       // Display the score
