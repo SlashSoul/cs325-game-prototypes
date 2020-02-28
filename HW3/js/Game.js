@@ -207,7 +207,7 @@ GameStates.makeGame = function(game, shared) {
     },
 
     collectShirt: function() {
-      shirt.kill();
+      shirts.kill();
       clothes += 1;
       labelClothes.text = clothes;
     },
