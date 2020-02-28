@@ -206,7 +206,7 @@ GameStates.makeGame = function(game, shared) {
       shirt.outOfBoundsKill = true;
     },
 
-    collectShirt: function(player, shirt) {
+    collectShirt: function(cat, shirt) {
       shirt.kill();
       clothes += 1;
       labelClothes.text = clothes;
