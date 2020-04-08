@@ -29,10 +29,8 @@ BasicGame.Preloader.prototype = {
 		this.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
 		this.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
 		//	+ lots of other required assets here
-        this.load.image( 'logo', 'assets/phaser.png' );
-				this.load.image('mountains-back', 'assets/mountains-back.png');
-        this.load.image('mountains-mid1', 'assets/mountains-mid1.png');
-        this.load.image('mountains-mid2', 'assets/mountains-mid2.png');
+        this.load.image('logo', 'assets/phaser.png');
+				this.load.image('mountains-bg', 'assets/mountain-bg.png');
 	},
 
 	create: function () {
