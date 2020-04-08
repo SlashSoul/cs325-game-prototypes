@@ -19,6 +19,8 @@ BasicGame.MainMenu.prototype = {
 		this.music.play();
 
 		this.add.sprite(0, 0, 'mountains-bg');
+		this.add.text(70, 20, 'Hero', {font: '28px Ubuntu', fill: '#FFFFFF'});
+
 
 		this.playButton = this.add.button(303, 400, 'playButton', this.startGame, this, 'start', 'play', 'ready');
 
