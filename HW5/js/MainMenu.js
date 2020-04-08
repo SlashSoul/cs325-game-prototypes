@@ -21,7 +21,7 @@ BasicGame.MainMenu.prototype = {
 		//this.add.sprite(0, 0, 'titlePage');
 		this.add.sprite(0, 0, 'mountains-bg');
 
-		this.playButton = this.add.button( 303, 400, 'playButton', this.startGame, this, 'over', 'out', 'down');
+		this.playButton = this.add.button(303, 400, 'playButton', this.startGame, this, 'start', 'play', 'ready');
 
 	},
 
