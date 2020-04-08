@@ -2,7 +2,7 @@
 
 {
 	"filename": "ready",
-	"frame": {"x":0,"y":142,"w":190,"h":70},
+	"frame": {"x":1,"y":142,"w":190,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":193,"h":70},
@@ -10,7 +10,7 @@
 },
 {
 	"filename": "play",
-	"frame": {"x":0,"y":71,"w":190,"h":70},
+	"frame": {"x":1,"y":71,"w":190,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":190,"h":70},
@@ -18,7 +18,7 @@
 },
 {
 	"filename": "start",
-	"frame": {"x":0,"y":0,"w":190,"h":70},
+	"frame": {"x":1,"y":0,"w":190,"h":70},
 	"rotated": false,
 	"trimmed": false,
 	"spriteSourceSize": {"x":0,"y":0,"w":190,"h":70},
