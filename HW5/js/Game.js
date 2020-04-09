@@ -51,7 +51,7 @@ BasicGame.Game.prototype = {
         ground = this.add.sprite(0, this.game.world.height+32, 'ground');
         ground.enableBody = true;
         //ground.immovable = true;
-        //ground.body.static = true;
+        ground.body.static = true;
 
 
         player = this.add.sprite(400, 75, 'player');
