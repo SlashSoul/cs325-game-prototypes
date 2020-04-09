@@ -50,7 +50,6 @@ BasicGame.Game.prototype = {
         //ground.immovable = true;
         //ground.body.static = true;
 
-
         player = this.add.sprite(400, 75, 'player');
 
         this.game.physics.p2.enable(ground);
@@ -59,6 +58,8 @@ BasicGame.Game.prototype = {
         walls = this.game.add.group();
         objects = this.game.add.group();
 
+        walls.enableBody = true;
+        walls.create(400, 386, 'wall');
 
 
 
