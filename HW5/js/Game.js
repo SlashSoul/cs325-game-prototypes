@@ -48,6 +48,10 @@ BasicGame.Game.prototype = {
         ground.enableBody = true;
 
         var player = this.add.sprite(16, 350, 'player');
+        game.physics.p2.enable(player);
+        var walls = this.game.add.group();
+        var objects = this.game.add.group();
+
         //ground.body.immovable = true;
         //ground.enableBody = true;
         //ground.name = "ground";
