@@ -59,10 +59,12 @@ BasicGame.Game.prototype = {
         objects = this.game.add.group();
 
         walls.enableBody = true;
-        var wall = walls.create(400, 386, 'wall');
+        walls.create(400, 386, 'wall');
 
-        this.game.physics.p2.enable(wall);
+        this.game.physics.p2.enable(walls);
 
+        objects.create(400, 380, 'object');
+        objects.create(350, 380, 'object');
 
 
     		//this.game.input.onDown.add(this.destroyBlock, this);
