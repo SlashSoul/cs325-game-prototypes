@@ -50,8 +50,12 @@ BasicGame.Game.prototype = {
         ground = this.add.sprite(0, 436, 'ground');
         ground.enableBody = true;
 
+
         player = this.add.sprite(16, 350, 'player');
+
+        this.game.physics.p2.enable(ground);
         this.game.physics.p2.enable(player);
+
         walls = this.game.add.group();
         objects = this.game.add.group();
 
@@ -136,12 +140,12 @@ BasicGame.Game.prototype = {
 
     update: function() {
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        this.game.physics.p2.collide(player, ground);
+        /*this.game.physics.p2.collide(player, ground);
         this.game.physics.p2.collide(player, objects);
         this.game.physics.p2.collide(player, walls);
         this.game.physics.p2.collide(ground, walls);
         this.game.physics.p2.collide(ground, objects);
-        this.game.physics.p2.collide(objects, walls);
+        this.game.physics.p2.collide(objects, walls);*/
         // Accelerate the 'logo' sprite towards the cursor,
         // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
         // in X or Y.
