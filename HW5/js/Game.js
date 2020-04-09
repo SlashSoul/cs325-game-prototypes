@@ -39,7 +39,7 @@ BasicGame.Game.prototype = {
 
         bricks = this.game.add.group();
 
-        var ground = this.add.sprite(0, 436, 'ground');
+        var ground = this.add.sprite(0, 490, 'ground');
 
 
 
