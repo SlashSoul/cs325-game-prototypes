@@ -59,9 +59,9 @@ BasicGame.Game.prototype = {
         objects = this.game.add.group();
 
         walls.enableBody = true;
-        walls.create(400, 386, 'wall');
+        var wall = walls.create(400, 386, 'wall');
 
-        this.game.physics.p2.enable(walls);
+        this.game.physics.p2.enable(wall);
 
 
 
