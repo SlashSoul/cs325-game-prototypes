@@ -29,7 +29,10 @@ BasicGame.Game = function(game) {
     this.bouncy = null;
 };
 
-var bricks;
+var ground;
+var objects;
+var player;
+var walls;
 
 BasicGame.Game.prototype = {
     create: function () {
@@ -44,13 +47,13 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
 
-        var ground = this.add.sprite(0, 436, 'ground');
+        ground = this.add.sprite(0, 436, 'ground');
         ground.enableBody = true;
 
-        var player = this.add.sprite(16, 350, 'player');
+        player = this.add.sprite(16, 350, 'player');
         this.game.physics.p2.enable(player);
-        var walls = this.game.add.group();
-        var objects = this.game.add.group();
+        walls = this.game.add.group();
+        objects = this.game.add.group();
 
         //ground.body.immovable = true;
         //ground.enableBody = true;
@@ -133,7 +136,12 @@ BasicGame.Game.prototype = {
 
     update: function() {
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-
+        this.game.physics.p2.collide(player, ground);
+        this.game.physics.p2.collide(player, objects);
+        this.game.physics.p2.collide(player, walls);
+        this.game.physics.p2.collide(ground, walls);
+        this.game.physics.p2.collide(ground, objects);
+        this.game.physics.p2.collide(objects, walls);
         // Accelerate the 'logo' sprite towards the cursor,
         // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
         // in X or Y.
