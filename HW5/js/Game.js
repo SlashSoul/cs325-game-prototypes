@@ -39,10 +39,10 @@ BasicGame.Game.prototype = {
 
         //bricks = this.game.add.group();
 
-        this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
-    		this.game.physics.startSystem(Phaser.Physics.P2JS);
-    		this.game.physics.p2.setImpactEvents(true);
-    		this.game.physics.p2.gravity.y = 250;
+        //this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
+        this.game.physics.startSystem(Phaser.Physics.P2JS);
+        this.game.physics.p2.setImpactEvents(true);
+        this.game.physics.p2.gravity.y = 250;
 
         var ground = this.add.sprite(0, 540, 'ground');
         ground.unbreakable = true;
@@ -50,6 +50,54 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.enable(ground);
         ground.body.static = true;
 
+        /*brickCounter = 0;
+    		levelFailed = false;
+    		refresh.visible = true;
+    		var currentMap = 'map'+ BasicGame.level;
+    		var mapname = eval(currentMap);
+    		for(var i=0; i < mapname.length;i++)
+    		{
+    			if(mapname[i][2] == "totem"){
+    							totem = this.game.add.sprite(mapname[i][0],mapname[i][1], "totem");
+    							totem.unbreakable=true;
+
+    							this.game.physics.p2.enable(totem);
+
+    							totem.body.onBeginContact.add(this.checkTotemCollision, this);
+    						    totem.checkWorldBounds = true;
+    						    totem.events.onOutOfBounds.add(this.totemOut, this);
+    						}else{
+    			var brick = bricks.create(mapname[i][0],mapname[i][1], mapname[i][2]);
+    			this.game.physics.p2.enable(brick);
+
+
+    			if(mapname[i][2] == "4x2_solid" || mapname[i][2] == "1x1_solid"|| mapname[i][2] == "1x2_solid" || mapname[i][2] == "1x3_solid" || mapname[i][2] == "1x4_solid" || mapname[i][2] == "2x1_solid" || mapname[i][2] == "3x1_solid"|| mapname[i][2] == "4x1_solid" || mapname[i][2] == "1x1_solid_circle")
+    			{
+    				brick.unbreakable=true;
+    				brick.name = "bricksoild";
+    				this.game.physics.p2.enable(brick);
+    				if( mapname[i][2] == "1x1_solid_circle"){
+    					 brick.body.setCircle(34);
+    				}
+    			}else{
+    				brick.name = "brick";
+    				brick.dead = false;
+    				brickCounter++;
+    				this.game.physics.p2.enable(brick);
+    				if( mapname[i][2] == "1x1_destroy_circle"){
+    					 brick.body.setCircle(34);
+    				}
+    			}
+
+    			brick.body.onBeginContact.add(this.checkBrickCollision, this);
+    		    brick.checkWorldBounds = true;
+    		    brick.events.onOutOfBounds.add(this.brickOut, this);
+
+    		}
+
+    		this.game.input.onDown.add(this.destroyBlock, this);*/
+
+        //this.buildMap(BasicGame.level);
 
 
         // Create a sprite at the center of the screen using the 'logo' image.
@@ -74,8 +122,7 @@ BasicGame.Game.prototype = {
         //this.bouncy.events.onInputDown.add( function() { this.quitGame(); }, this );
     },
 
-    update: function () {
-
+    update: function() {
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
 
         // Accelerate the 'logo' sprite towards the cursor,
@@ -86,14 +133,18 @@ BasicGame.Game.prototype = {
         //this.bouncy.rotation = this.game.physics.arcade.accelerateToPointer( this.bouncy, this.game.input.activePointer, 500, 500, 500 );
     },
 
-    quitGame: function () {
-
+    quitGame: function() {
         //  Here you should destroy anything you no longer need.
         //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
 
         //  Then let's go back to the main menu.
         this.state.start('MainMenu');
+    },
 
-    }
+    destroyBlock: function(pointer) {
+
+    },
+
+
 
 };
