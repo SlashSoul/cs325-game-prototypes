@@ -44,11 +44,11 @@ BasicGame.Game.prototype = {
     		this.game.physics.p2.setImpactEvents(true);
     		this.game.physics.p2.gravity.y = 250;
 
-        var ground = this.add.sprite(0, 490, 'ground');
+        var ground = this.add.sprite(0, 540, 'ground');
         ground.unbreakable = true;
         ground.name = "ground";
         this.game.physics.p2.enable(ground);
-        ground.body.static = true; 
+        ground.body.static = true;
 
 
 
