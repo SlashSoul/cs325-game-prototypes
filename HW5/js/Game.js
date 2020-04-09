@@ -40,14 +40,11 @@ BasicGame.Game.prototype = {
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
-        //bricks = this.game.add.group();
-
         //this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
 
-        //ground = this.add.sprite(0, 436, 'ground');
         ground = this.add.sprite(0, this.game.world.height, 'ground');
         ground.enableBody = true;
         //ground.immovable = true;
@@ -62,59 +59,11 @@ BasicGame.Game.prototype = {
         walls = this.game.add.group();
         objects = this.game.add.group();
 
-        //ground.body.immovable = true;
-        //ground.enableBody = true;
-        //ground.name = "ground";
-        //this.game.physics.p2.enable(ground);
-        //ground.body.static = true;
 
 
-        /*brickCounter = 0;
-    		levelFailed = false;
-    		refresh.visible = true;
-    		var currentMap = 'map'+ BasicGame.level;
-    		var mapname = eval(currentMap);
-    		for(var i=0; i < mapname.length;i++)
-    		{
-    			if(mapname[i][2] == "totem"){
-    							totem = this.game.add.sprite(mapname[i][0],mapname[i][1], "totem");
-    							totem.unbreakable=true;
-
-    							this.game.physics.p2.enable(totem);
-
-    							totem.body.onBeginContact.add(this.checkTotemCollision, this);
-    						    totem.checkWorldBounds = true;
-    						    totem.events.onOutOfBounds.add(this.totemOut, this);
-    						}else{
-    			var brick = bricks.create(mapname[i][0],mapname[i][1], mapname[i][2]);
-    			this.game.physics.p2.enable(brick);
 
 
-    			if(mapname[i][2] == "4x2_solid" || mapname[i][2] == "1x1_solid"|| mapname[i][2] == "1x2_solid" || mapname[i][2] == "1x3_solid" || mapname[i][2] == "1x4_solid" || mapname[i][2] == "2x1_solid" || mapname[i][2] == "3x1_solid"|| mapname[i][2] == "4x1_solid" || mapname[i][2] == "1x1_solid_circle")
-    			{
-    				brick.unbreakable=true;
-    				brick.name = "bricksoild";
-    				this.game.physics.p2.enable(brick);
-    				if( mapname[i][2] == "1x1_solid_circle"){
-    					 brick.body.setCircle(34);
-    				}
-    			}else{
-    				brick.name = "brick";
-    				brick.dead = false;
-    				brickCounter++;
-    				this.game.physics.p2.enable(brick);
-    				if( mapname[i][2] == "1x1_destroy_circle"){
-    					 brick.body.setCircle(34);
-    				}
-    			}
-
-    			brick.body.onBeginContact.add(this.checkBrickCollision, this);
-    		    brick.checkWorldBounds = true;
-    		    brick.events.onOutOfBounds.add(this.brickOut, this);
-
-    		}
-
-    		this.game.input.onDown.add(this.destroyBlock, this);*/
+    		//this.game.input.onDown.add(this.destroyBlock, this);
 
         //this.buildMap(BasicGame.level);
 
@@ -167,7 +116,7 @@ BasicGame.Game.prototype = {
 
     destroyBlock: function(pointer) {
 
-    },
+    }
 
 
 
