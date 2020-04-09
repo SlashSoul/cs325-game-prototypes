@@ -47,9 +47,9 @@ BasicGame.Game.prototype = {
         var ground = this.add.sprite(0, 436, 'ground');
         ground.body.immovable = true;
         ground.enableBody = true;
-        //ground.name = "ground";
+        ground.name = "ground";
         this.game.physics.p2.enable(ground);
-        //ground.body.static = true;
+        ground.body.static = true;
 
 
         /*brickCounter = 0;
