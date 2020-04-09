@@ -46,6 +46,8 @@ BasicGame.Game.prototype = {
 
         var ground = this.add.sprite(0, 436, 'ground');
         ground.enableBody = true;
+
+        var player = this.add.sprite(16, 350, 'player');
         //ground.body.immovable = true;
         //ground.enableBody = true;
         //ground.name = "ground";

@@ -28,6 +28,7 @@ BasicGame.Preloader.prototype = {
 			this.load.image('logo', 'assets/phaser.png');
 			this.load.image('mountains-bg', 'assets/mountains-bg.png');
 			this.load.image('ground', 'assets/ground.png');
+			this.load.image('player', 'assets/player.png');
 	},
 
 	create: function() {
