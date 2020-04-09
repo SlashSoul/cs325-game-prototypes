@@ -36,7 +36,7 @@ var walls;
 
 BasicGame.Game.prototype = {
     create: function () {
-        //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+        // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
@@ -92,6 +92,7 @@ BasicGame.Game.prototype = {
         // When you click on the sprite, you go back to the MainMenu.
         //this.bouncy.inputEnabled = true;
         //this.bouncy.events.onInputDown.add( function() { this.quitGame(); }, this );
+        this.game.events.onInputDown.add(function() { this.destroyBlock(); }, this);
     },
 
     update: function() {
@@ -111,14 +112,14 @@ BasicGame.Game.prototype = {
     },
 
     quitGame: function() {
-        //  Here you should destroy anything you no longer need.
-        //  Stop music, delete sprites, purge caches, free resources, all that good stuff.
+        // Here you should destroy anything you no longer need.
+        // Stop music, delete sprites, purge caches, free resources, all that good stuff.
 
-        //  Then let's go back to the main menu.
+        // Then let's go back to the main menu.
         this.state.start('MainMenu');
     },
 
-    destroyBlock: function(pointer) {
+    destroyBlock: function() {
 
     }
 
