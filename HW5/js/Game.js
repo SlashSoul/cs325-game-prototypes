@@ -49,9 +49,10 @@ BasicGame.Game.prototype = {
 
         ground = this.add.sprite(0, 436, 'ground');
         ground.enableBody = true;
+        ground.immovable = true;
 
 
-        player = this.add.sprite(16, 350, 'player');
+        player = this.add.sprite(375, 75, 'player');
 
         this.game.physics.p2.enable(ground);
         this.game.physics.p2.enable(player);
