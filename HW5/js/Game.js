@@ -40,9 +40,9 @@ BasicGame.Game.prototype = {
         //bricks = this.game.add.group();
 
         //this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
-        //this.game.physics.startSystem(Phaser.Physics.P2JS);
-        //this.game.physics.p2.setImpactEvents(true);
-        //this.game.physics.p2.gravity.y = 250;
+        this.game.physics.startSystem(Phaser.Physics.P2JS);
+        this.game.physics.p2.setImpactEvents(true);
+        this.game.physics.p2.gravity.y = 250;
 
         var ground = this.add.sprite(0, 436, 'ground');
         ground.enableBody = true;
