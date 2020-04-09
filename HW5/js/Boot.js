@@ -2,14 +2,12 @@
 
 var BasicGame = {};
 
-BasicGame.Boot = function (game) {
+BasicGame.Boot = function(game) {
 
 };
 
 BasicGame.Boot.prototype = {
-
-    init: function () {
-
+    init: function() {
         //  Unless you specifically know your game needs to support multi-touch I would recommend setting this to 1
         this.input.maxPointers = 1;
 
@@ -30,23 +28,17 @@ BasicGame.Boot.prototype = {
             this.scale.forceLandscape = true;
             this.scale.pageAlignHorizontally = true;
         }
-
     },
 
-    preload: function () {
-
+    preload: function() {
         //  Here we load the assets required for our Preloader state (in this case a background and a loading bar)
         this.load.image('preloaderBackground', 'assets/preloader_background.jpg');
         this.load.image('preloaderBar', 'assets/preloader_bar.png');
-
     },
 
-    create: function () {
-
+    create: function() {
         //  By this point the preloader assets have loaded to the cache, we've set the game settings
         //  So now let's start the real preloader going
         this.state.start('Preloader');
-
     }
-
 };

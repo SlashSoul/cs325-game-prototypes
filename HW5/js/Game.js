@@ -1,7 +1,6 @@
 "use strict";
 
-BasicGame.Game = function (game) {
-
+BasicGame.Game = function(game) {
     //  When a State is added to Phaser it automatically has the following properties set on it, even if they already exist:
     /*
     this.game;      //  a reference to the currently running game (Phaser.Game)
@@ -20,54 +19,62 @@ BasicGame.Game = function (game) {
     this.particles; //  the particle manager (Phaser.Particles)
     this.physics;   //  the physics manager (Phaser.Physics)
     this.rnd;       //  the repeatable random number generator (Phaser.RandomDataGenerator)
-    
+
     //  You can use any of these from any function within this State.
     //  But do consider them as being 'reserved words', i.e. don't create a property for your own game called "world" or you'll over-write the world reference.
     */
-    
+
     // For optional clarity, you can initialize
     // member variables here. Otherwise, you will do it in create().
     this.bouncy = null;
 };
 
+var bricks;
+
 BasicGame.Game.prototype = {
-
     create: function () {
-
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        
+        this.add.sprite(0, 0, 'mountains-bg');
+        this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
+
+        bricks = this.game.add.group();
+
+        var ground = this.add.sprite(0, 436, 'ground');
+
+
+
         // Create a sprite at the center of the screen using the 'logo' image.
-        this.bouncy = this.game.add.sprite( this.game.world.centerX, this.game.world.centerY, 'logo' );
+        //this.bouncy = this.game.add.sprite( this.game.world.centerX, this.game.world.centerY, 'logo' );
         // Anchor the sprite at its center, as opposed to its top-left corner.
         // so it will be truly centered.
-        this.bouncy.anchor.setTo( 0.5, 0.5 );
-        
+        //this.bouncy.anchor.setTo( 0.5, 0.5 );
+
         // Turn on the arcade physics engine for this sprite.
-        this.game.physics.enable( this.bouncy, Phaser.Physics.ARCADE );
+        //this.game.physics.enable( this.bouncy, Phaser.Physics.ARCADE );
         // Make it bounce off of the world bounds.
-        this.bouncy.body.collideWorldBounds = true;
-        
+        //this.bouncy.body.collideWorldBounds = true;
+
         // Add some text using a CSS style.
         // Center it in X, and position its top 15 pixels from the top of the world.
-        var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-        var text = this.game.add.text( this.game.world.centerX, 15, "Build something amazing.", style );
-        text.anchor.setTo( 0.5, 0.0 );
-        
+        //var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
+        //var text = this.game.add.text( this.game.world.centerX, 15, "Build something amazing.", style );
+        //text.anchor.setTo( 0.5, 0.0 );
+
         // When you click on the sprite, you go back to the MainMenu.
-        this.bouncy.inputEnabled = true;
-        this.bouncy.events.onInputDown.add( function() { this.quitGame(); }, this );
+        //this.bouncy.inputEnabled = true;
+        //this.bouncy.events.onInputDown.add( function() { this.quitGame(); }, this );
     },
 
     update: function () {
 
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        
+
         // Accelerate the 'logo' sprite towards the cursor,
         // accelerating at 500 pixels/second and moving no faster than 500 pixels/second
         // in X or Y.
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
-        this.bouncy.rotation = this.game.physics.arcade.accelerateToPointer( this.bouncy, this.game.input.activePointer, 500, 500, 500 );
+        //this.bouncy.rotation = this.game.physics.arcade.accelerateToPointer( this.bouncy, this.game.input.activePointer, 500, 500, 500 );
     },
 
     quitGame: function () {
