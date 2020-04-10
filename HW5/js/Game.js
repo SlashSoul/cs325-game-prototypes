@@ -112,7 +112,5 @@ BasicGame.Game.prototype = {
         //this.state.start('MainMenu');
     }
 
-  }
-
 
 };
