@@ -176,10 +176,11 @@ BasicGame.Game.prototype = {
 
     }
 
-    function click() {
-      game.add.text(game.world.centerX, game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
-    }
+  }
 
+  function click() {
+    game.add.text(game.world.centerX, game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
+  }
 
 
 };
