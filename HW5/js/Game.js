@@ -49,7 +49,14 @@ BasicGame.Game.prototype = {
 
         walls = this.game.add.group();
         objects = this.game.add.group();
+        walls.name = 'wall';
+        objects.name = 'object';
+
+        walls.create(500, 550, 'wall');
+        walls.create(450, 550, 'wall');
         walls.create(400, 550, 'wall');
+        walls.create(350, 550, 'wall');
+        walls.create(300, 550, 'wall');
 
         //this.add.sprite(400, 550, 'wall');
 
@@ -65,6 +72,8 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.enable(walls);
         this.game.physics.p2.enable(objects);
         this.game.physics.p2.enable(player);
+
+
 
         //this.add.sprite(400, 500, 'object');
         /*this.add.sprite(400, 450, 'object');
@@ -137,6 +146,8 @@ BasicGame.Game.prototype = {
         // This function returns the rotation angle that makes it visually match its
         // new trajectory.
         //this.bouncy.rotation = this.game.physics.arcade.accelerateToPointer( this.bouncy, this.game.input.activePointer, 500, 500, 500 );
+
+        player.body.onBeginContact.add(this.checkPlayerCollision, this);
     },
 
     quitGame: function() {
@@ -149,6 +160,16 @@ BasicGame.Game.prototype = {
 
     destroyBlock: function() {
 
+    },
+
+    checkPlayerCollision: function(body) {
+      if (body) {
+        if (body.sprite.name != 'object' || body.sprite.name != 'wall') {
+          failText = "Game Over!"
+          player.body.onBeginContact.remove(this.checkPlayerCollision, this);
+          // Return to Main Menu/Game state.
+        }
+      }
     }
 
 
