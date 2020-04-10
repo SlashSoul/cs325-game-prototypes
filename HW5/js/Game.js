@@ -75,7 +75,7 @@ BasicGame.Game.prototype = {
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
         objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
 
-        player.onBeginContact.add(setDeath, this);
+        player.body.onBeginContact.add(setDeath, this);
 
         // objects.inputEnableChildren = false; for disabling inputs after death
         //player.body.onCollide = new Phaser.Signal();
