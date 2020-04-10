@@ -37,29 +37,23 @@ var walls;
 
 BasicGame.Game.prototype = {
     create: function () {
-        // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+        this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
+        this.game.physics.startSystem(Phaser.Physics.P2JS);
+        this.game.physics.p2.setImpactEvents(true);
+        this.game.physics.p2.gravity.y = 250;
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
-        this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
-        this.game.physics.startSystem(Phaser.Physics.P2JS);
-        //this.game.physics.p2.setImpactEvents(true);
-        this.game.physics.p2.gravity.y = 250;
-
+        // Add the interactive objects (i.e. totem, breakable objects, and unbreakable objects)
         player = this.add.sprite(400, 200, 'player');
-
-        walls = this.game.add.group();
         objects = this.game.add.group();
-        walls.name = 'wall';
-        objects.name = 'object';
+        walls = this.game.add.group();
 
         walls.create(500, 550, 'wall');
         walls.create(450, 550, 'wall');
         walls.create(400, 550, 'wall');
         walls.create(350, 550, 'wall');
         walls.create(300, 550, 'wall');
-
-        //this.add.sprite(400, 550, 'wall');
 
         objects.create(400, 500, 'object');
         objects.create(400, 450, 'object');
@@ -68,66 +62,16 @@ BasicGame.Game.prototype = {
         objects.create(400, 300, 'object');
         objects.create(400, 250, 'object');
 
-        //objects.create(350, 300, 'object');
+        // Enable physics on the interactive objects
         this.game.physics.p2.enable([walls, objects, player]);
-        //this.game.physics.p2.enable(walls);
-        //this.game.physics.p2.enable(objects);
-        //this.game.physics.p2.enable(player);
+
+        // Define controls and interactions
+        this.game.inputEnabled = true;
+        objects.events.onInputDown.add(function() { this.destroyObject(); }, this);
 
         //player.body.onCollide = new Phaser.Signal();
         //player.body.onCollide.add(playerDeath(), this);
 
-
-        //this.add.sprite(400, 500, 'object');
-        /*this.add.sprite(400, 450, 'object');
-        this.add.sprite(400, 400, 'object');
-        this.add.sprite(400, 350, 'object');
-        this.add.sprite(400, 300, 'object');
-        this.add.sprite(400, 250, 'object');*/
-
-        //ground = this.add.sprite(0, this.game.world.height, 'ground');
-        //ground.enableBody = true;
-        //ground.immovable = true;
-        //ground.body.static = true;
-
-        //player = this.add.sprite(400, 75, 'player');
-
-        //this.game.physics.p2.enable(ground);
-        //this.game.physics.p2.enable(player);
-
-        //walls = this.game.add.group();
-        //objects = this.game.add.group();
-
-        //walls.enableBody = true;
-        //walls.create(400, 380, 'wall');
-
-        //this.game.physics.p2.enable(walls);
-
-        //objects.create(400, 380, 'object');
-        //objects.create(350, 380, 'object');
-
-
-    		//this.game.input.onDown.add(this.destroyBlock, this);
-
-        //this.buildMap(BasicGame.level);
-
-
-        // Create a sprite at the center of the screen using the 'logo' image.
-        //this.bouncy = this.game.add.sprite( this.game.world.centerX, this.game.world.centerY, 'logo' );
-        // Anchor the sprite at its center, as opposed to its top-left corner.
-        // so it will be truly centered.
-        //this.bouncy.anchor.setTo( 0.5, 0.5 );
-
-        // Turn on the arcade physics engine for this sprite.
-        //this.game.physics.enable( this.bouncy, Phaser.Physics.ARCADE );
-        // Make it bounce off of the world bounds.
-        //this.bouncy.body.collideWorldBounds = true;
-
-        // Add some text using a CSS style.
-        // Center it in X, and position its top 15 pixels from the top of the world.
-        //var style = { font: "25px Verdana", fill: "#9999ff", align: "center" };
-        //var text = this.game.add.text( this.game.world.centerX, 15, "Build something amazing.", style );
-        //text.anchor.setTo( 0.5, 0.0 );
 
         // When you click on the sprite, you go back to the MainMenu.
         //this.bouncy.inputEnabled = true;
@@ -157,12 +101,15 @@ BasicGame.Game.prototype = {
         //player.body.onBeginContact.add(this.checkPlayerCollision, this);
     },
 
-    quitGame: function() {
+    destroyObject: function() {
+        this.game.add.text(game.world.centerX, game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
+        //this.state.start('MainMenu');
+
         // Here you should destroy anything you no longer need.
         // Stop music, delete sprites, purge caches, free resources, all that good stuff.
 
         // Then let's go back to the main menu.
-        this.state.start('MainMenu');
+        //this.state.start('MainMenu');
     }
 
   }
