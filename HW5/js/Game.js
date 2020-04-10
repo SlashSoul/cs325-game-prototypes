@@ -55,6 +55,7 @@ BasicGame.Game.prototype = {
         walls.create(350, 550, 'wall');
         walls.create(300, 550, 'wall');
 
+        objects.inputEnableChildren = true;
         objects.create(400, 500, 'object');
         objects.create(400, 450, 'object');
         objects.create(400, 400, 'object');
@@ -66,7 +67,6 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.enable([walls, objects, player]);
 
         // Define controls and interactions
-        objects.inputEnabled = true;
         objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
 
         //player.body.onCollide = new Phaser.Signal();
