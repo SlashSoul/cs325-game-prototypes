@@ -74,7 +74,7 @@ BasicGame.Game.prototype = {
         //this.game.physics.p2.enable(player);
 
         player.body.onCollide = new Phaser.Signal();
-        player.body.onCollide.add(collisionWorldBounds, this);
+        player.body.onCollide.add(playerDeath, this);
 
 
         //this.add.sprite(400, 500, 'object');
@@ -162,7 +162,7 @@ BasicGame.Game.prototype = {
         this.state.start('MainMenu');
     },
 
-    collisionWorldBounds: function(player, this) {
+    playerDeath: function(player, this) {
       game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
       // Stop destroyBlocks action
       // timer.event return to Main Menu in a few seconds
