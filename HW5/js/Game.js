@@ -74,7 +74,7 @@ BasicGame.Game.prototype = {
         //this.game.physics.p2.enable(player);
 
         player.body.onCollide = new Phaser.Signal();
-        player.body.onCollide.add(playerDeath, this);
+        player.body.onCollide.add(playerDeath(), this);
 
 
         //this.add.sprite(400, 500, 'object');
