@@ -68,11 +68,13 @@ BasicGame.Game.prototype = {
         objects.create(400, 250, 'object');
 
         //objects.create(350, 300, 'object');
+        this.game.physics.p2.enable([walls, objects, player]);
+        //this.game.physics.p2.enable(walls);
+        //this.game.physics.p2.enable(objects);
+        //this.game.physics.p2.enable(player);
 
-        this.game.physics.p2.enable(walls);
-        this.game.physics.p2.enable(objects);
-        this.game.physics.p2.enable(player);
-
+        player.body.onCollide = new Phaser.Signal();
+        player.body.onCollide.add(collisionWorldBounds, this);
 
 
         //this.add.sprite(400, 500, 'object');
@@ -134,6 +136,8 @@ BasicGame.Game.prototype = {
 
     update: function() {
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+        this.game.physics.p2.collide(player, this.world);
+
         /*this.game.physics.p2.collide(player, ground);
         this.game.physics.p2.collide(player, objects);
         this.game.physics.p2.collide(player, walls);
@@ -147,7 +151,7 @@ BasicGame.Game.prototype = {
         // new trajectory.
         //this.bouncy.rotation = this.game.physics.arcade.accelerateToPointer( this.bouncy, this.game.input.activePointer, 500, 500, 500 );
 
-        player.body.onBeginContact.add(this.checkPlayerCollision, this);
+        //player.body.onBeginContact.add(this.checkPlayerCollision, this);
     },
 
     quitGame: function() {
@@ -158,18 +162,14 @@ BasicGame.Game.prototype = {
         this.state.start('MainMenu');
     },
 
-    destroyBlock: function() {
-
+    collisionWorldBounds: function(player, this) {
+      game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
+      // Stop destroyBlocks action
+      // timer.event return to Main Menu in a few seconds
     },
 
-    checkPlayerCollision: function(body) {
-      if (body) {
-        if (body.sprite.name != 'object' || body.sprite.name != 'wall') {
-          failText = "Game Over!"
-          player.body.onBeginContact.remove(this.checkPlayerCollision, this);
-          // Return to Main Menu/Game state.
-        }
-      }
+    destroyBlock: function() {
+
     }
 
 
