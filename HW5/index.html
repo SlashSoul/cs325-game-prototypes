@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="UTF-8" />
-	<title>Phaser Basic Project Template</title>
+	<title>Digital Assignment 5</title>
 	<script src="js/phaser.min.js"></script>
 	<!-- Boot.js must come first since it creates the BasicGame object
 	that stores all the states. -->
@@ -29,80 +29,65 @@ body
 <body>
 <div id="game"></div>
 <div id="readme">
-<h2>Your game title</h2>
+<h2>Hero v1.0</h2>
 
 <ul>
-<li><strong>Originality:</strong>
-What is original about your game?
-</li>
+<li><strong>Originality:</strong> Hero v1.0 will have a level-based system (with varying configurations of objects for the bird to stand) and a click-based input, which is unlike any other game that I have built with Phaser.</li>
 
-<li><strong>Technical Merit:</strong>
-What is interesting about your game technology?
-</li>
+<li><strong>Technical Merit:</strong> There is a strong emphasis on gravity and physics. It has to be managed correctly or the level will be difficult to beat.</li>
 
 <li><strong>Prototype Postmortem:</strong>
-What did you learn from this prototype?
-What was the easiest or hardest part of making it?
+<ul>
+	<li>What did you learn from this prototype? Learned a lot about placing objects based using pixels instead of randomly guessing which object I wanted to place at a location.</li>
+	<li>What was the easiest or hardest part of making it? There were some bugs with triggering events (click-based event) on a Phaser group of objects with a child.</li>
+</ul>
 </li>
 
 <li><strong>Prototype Assets:</strong>
 Did you make your prototype assets from scratch? Did you borrow them? Cite your sources here.
-<ul>
-<li>Loading screen: self-made</li>
-<li>Puppy image: self-made</li>
-<li>Button: Phaser example <a href="https://phaser.io/examples/v2/buttons/action-on-click">Action On Click</a></li>
-<li>Bouncing Phaser image: <a href="https://phaser.io/download/logo">Phaser logo</a></li>
-<li>Music: "Poppers and Prosecco" Kevin MacLeod (<a href="incompetech.com">incompetech.com</a>). Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons: By Attribution 3.0 License</a></li>
-</ul>
+	<ul>
+		<li>Loading screen: Phaser example</li>
+		<li>Mountain background: Downloaded from a Web <a href="https://www.artstation.com/artwork/bQOzo">site</a>.</li>
+		<li>Button: self-made <a href="https://www.clickminded.com/button-generator/">Button Generator</a></li>
+		<li>Yellow and Green Box: Phaser example.</li>
+		<li>Bird: Downloaded from a Web <a href="http://paulmakegames.blogspot.com/2017/07/background.html">site</a>.</li>
+		<li>Music: "Poppers and Prosecco" Kevin MacLeod (<a href="incompetech.com">incompetech.com</a>). Licensed under <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons: By Attribution 3.0 License</a></li>
+	</ul>
 </li>
 
 <li><strong>Prototype Closest Other Game:</strong>
 Which other game most closely resembles your game? If you are borrowing code from a Phaser Example, you must say so here. If you borrow code from elsewhere, you must say so here.
-<ul>
-<li>The code for this example is adapted from the <a href="https://github.com/photonstorm/phaser/tree/v2.6.2/resources/Project%20Templates/Basic">Phaser Basic Project Template</a></li>
-</ul>
+	<ul>
+		<li>The game design is similar to many mobile puzzle games.</li>
+	</ul>
 </li>
 
-<li><strong>High Concept:</strong>
-A one-sentence summary of your game.
-</li>
+<li><strong>High Concept:</strong> Hero v1.0 is a single-player puzzle platformer.</li>
 
-<li><strong>Theme:</strong>
-State which of the Storymatic themes you used.
-</li>
+<li><strong>Theme:</strong> N/A</li>
 
 <li><strong>Mandated Variety:</strong>
-State which input, randomness, genre, and play style you used in this prototype.
+	<ul>
+		<li>Input: Left-click Mouse</li>
+		<li>Randomness: Deterministic</li>
+		<li>Genre: Puzzle</li>
+		<li>Play Style: Avoid removing obstacles that may cause the bird to fall to its death.</li>
+	</ul>
 </li>
 
-<li><strong>Prototype Goal:</strong>
-What game mechanic is this prototype evaluating?
-</li>
+<li><strong>Prototype Goal:</strong> This prototype is evaluating the enjoyment of click-based pointer games.</li>
 
-<li><strong>Player Experience Goals:</strong>
-What experience do you want players to have when playing your game?
-</li>
+<li><strong>Player Experience Goals:</strong> Players should be able to understand the rules of this game easily and experience a sense of progression after completing levels.</li>
 
-<li><strong>Gameplay:</strong>
-A paragraph describing the actions the player can perform, the system dynamics, and the core mechanic. Include a concise explanation of the prototype’s inputs and their expected effects (how to play). You can also describe game play that is not in the prototype. You may include mock-up images for parts of the game not in the prototype.
-</li>
+<li><strong>Gameplay:</strong>Hero v1.0 is a single-input game: left-click. If the object is yellow, then the object will be destroyed if it is clicked. If the object is green, the object cannot be destroyed when it is clicked.</li>
 
-<li><strong>Strategies:</strong>
-What player strategies do you expect will be effective at playing this game?
-</li>
+<li><strong>Strategies:</strong> The objective of this game is to remove all yellow objects without forcing the bird to fall down to its death and touch the ground. Beat level after level until there are no more levels.</li>
 
-<li><strong>Story/Setting/Premise:</strong>
-A paragraph about the world your game is set in and who the characters are. What makes the game world and its occupants unique and interesting? Do the tokens represent something? If the game has a backstory, mention it here. If the game is abstract, then say so.
-How will the dramatic tension interact with the gameplay tension?
-</li>
+<li><strong>Story/Setting/Premise:</strong> This game is set on mountainous terrain in the middle of the night. The bird finds itself stuck on bricks, and it needs your help removing the obstacles. The player will feel the tension of having to remove obstacles until there is no more without making the bird fall down and die.</li>
 
-<li><strong>Target Audience:</strong>
-A single sentence that describes the demographic you're trying to reach.
-</li>
+<li><strong>Target Audience:</strong> Ages 5+ & Puzzle Enthusiasts</li>
 
-<li><strong>Play Time:</strong>
-How long does your game take to play?
-</li>
+<li><strong>Play Time:</strong> 1~2 minutes</li>
 
 </ul>
 </div>
