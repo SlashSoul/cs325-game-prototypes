@@ -73,7 +73,9 @@ BasicGame.Game.prototype = {
 
         // Define controls and interactions
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
-        objects.onChildInputDown.add(function() { this.destroyObject(this); }, this);
+        objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
+
+        player.onBeginContact.add(setDeath, this);
 
         // objects.inputEnableChildren = false; for disabling inputs after death
         //player.body.onCollide = new Phaser.Signal();
@@ -89,7 +91,7 @@ BasicGame.Game.prototype = {
     },
 
     update: function() {
-        //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
+
         //this.game.physics.p2.collide(player, this.world);
 
         /*this.game.physics.p2.collide(player, ground);
@@ -108,9 +110,9 @@ BasicGame.Game.prototype = {
         //player.body.onBeginContact.add(this.checkPlayerCollision, this);
     },
 
-    destroyObject: function(obj) {
+    destroyObject: function() {
         this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
-        obj.remove();
+        //obj.remove();
         //this.state.start('MainMenu');
 
         // Here you should destroy anything you no longer need.
@@ -118,7 +120,17 @@ BasicGame.Game.prototype = {
 
         // Then let's go back to the main menu.
         //this.state.start('MainMenu');
+    },
+
+    setDeath: function(body, bodyB, shapeA, shapeB, equation) {
+        if (!body) {
+            this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
+            this.game.pause();
+        }
+
     }
+
+    // death, function: pause() restart()
 
 
 };
