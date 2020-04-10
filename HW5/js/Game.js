@@ -53,11 +53,18 @@ BasicGame.Game.prototype = {
 
         //this.add.sprite(400, 550, 'wall');
 
+        objects.create(400, 500, 'object');
         objects.create(400, 450, 'object');
         objects.create(400, 400, 'object');
         objects.create(400, 350, 'object');
         objects.create(400, 300, 'object');
         objects.create(400, 250, 'object');
+
+        objects.create(350, 300, 'object');
+
+        this.game.physics.p2.enable(walls);
+        this.game.physics.p2.enable(objects);
+        this.game.physics.p2.enable(player);
 
         //this.add.sprite(400, 500, 'object');
         /*this.add.sprite(400, 450, 'object');
