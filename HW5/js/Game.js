@@ -45,7 +45,7 @@ BasicGame.Game.prototype = {
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
         // Add the interactive objects (i.e. totem, breakable objects, and unbreakable objects)
-        player = this.add.sprite(400, 200, 'player');
+        this.player = this.add.sprite(400, 200, 'player');
         objects = this.game.add.group();
         walls = this.game.add.group();
 
@@ -66,8 +66,8 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.enable([walls, objects, player]);
 
         // Define controls and interactions
-        this.game.inputEnabled = true;
-        player.events.onInputDown.add(function() { this.destroyObject(); }, this);
+        this.player.inputEnabled = true;
+        this.player.events.onInputDown.add(function() { this.destroyObject(); }, this);
 
         //player.body.onCollide = new Phaser.Signal();
         //player.body.onCollide.add(playerDeath(), this);
