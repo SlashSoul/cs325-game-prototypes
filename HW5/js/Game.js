@@ -46,23 +46,35 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.gravity.y = 250;
 
         this.add.sprite(400, 200, 'player');
-        this.add.sprite(400, 550, 'wall');
-        this.add.sprite(400, 500, 'object');
-        this.add.sprite(400, 450, 'object');
+
+        walls = this.game.add.group();
+        objects = this.game.add.group();
+        walls.create(400, 550, 'wall');
+
+        //this.add.sprite(400, 550, 'wall');
+
+        objects.create(400, 450, 'object');
+        objects.create(400, 400, 'object');
+        objects.create(400, 350, 'object');
+        objects.create(400, 300, 'object');
+        objects.create(400, 250, 'object');
+
+        //this.add.sprite(400, 500, 'object');
+        /*this.add.sprite(400, 450, 'object');
         this.add.sprite(400, 400, 'object');
         this.add.sprite(400, 350, 'object');
         this.add.sprite(400, 300, 'object');
-        this.add.sprite(400, 250, 'object');
+        this.add.sprite(400, 250, 'object');*/
 
         //ground = this.add.sprite(0, this.game.world.height, 'ground');
         //ground.enableBody = true;
         //ground.immovable = true;
         //ground.body.static = true;
 
-        player = this.add.sprite(400, 75, 'player');
+        //player = this.add.sprite(400, 75, 'player');
 
         //this.game.physics.p2.enable(ground);
-        this.game.physics.p2.enable(player);
+        //this.game.physics.p2.enable(player);
 
         //walls = this.game.add.group();
         //objects = this.game.add.group();
