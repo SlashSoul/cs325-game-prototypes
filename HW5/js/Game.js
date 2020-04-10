@@ -32,7 +32,7 @@ BasicGame.Game = function(game) {
 var ground;
 var objects;
 var player;
-var status = True;
+var status = true;
 var walls;
 
 BasicGame.Game.prototype = {
@@ -166,7 +166,7 @@ BasicGame.Game.prototype = {
     playerDeath: function(player) {
       game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
       // Stop destroyBlocks action
-      status = False;
+      status = false;
       // timer.event return to Main Menu in a few seconds
     },
 
