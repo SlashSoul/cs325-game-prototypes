@@ -162,7 +162,7 @@ BasicGame.Game.prototype = {
         this.state.start('MainMenu');
     },
 
-    playerDeath: function(player, this) {
+    playerDeath: function(player) {
       game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
       // Stop destroyBlocks action
       // timer.event return to Main Menu in a few seconds
