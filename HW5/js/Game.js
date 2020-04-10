@@ -137,7 +137,7 @@ BasicGame.Game.prototype = {
 
     update: function() {
         //  Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
-        this.game.physics.p2.collide(player, this.world);
+        //this.game.physics.p2.collide(player, this.world);
 
         /*this.game.physics.p2.collide(player, ground);
         this.game.physics.p2.collide(player, objects);
