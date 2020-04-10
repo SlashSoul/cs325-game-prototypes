@@ -66,7 +66,7 @@ BasicGame.Game.prototype = {
         objects.create(400, 400, 'object');
         objects.create(400, 350, 'object');
         objects.create(400, 300, 'object');
-        objects.create(400, 250, 'object');*/
+        objects.create(400, 250, 'object');
 
         // Enable physics on the interactive objects
         this.game.physics.p2.enable([walls, objects, player]);
