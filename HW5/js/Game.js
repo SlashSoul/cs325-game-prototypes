@@ -32,6 +32,7 @@ BasicGame.Game = function(game) {
 var ground;
 var objects;
 var player;
+var status = True;
 var walls;
 
 BasicGame.Game.prototype = {
@@ -73,8 +74,8 @@ BasicGame.Game.prototype = {
         //this.game.physics.p2.enable(objects);
         //this.game.physics.p2.enable(player);
 
-        player.body.onCollide = new Phaser.Signal();
-        player.body.onCollide.add(playerDeath(), this);
+        //player.body.onCollide = new Phaser.Signal();
+        //player.body.onCollide.add(playerDeath(), this);
 
 
         //this.add.sprite(400, 500, 'object');
@@ -165,6 +166,7 @@ BasicGame.Game.prototype = {
     playerDeath: function(player) {
       game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
       // Stop destroyBlocks action
+      status = False;
       // timer.event return to Main Menu in a few seconds
     },
 
