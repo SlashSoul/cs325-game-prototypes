@@ -133,8 +133,8 @@ BasicGame.Game.prototype = {
         //this.bouncy.inputEnabled = true;
         //this.bouncy.events.onInputDown.add( function() { this.quitGame(); }, this );
         //this.game.events.onInputDown.add(function() { this.destroyBlock(); }, this);
-        this.game.inputEnabled = true;
-        this.game.events.input.onDown.add(this.click, this);
+        //this.game.inputEnabled = true;
+        //this.game.events.input.onDown.add(this.click, this);
     },
 
     update: function() {
@@ -163,21 +163,6 @@ BasicGame.Game.prototype = {
 
         // Then let's go back to the main menu.
         this.state.start('MainMenu');
-    },
-
-    playerDeath: function(player) {
-      game.add.text(game.world.centerX, game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
-      // Stop destroyBlocks action
-      status = false;
-      // timer.event return to Main Menu in a few seconds
-    },
-
-    destroyBlock: function() {
-
-    },
-
-    click: function() {
-      game.add.text(game.world.centerX, game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
     }
 
   }
