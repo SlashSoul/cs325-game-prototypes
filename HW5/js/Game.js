@@ -60,7 +60,7 @@ BasicGame.Game.prototype = {
         objects.create(400, 300, 'object');
         objects.create(400, 250, 'object');
 
-        objects.create(350, 300, 'object');
+        //objects.create(350, 300, 'object');
 
         this.game.physics.p2.enable(walls);
         this.game.physics.p2.enable(objects);
