@@ -40,7 +40,7 @@ BasicGame.Game.prototype = {
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
-        //this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
+        this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
@@ -59,7 +59,7 @@ BasicGame.Game.prototype = {
         objects = this.game.add.group();
 
         walls.enableBody = true;
-        walls.create(400, 386, 'wall');
+        walls.create(400, 380, 'wall');
 
         this.game.physics.p2.enable(walls);
 
