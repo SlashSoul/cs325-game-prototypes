@@ -55,12 +55,12 @@ BasicGame.Game.prototype = {
         walls.create(350, 550, 'wall');
         walls.create(300, 550, 'wall');
 
-        for (var i = 25; i < 50; i+5) {
+        /*for (var i = 25; i < 50; i+5) {
           var object = objects.create(400, i*100, 'object');
           object.inputEnabled = true;
           object.events.onInputDown.add(function() { this.destroyObject(); }, this);
-        }
-        /*objects.inputEnableChildren = true;
+        }*/
+        objects.inputEnableChildren = true;
         objects.create(400, 500, 'object');
         objects.create(400, 450, 'object');
         objects.create(400, 400, 'object');
@@ -73,6 +73,7 @@ BasicGame.Game.prototype = {
 
         // Define controls and interactions
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
+        objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
 
         // objects.inputEnableChildren = false; for disabling inputs after death
         //player.body.onCollide = new Phaser.Signal();
