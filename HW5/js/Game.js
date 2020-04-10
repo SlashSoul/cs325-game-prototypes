@@ -38,13 +38,21 @@ BasicGame.Game.prototype = {
     create: function () {
         // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
         this.add.sprite(0, 0, 'mountains-bg');
-        this.add.sprite(0, this.game.world.height, 'ground');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
         this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
         this.game.physics.startSystem(Phaser.Physics.P2JS);
-        this.game.physics.p2.setImpactEvents(true);
+        //this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
+
+        this.add.sprite(400, 200, 'player');
+        this.add.sprite(400, 550, 'wall');
+        this.add.sprite(400, 500, 'object');
+        this.add.sprite(400, 450, 'object');
+        this.add.sprite(400, 400, 'object');
+        this.add.sprite(400, 350, 'object');
+        this.add.sprite(400, 300, 'object');
+        this.add.sprite(400, 250, 'object');
 
         //ground = this.add.sprite(0, this.game.world.height, 'ground');
         //ground.enableBody = true;
@@ -56,16 +64,16 @@ BasicGame.Game.prototype = {
         //this.game.physics.p2.enable(ground);
         this.game.physics.p2.enable(player);
 
-        walls = this.game.add.group();
-        objects = this.game.add.group();
+        //walls = this.game.add.group();
+        //objects = this.game.add.group();
 
-        walls.enableBody = true;
-        walls.create(400, 380, 'wall');
+        //walls.enableBody = true;
+        //walls.create(400, 380, 'wall');
 
-        this.game.physics.p2.enable(walls);
+        //this.game.physics.p2.enable(walls);
 
-        objects.create(400, 380, 'object');
-        objects.create(350, 380, 'object');
+        //objects.create(400, 380, 'object');
+        //objects.create(350, 380, 'object');
 
 
     		//this.game.input.onDown.add(this.destroyBlock, this);
