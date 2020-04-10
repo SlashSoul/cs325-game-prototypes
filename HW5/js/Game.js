@@ -73,7 +73,7 @@ BasicGame.Game.prototype = {
 
         // Define controls and interactions
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
-        objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
+        objects.onChildInputDown.add(function() { this.destroyObject(this); }, this);
 
         // objects.inputEnableChildren = false; for disabling inputs after death
         //player.body.onCollide = new Phaser.Signal();
@@ -108,9 +108,9 @@ BasicGame.Game.prototype = {
         //player.body.onBeginContact.add(this.checkPlayerCollision, this);
     },
 
-    destroyObject: function() {
+    destroyObject: function(obj) {
         this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
-        objects.remove();
+        obj.remove();
         //this.state.start('MainMenu');
 
         // Here you should destroy anything you no longer need.
