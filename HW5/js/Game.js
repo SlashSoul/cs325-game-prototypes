@@ -38,6 +38,7 @@ BasicGame.Game.prototype = {
     create: function () {
         // Honestly, just about anything could go here. It's YOUR game after all. Eat your heart out!
         this.add.sprite(0, 0, 'mountains-bg');
+        this.add.sprite(0, this.game.world.height, 'ground');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
         this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
