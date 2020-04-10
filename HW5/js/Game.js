@@ -93,7 +93,7 @@ BasicGame.Game.prototype = {
         // When you click on the sprite, you go back to the MainMenu.
         //this.bouncy.inputEnabled = true;
         //this.bouncy.events.onInputDown.add( function() { this.quitGame(); }, this );
-        this.game.events.onInputDown.add(function() { this.destroyBlock(); }, this);
+        //this.game.events.onInputDown.add(function() { this.destroyBlock(); }, this);
     },
 
     update: function() {
