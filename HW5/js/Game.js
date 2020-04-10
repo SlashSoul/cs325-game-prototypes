@@ -67,7 +67,7 @@ BasicGame.Game.prototype = {
 
         // Define controls and interactions
         this.game.inputEnabled = true;
-        objects.events.onInputDown.add(function() { this.destroyObject(); }, this);
+        player.events.onInputDown.add(function() { this.destroyObject(); }, this);
 
         //player.body.onCollide = new Phaser.Signal();
         //player.body.onCollide.add(playerDeath(), this);
