@@ -55,20 +55,26 @@ BasicGame.Game.prototype = {
         walls.create(350, 550, 'wall');
         walls.create(300, 550, 'wall');
 
-        objects.inputEnableChildren = true;
+        for (var i = 25; i < 50; i+5) {
+          var object = objects.create(400, i*100, 'object');
+          object.inputEnabled = true;
+          object.events.onInputDown.add(function() { this.destroyObject(); }, this);
+        }
+        /*objects.inputEnableChildren = true;
         objects.create(400, 500, 'object');
         objects.create(400, 450, 'object');
         objects.create(400, 400, 'object');
         objects.create(400, 350, 'object');
         objects.create(400, 300, 'object');
-        objects.create(400, 250, 'object');
+        objects.create(400, 250, 'object');*/
 
         // Enable physics on the interactive objects
         this.game.physics.p2.enable([walls, objects, player]);
 
         // Define controls and interactions
-        objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
+        //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
 
+        // objects.inputEnableChildren = false; for disabling inputs after death
         //player.body.onCollide = new Phaser.Signal();
         //player.body.onCollide.add(playerDeath(), this);
 
