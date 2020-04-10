@@ -110,7 +110,7 @@ BasicGame.Game.prototype = {
 
     destroyObject: function() {
         this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
-        this.destroy();
+        this.remove();
         //this.state.start('MainMenu');
 
         // Here you should destroy anything you no longer need.
