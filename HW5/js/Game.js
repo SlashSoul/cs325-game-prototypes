@@ -46,14 +46,14 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
 
-        ground = this.add.sprite(0, this.game.world.height, 'ground');
-        ground.enableBody = true;
+        //ground = this.add.sprite(0, this.game.world.height, 'ground');
+        //ground.enableBody = true;
         //ground.immovable = true;
         //ground.body.static = true;
 
         player = this.add.sprite(400, 75, 'player');
 
-        this.game.physics.p2.enable(ground);
+        //this.game.physics.p2.enable(ground);
         this.game.physics.p2.enable(player);
 
         walls = this.game.add.group();
