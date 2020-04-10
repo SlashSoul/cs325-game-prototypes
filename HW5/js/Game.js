@@ -133,8 +133,8 @@ BasicGame.Game.prototype = {
         //this.bouncy.inputEnabled = true;
         //this.bouncy.events.onInputDown.add( function() { this.quitGame(); }, this );
         //this.game.events.onInputDown.add(function() { this.destroyBlock(); }, this);
-
-        this.game.input.onDown.add(click, this);
+        this.game.inputEnabled = true;
+        this.game.events.input.onDown.add(this.click, this);
     },
 
     update: function() {
@@ -174,12 +174,12 @@ BasicGame.Game.prototype = {
 
     destroyBlock: function() {
 
+    },
+
+    click: function() {
+      game.add.text(game.world.centerX, game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
     }
 
-  }
-
-  function click() {
-    game.add.text(game.world.centerX, game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
   }
 
 
