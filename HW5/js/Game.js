@@ -41,7 +41,7 @@ BasicGame.Game.prototype = {
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
-        player = this.add.sprite(400, 200, 'player');
+        player = this.game.add.sprite(400, 200, 'player');
         blocks = this.game.add.group();
         bricks = this.game.add.group();
 
