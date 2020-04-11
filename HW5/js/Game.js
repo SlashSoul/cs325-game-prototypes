@@ -41,30 +41,30 @@ BasicGame.Game.prototype = {
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
-        this.player = this.add.sprite(400, 200, 'player');
-        this.blocks = this.game.add.group();
-        this.bricks = this.game.add.group();
+        player = this.add.sprite(400, 200, 'player');
+        blocks = this.game.add.group();
+        bricks = this.game.add.group();
 
-        this.game.physics.arcade.enable([this.bricks, this.blocks, this.player], true);
+        this.game.physics.arcade.enable([bricks, blocks, player], true);
 
-        this.player.body.collideWorldBounds = true;
-        this.blocks.body.collideWorldBounds = true;
-        this.bricks.body.collideWorldBounds = true;
+        player.body.collideWorldBounds = true;
+        blocks.body.collideWorldBounds = true;
+        bricks.body.collideWorldBounds = true;
 
-        this.player.body.onWorldBounds = new Phaser.Signal();
-        this.player.body.onWorldBounds.add(playerDeath, this);
+        player.body.onWorldBounds = new Phaser.Signal();
+        player.body.onWorldBounds.add(playerDeath, this);
 
-        this.bricks.create(500, 550, 'wall');
-        this.bricks.create(450, 550, 'wall');
-        this.bricks.create(400, 550, 'wall');
-        this.bricks.create(350, 550, 'wall');
-        this.bricks.create(300, 550, 'wall');
+        bricks.create(500, 550, 'wall');
+        bricks.create(450, 550, 'wall');
+        bricks.create(400, 550, 'wall');
+        bricks.create(350, 550, 'wall');
+        bricks.create(300, 550, 'wall');
 
-        this.blocks.create(400, 500, 'object');
-        this.blocks.create(400, 450, 'object');
-        this.blocks.create(400, 400, 'object');
-        this.blocks.create(400, 350, 'object');
-        this.blocks.create(400, 300, 'object');
+        blocks.create(400, 500, 'object');
+        blocks.create(400, 450, 'object');
+        blocks.create(400, 400, 'object');
+        blocks.create(400, 350, 'object');
+        blocks.create(400, 300, 'object');
 
 
         //this.blocks.onChildInputDown.add(function() { this.destroyBlock(); }, this);
