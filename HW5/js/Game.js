@@ -62,7 +62,7 @@ BasicGame.Game.prototype = {
           object.events.onInputDown.add(function() { this.destroyObject(); }, this);
         }*/
         objects.inputEnableChildren = true;
-        objects.create(400, 500, 'object');
+        //objects.create(400, 500, 'object');
         objects.create(400, 450, 'object');
         objects.create(400, 400, 'object');
         objects.create(400, 350, 'object');
@@ -70,7 +70,7 @@ BasicGame.Game.prototype = {
         objects.create(400, 250, 'object');
 
         // Enable physics on the interactive objects
-        this.game.physics.p2.enable([walls, objects, player]);
+        this.game.physics.p2.enable([walls, objects, player, ground]);
 
         // Define controls and interactions
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
