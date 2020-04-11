@@ -45,9 +45,11 @@ BasicGame.Game.prototype = {
         this.blocks = this.game.add.group();
         this.bricks = this.game.add.group();
 
-        //this.player.body.collideWorldBounds = true;
-        //this.blocks.body.collideWorldBounds = true;
-        //this.bricks.body.collideWorldBounds = true;
+        this.game.physics.arcade.enable([this.bricks, this.blocks, this.player], true);
+
+        this.player.body.collideWorldBounds = true;
+        this.blocks.body.collideWorldBounds = true;
+        this.bricks.body.collideWorldBounds = true;
 
         this.player.body.onWorldBounds = new Phaser.Signal();
         this.player.body.onWorldBounds.add(playerDeath, this);
@@ -64,7 +66,7 @@ BasicGame.Game.prototype = {
         this.blocks.create(400, 350, 'object');
         this.blocks.create(400, 300, 'object');
 
-        this.game.physics.arcade.enable([this.bricks, this.blocks, this.player], true);
+
         //this.blocks.onChildInputDown.add(function() { this.destroyBlock(); }, this);
 
         /*this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
