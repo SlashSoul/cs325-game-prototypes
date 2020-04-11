@@ -57,13 +57,7 @@ BasicGame.Game.prototype = {
         walls.create(350, 500, 'wall');
         walls.create(300, 500, 'wall');
 
-        /*for (var i = 25; i < 50; i+5) {
-          var object = objects.create(400, i*100, 'object');
-          object.inputEnabled = true;
-          object.events.onInputDown.add(function() { this.destroyObject(); }, this);
-        }*/
         objects.inputEnableChildren = true;
-        //objects.create(400, 500, 'object');
         objects.create(400, 450, 'object');
         objects.create(400, 400, 'object');
         objects.create(400, 350, 'object');
@@ -80,6 +74,7 @@ BasicGame.Game.prototype = {
     },
 
     update: function() {
+        player.collides(ground, setDeath, this);
         //this.game.physics.p2.collides();
 
         //this.game.physics.p2.collide(player, this.world);
@@ -112,13 +107,13 @@ BasicGame.Game.prototype = {
         //this.state.start('MainMenu');
     }
 
-    /*function setDeath(body, bodyB, shapeA, shapeB, equation) {
+    function setDeath(body, bodyB, shapeA, shapeB, equation) {
         if (!body) {
             this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
             this.game.pause();
         }
 
-    }*/
+    }
 
     // death, function: pause() restart()
 
