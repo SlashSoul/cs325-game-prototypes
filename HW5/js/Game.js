@@ -45,17 +45,17 @@ BasicGame.Game.prototype = {
         this.blocks = this.game.add.group();
         this.bricks = this.game.add.group();
 
-        bricks.create(500, 550, 'wall');
-        bricks.create(450, 550, 'wall');
-        bricks.create(400, 550, 'wall');
-        bricks.create(350, 550, 'wall');
-        bricks.create(300, 550, 'wall');
+        this.bricks.create(500, 550, 'wall');
+        this.bricks.create(450, 550, 'wall');
+        this.bricks.create(400, 550, 'wall');
+        this.bricks.create(350, 550, 'wall');
+        this.bricks.create(300, 550, 'wall');
 
-        blocks.create(400, 500, 'object');
-        blocks.create(400, 450, 'object');
-        blocks.create(400, 400, 'object');
-        blocks.create(400, 350, 'object');
-        blocks.create(400, 300, 'object');
+        this.blocks.create(400, 500, 'object');
+        this.blocks.create(400, 450, 'object');
+        this.blocks.create(400, 400, 'object');
+        this.blocks.create(400, 350, 'object');
+        this.blocks.create(400, 300, 'object');
 
         this.game.physics.arcade.enable([bricks, blocks, player], true);
         //this.blocks.onChildInputDown.add(function() { this.destroyBlock(); }, this);
