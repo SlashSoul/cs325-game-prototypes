@@ -75,7 +75,7 @@ BasicGame.Game.prototype = {
         // Define controls and interactions
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
         objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
-        player.body.onBeginContact.add(setDeath, this);
+        //player.body.onBeginContact.add(setDeath, this);
     },
 
     update: function() {
