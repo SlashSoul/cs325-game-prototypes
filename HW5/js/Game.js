@@ -45,6 +45,13 @@ BasicGame.Game.prototype = {
         this.blocks = this.game.add.group();
         this.bricks = this.game.add.group();
 
+        this.player.body.collideWorldBounds = true;
+        this.blocks.body.collideWorldBounds = true;
+        this.bricks.body.collideWorldBounds = true;
+
+        this.player.body.onWorldBounds = new Phaser.Signal();
+        this.player.body.onWorldBounds.add(playerDeath, this);
+
         this.bricks.create(500, 550, 'wall');
         this.bricks.create(450, 550, 'wall');
         this.bricks.create(400, 550, 'wall');
@@ -139,6 +146,11 @@ BasicGame.Game.prototype = {
 
 
 };
+
+function playerDeath(sprite) {
+    this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
+    this.game.pause();
+}
 
 /*function setDeath(body, bodyB, shapeA, shapeB, equation) {
     if (!body) {
