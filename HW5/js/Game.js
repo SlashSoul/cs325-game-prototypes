@@ -100,7 +100,7 @@ BasicGame.Game.prototype = {
         // Enable physics on the interactive objects
 
         // Define controls and interactions
-        this.blocks.events.onInputDown.add(destroyBlock, this);
+        //this.blocks.events.onInputDown.add(destroyBlock, this);
         //death();
 
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
@@ -153,9 +153,9 @@ BasicGame.Game.prototype = {
 
 };
 
-function destroyBlock(pointer, block) {
-    block.kill();
-}
+//function destroyBlock(pointer, block) {
+//    block.kill();
+//}
 
 /*function death() {
     var gameover = this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
