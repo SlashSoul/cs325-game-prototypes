@@ -35,7 +35,7 @@ var player;
 
 BasicGame.Game.prototype = {
     create: function() {
-        this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
+        /*this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
         this.game.physics.arcade.gravity.y = 250;
         this.add.sprite(0, 0, 'mountains-bg');
@@ -66,34 +66,35 @@ BasicGame.Game.prototype = {
         this.blocks.create(400, 450, 'object');
         this.blocks.create(400, 400, 'object');
         this.blocks.create(400, 350, 'object');
-        this.blocks.create(400, 300, 'object');
+        this.blocks.create(400, 300, 'object');*/
         //this.blocks.onChildInputDown.add(function() { this.destroyBlock(); }, this);
 
-        /*this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
+        this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
-        ground = this.add.sprite(0, 600, 'ground');
-        ground.enableBody = true;
-        player = this.add.sprite(400, 200, 'player');
-        objects = this.game.add.group();
-        walls = this.game.add.group();
+        this.player = this.game.add.sprite(400, 200, 'player');
+        this.blocks = this.game.add.group();
+        this.bricks = this.game.add.group();
 
-        walls.create(500, 500, 'wall');
-        walls.create(450, 500, 'wall');
-        walls.create(400, 500, 'wall');
-        walls.create(350, 500, 'wall');
-        walls.create(300, 500, 'wall');
+        this.blocks.inputEnableChildren = true;
 
-        objects.inputEnableChildren = true;
-        objects.create(400, 450, 'object');
-        objects.create(400, 400, 'object');
-        objects.create(400, 350, 'object');
-        objects.create(400, 300, 'object');
-        objects.create(400, 250, 'object');*/
+        this.blocks.create(400, 500, 'object');
+        this.blocks.create(400, 450, 'object');
+        this.blocks.create(400, 400, 'object');
+        this.blocks.create(400, 350, 'object');
+        this.blocks.create(400, 300, 'object');
+
+        this.bricks.create(500, 550, 'wall');
+        this.bricks.create(450, 550, 'wall');
+        this.bricks.create(400, 550, 'wall');
+        this.bricks.create(350, 550, 'wall');
+        this.bricks.create(300, 550, 'wall');
+
+        this.game.physics.p2.enable([this.blocks, this.bricks, this.player], true);
 
         // Enable physics on the interactive objects
         //this.game.physics.p2.enable([walls, objects, player, ground]);
