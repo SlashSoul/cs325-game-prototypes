@@ -80,6 +80,7 @@ BasicGame.Game.prototype = {
         this.blocks = this.game.add.group();
         this.bricks = this.game.add.group();
 
+        this.blocks.inputEnabled = true;
         this.blocks.inputEnableChildren = true;
 
         this.blocks.create(400, 500, 'object');
