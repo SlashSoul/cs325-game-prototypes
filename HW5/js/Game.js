@@ -107,15 +107,16 @@ BasicGame.Game.prototype = {
         //this.state.start('MainMenu');
     }
 
-    function setDeath(body, bodyB, shapeA, shapeB, equation) {
-        if (!body) {
-            this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
-            this.game.pause();
-        }
-
-    }
 
     // death, function: pause() restart()
 
 
 };
+
+function setDeath(body, bodyB, shapeA, shapeB, equation) {
+    if (!body) {
+        this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
+        this.game.pause();
+    }
+
+}
