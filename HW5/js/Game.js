@@ -45,7 +45,7 @@ BasicGame.Game.prototype = {
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
         // Add the interactive objects (i.e. totem, breakable objects, and unbreakable objects)
-        ground = this.add.sprite(0, 550, 'ground');
+        ground = this.add.sprite(0, 600, 'ground');
         ground.enableBody = true;
         player = this.add.sprite(400, 200, 'player');
         objects = this.game.add.group();
