@@ -97,9 +97,10 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.enable([this.blocks, this.bricks, this.player], true);
 
         // Enable physics on the interactive objects
-        //this.game.physics.p2.enable([walls, objects, player, ground]);
 
         // Define controls and interactions
+        death();
+
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
         // ==> objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
         //player.body.onBeginContact.add(setDeath, this);
@@ -149,6 +150,12 @@ BasicGame.Game.prototype = {
 
 
 };
+
+function death() {
+    this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'}).anchor.setTo(0.5, 0.5);
+    this.game.pause();
+}
+
 
 function playerDeath(sprite) {
     this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
