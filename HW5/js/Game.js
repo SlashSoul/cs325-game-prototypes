@@ -99,7 +99,7 @@ BasicGame.Game.prototype = {
         // Enable physics on the interactive objects
 
         // Define controls and interactions
-        death();
+        //death();
 
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
         // ==> objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
@@ -151,7 +151,7 @@ BasicGame.Game.prototype = {
 
 };
 
-function death() {
+/*function death() {
     var gameover = this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
     gameover.anchor.setTo(0.5, 0.5);
     this.game.pause();
@@ -161,7 +161,7 @@ function death() {
 function playerDeath(sprite) {
     this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
     this.game.pause();
-}
+}*/
 
 /*function setDeath(body, bodyB, shapeA, shapeB, equation) {
     if (!body) {
