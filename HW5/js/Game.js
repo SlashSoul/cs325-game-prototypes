@@ -57,7 +57,7 @@ BasicGame.Game.prototype = {
         this.blocks.create(400, 350, 'object');
         this.blocks.create(400, 300, 'object');
 
-        //this.game.physics.arcade.enable([bricks, blocks, player], true);
+        this.game.physics.arcade.enable([this.bricks, this.blocks, this.player], true);
         //this.blocks.onChildInputDown.add(function() { this.destroyBlock(); }, this);
 
         /*this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
