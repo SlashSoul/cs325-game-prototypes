@@ -29,22 +29,44 @@ BasicGame.Game = function(game) {
     this.bouncy = null;
 };
 
-var ground;
-var objects;
+var blocks;
+var bricks;
 var player;
-var status = true;
-var walls;
 
 BasicGame.Game.prototype = {
     create: function() {
         this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
+        this.game.physics.startSystem(Phaser.Physics.ARCADE);
+        this.game.physics.gravity.y = 250;
+        this.add.sprite(0, 0, 'mountains-bg');
+        this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
+
+        this.player = this.add.sprite(400, 200, 'player');
+        this.blocks = this.game.add.group();
+        this.bricks = this.game.add.group();
+
+        bricks.create(500, 550, 'wall');
+        bricks.create(450, 550, 'wall');
+        bricks.create(400, 550, 'wall');
+        bricks.create(350, 550, 'wall');
+        bricks.create(300, 550, 'wall');
+
+        blocks.create(400, 500, 'object');
+        blocks.create(400, 450, 'object');
+        blocks.create(400, 400, 'object');
+        blocks.create(400, 350, 'object');
+        blocks.create(400, 300, 'object');
+
+        this.game.physics.arcade.enable([bricks, blocks, player], true);
+        //this.blocks.onChildInputDown.add(function() { this.destroyBlock(); }, this);
+
+        /*this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
-        // Add the interactive objects (i.e. totem, breakable objects, and unbreakable objects)
         ground = this.add.sprite(0, 600, 'ground');
         ground.enableBody = true;
         player = this.add.sprite(400, 200, 'player');
@@ -62,19 +84,24 @@ BasicGame.Game.prototype = {
         objects.create(400, 400, 'object');
         objects.create(400, 350, 'object');
         objects.create(400, 300, 'object');
-        objects.create(400, 250, 'object');
+        objects.create(400, 250, 'object');*/
 
         // Enable physics on the interactive objects
-        this.game.physics.p2.enable([walls, objects, player, ground]);
+        //this.game.physics.p2.enable([walls, objects, player, ground]);
 
         // Define controls and interactions
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
-        objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
+        // ==> objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
         //player.body.onBeginContact.add(setDeath, this);
     },
 
     update: function() {
-        this.game.physics.p2.collides(ground, player, setDeath, this);
+        /*if ()
+        {
+
+        }*/
+
+        //this.game.physics.p2.collides(ground, player, setDeath, this);
         //this.game.physics.p2.collides();
 
         //this.game.physics.p2.collide(player, this.world);
@@ -93,10 +120,10 @@ BasicGame.Game.prototype = {
         //this.bouncy.rotation = this.game.physics.arcade.accelerateToPointer( this.bouncy, this.game.input.activePointer, 500, 500, 500 );
 
         //player.body.onBeginContact.add(this.checkPlayerCollision, this);
-    },
+    }
 
-    destroyObject: function() {
-        this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
+    //destroyObject: function() {
+        //this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Click!', {font: '24px Verdana', fill: '#9999ff'});
         //obj.remove();
         //this.state.start('MainMenu');
 
@@ -105,7 +132,7 @@ BasicGame.Game.prototype = {
 
         // Then let's go back to the main menu.
         //this.state.start('MainMenu');
-    }
+    //}
 
 
     // death, function: pause() restart()
@@ -113,10 +140,10 @@ BasicGame.Game.prototype = {
 
 };
 
-function setDeath(body, bodyB, shapeA, shapeB, equation) {
+/*function setDeath(body, bodyB, shapeA, shapeB, equation) {
     if (!body) {
         this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
         this.game.pause();
     }
 
-}
+}*/
