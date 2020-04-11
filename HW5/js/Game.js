@@ -74,7 +74,7 @@ BasicGame.Game.prototype = {
     },
 
     update: function() {
-        player.collides(ground, setDeath, this);
+        this.game.physics.p2.collides(ground, player, setDeath, this);
         //this.game.physics.p2.collides();
 
         //this.game.physics.p2.collide(player, this.world);
