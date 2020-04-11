@@ -45,9 +45,9 @@ BasicGame.Game.prototype = {
         this.blocks = this.game.add.group();
         this.bricks = this.game.add.group();
 
-        this.player.body.collideWorldBounds = true;
-        this.blocks.body.collideWorldBounds = true;
-        this.bricks.body.collideWorldBounds = true;
+        //this.player.body.collideWorldBounds = true;
+        //this.blocks.body.collideWorldBounds = true;
+        //this.bricks.body.collideWorldBounds = true;
 
         this.player.body.onWorldBounds = new Phaser.Signal();
         this.player.body.onWorldBounds.add(playerDeath, this);
