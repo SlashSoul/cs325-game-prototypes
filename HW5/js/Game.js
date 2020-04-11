@@ -99,7 +99,7 @@ BasicGame.Game.prototype = {
         // Enable physics on the interactive objects
 
         // Define controls and interactions
-        this.blocks.events.onChildInputDown.add(destroyBlock, this);
+        this.blocks.events.onInputDown.add(destroyBlock, this);
         //death();
 
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
