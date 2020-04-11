@@ -152,7 +152,8 @@ BasicGame.Game.prototype = {
 };
 
 function death() {
-    this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'}).anchor.setTo(0.5, 0.5);
+    var gameover = this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
+    gameover.anchor.setTo(0.5, 0.5);
     this.game.pause();
 }
 
