@@ -45,7 +45,7 @@ BasicGame.Game.prototype = {
         blocks = this.game.add.group();
         bricks = this.game.add.group();
 
-        this.game.physics.arcade.enable([bricks, blocks, player], true);
+        this.game.physics.arcade.enable([bricks, blocks, player]);
 
         player.body.collideWorldBounds = true;
         blocks.body.collideWorldBounds = true;
