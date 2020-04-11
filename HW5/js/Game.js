@@ -37,7 +37,7 @@ BasicGame.Game.prototype = {
     create: function() {
         this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
         this.game.physics.startSystem(Phaser.Physics.ARCADE);
-        this.game.physics.gravity.y = 250;
+        this.game.physics.arcade.gravity.y = 250;
         this.add.sprite(0, 0, 'mountains-bg');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
