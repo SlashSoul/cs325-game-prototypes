@@ -42,7 +42,7 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
         this.add.sprite(0, 0, 'mountains-bg');
-        this.add.sprite(0, 500, 'new-ground');
+        this.add.sprite(0, 550, 'ground');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
         // Add the interactive objects (i.e. totem, breakable objects, and unbreakable objects)
@@ -50,11 +50,11 @@ BasicGame.Game.prototype = {
         objects = this.game.add.group();
         walls = this.game.add.group();
 
-        walls.create(500, 550, 'wall');
-        walls.create(450, 550, 'wall');
-        walls.create(400, 550, 'wall');
-        walls.create(350, 550, 'wall');
-        walls.create(300, 550, 'wall');
+        walls.create(500, 500, 'wall');
+        walls.create(450, 500, 'wall');
+        walls.create(400, 500, 'wall');
+        walls.create(350, 500, 'wall');
+        walls.create(300, 500, 'wall');
 
         /*for (var i = 25; i < 50; i+5) {
           var object = objects.create(400, i*100, 'object');
