@@ -36,7 +36,7 @@ var status = true;
 var walls;
 
 BasicGame.Game.prototype = {
-    create: function () {
+    create: function() {
         this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
         this.game.physics.startSystem(Phaser.Physics.P2JS);
         this.game.physics.p2.setImpactEvents(true);
@@ -74,20 +74,7 @@ BasicGame.Game.prototype = {
         // Define controls and interactions
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
         objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
-
         player.body.onBeginContact.add(setDeath, this);
-
-        // objects.inputEnableChildren = false; for disabling inputs after death
-        //player.body.onCollide = new Phaser.Signal();
-        //player.body.onCollide.add(playerDeath(), this);
-
-
-        // When you click on the sprite, you go back to the MainMenu.
-        //this.bouncy.inputEnabled = true;
-        //this.bouncy.events.onInputDown.add( function() { this.quitGame(); }, this );
-        //this.game.events.onInputDown.add(function() { this.destroyBlock(); }, this);
-        //this.game.inputEnabled = true;
-        //this.game.events.input.onDown.add(this.click, this);
     },
 
     update: function() {
@@ -120,9 +107,9 @@ BasicGame.Game.prototype = {
 
         // Then let's go back to the main menu.
         //this.state.start('MainMenu');
-    },
+    }
 
-    setDeath: function(body, bodyB, shapeA, shapeB, equation) {
+    function setDeath(body, bodyB, shapeA, shapeB, equation) {
         if (!body) {
             this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
             this.game.pause();
