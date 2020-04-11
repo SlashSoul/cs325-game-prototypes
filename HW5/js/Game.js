@@ -42,6 +42,7 @@ BasicGame.Game.prototype = {
         this.game.physics.p2.setImpactEvents(true);
         this.game.physics.p2.gravity.y = 250;
         this.add.sprite(0, 0, 'mountains-bg');
+        this.add.sprite(0, 500, 'new-ground');
         this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
 
         // Add the interactive objects (i.e. totem, breakable objects, and unbreakable objects)
@@ -78,6 +79,7 @@ BasicGame.Game.prototype = {
     },
 
     update: function() {
+        //this.game.physics.p2.collides();
 
         //this.game.physics.p2.collide(player, this.world);
 
@@ -109,13 +111,13 @@ BasicGame.Game.prototype = {
         //this.state.start('MainMenu');
     }
 
-    function setDeath(body, bodyB, shapeA, shapeB, equation) {
+    /*function setDeath(body, bodyB, shapeA, shapeB, equation) {
         if (!body) {
             this.game.add.text(this.game.world.centerX, this.game.world.centerY, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
             this.game.pause();
         }
 
-    }
+    }*/
 
     // death, function: pause() restart()
 
