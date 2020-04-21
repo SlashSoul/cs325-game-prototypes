@@ -7,7 +7,7 @@ BasicGame.SplashPage = function(game) {
 BasicGame.SplashPage.prototype = {
   create: function() {
     this.add.sprite(0, 0, 'mountains-bg');
-    this.add.text(16, 16, 'Hero v2.0', {font: '24px Verdana', fill: '#9999FF'});
+    this.add.text(16, 16, 'Stages', {font: '24px Verdana', fill: '#9999FF'});
 
     //this.add.text(303, 200, 'Levels', {font: '24px Verdana', fill: '#9999FF'});
 
