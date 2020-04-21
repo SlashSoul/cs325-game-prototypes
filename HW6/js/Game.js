@@ -83,11 +83,17 @@ BasicGame.Game.prototype = {
         this.blocks.inputEnabled = true;
         this.blocks.inputEnableChildren = true;
 
-        this.blocks.create(400, 500, 'object');
-        this.blocks.create(400, 450, 'object');
-        this.blocks.create(400, 400, 'object');
-        this.blocks.create(400, 350, 'object');
-        this.blocks.create(400, 300, 'object');
+        //this.blocks.create(400, 500, 'object');
+        //this.blocks.create(400, 450, 'object');
+        //this.blocks.create(400, 400, 'object');
+        //this.blocks.create(400, 350, 'object');
+        //this.blocks.create(400, 300, 'object');
+        this.add.button(400, 500, 'object', this.destroyBlock, this);
+        this.add.button(400, 450, 'object', this.destroyBlock, this);
+        this.add.button(400, 400, 'object', this.destroyBlock, this);
+        this.add.button(400, 350, 'object', this.destroyBlock, this);
+        this.add.button(400, 300, 'object', this.destroyBlock, this);
+
 
         this.bricks.create(500, 550, 'wall');
         this.bricks.create(450, 550, 'wall');
@@ -147,6 +153,10 @@ BasicGame.Game.prototype = {
 
     restartStage: function(pointer) {
       this.state.start('Game');
+    },
+
+    destroyBlock: function(pointer) {
+      this.kill();
     }
 
     //destroyObject: function() {
