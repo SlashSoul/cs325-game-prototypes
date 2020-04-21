@@ -10,7 +10,7 @@ window.onload = function() {
 	game.state.add('Boot', BasicGame.Boot);
 	game.state.add('Preloader', BasicGame.Preloader);
 	game.state.add('MainMenu', BasicGame.MainMenu);
-	game.state.add('SplashPage', BasicGame.SplashPage);
+	game.state.add('Stage', BasicGame.Stage);
 	game.state.add('NextLevel', BasicGame.NextLevel);
 	game.state.add('Game', BasicGame.Game);
 	game.state.add('GameOver', BasicGame.GameOver);

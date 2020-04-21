@@ -1,10 +1,10 @@
 "use strict";
 
-BasicGame.SplashPage = function(game) {
+BasicGame.Stage = function(game) {
 
 };
 
-BasicGame.SplashPage.prototype = {
+BasicGame.Stage.prototype = {
   create: function() {
     this.add.sprite(0, 0, 'mountains-bg');
     this.add.text(16, 16, 'Stages', {font: '24px Verdana', fill: '#9999FF'});
