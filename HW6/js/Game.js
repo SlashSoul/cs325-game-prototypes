@@ -101,7 +101,7 @@ BasicGame.Game.prototype = {
 
 
         this.add.button(16, 534, 'back', this.returnMainMenu, this);
-
+        this.add.button(584, 16, 'restart', this.restartStage, this);
 
         // Enable physics on the interactive objects
 
@@ -143,6 +143,10 @@ BasicGame.Game.prototype = {
 
     returnMainMenu: function(pointer) {
       this.state.start('Stage');
+    },
+
+    restartStage: function(pointer) {
+      this.state.start('Game');
     }
 
     //destroyObject: function() {
