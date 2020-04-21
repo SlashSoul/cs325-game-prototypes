@@ -95,7 +95,13 @@ BasicGame.Game.prototype = {
         this.bricks.create(350, 550, 'wall');
         this.bricks.create(300, 550, 'wall');
 
+        //this.add.button(150, 150, 'object', this.destroyBlock, this);
+
         this.game.physics.p2.enable([this.blocks, this.bricks, this.player]);
+
+
+        this.add.button(16, 534, 'back', this.returnMainMenu, this);
+
 
         // Enable physics on the interactive objects
 
@@ -133,6 +139,10 @@ BasicGame.Game.prototype = {
         //this.bouncy.rotation = this.game.physics.arcade.accelerateToPointer( this.bouncy, this.game.input.activePointer, 500, 500, 500 );
 
         //player.body.onBeginContact.add(this.checkPlayerCollision, this);
+    },
+
+    returnMainMenu: function(pointer) {
+      this.state.start('Stage');
     }
 
     //destroyObject: function() {
