@@ -10,12 +10,14 @@ BasicGame.Stage.prototype = {
     this.add.text(16, 16, 'Stages', {font: '24px Verdana', fill: '#9999FF'});
 
     //this.add.text(303, 200, 'Levels', {font: '24px Verdana', fill: '#9999FF'});
+    this.add.button();
+
 
     //this.add.sprite(150, 150, 'stageButton');
-    this.add.button(150, 150, 'stageOneButton', this.startStageOne, this, '1');
-    this.add.button(300, 150, 'stageTwoButton', this.startStageTwo, this, '2');
-    this.add.button(450, 150, 'stageThreeButton', this.startStageThree, this, '3');
-    this.add.button(600, 150, 'stageFourButton', this.startStageFour, this, '4');
+    this.add.button(150, 150, 'stageOneButton', this.startStageOne, this);
+    this.add.button(300, 150, 'stageTwoButton', this.startStageTwo, this);
+    this.add.button(450, 150, 'stageThreeButton', this.startStageThree, this);
+    this.add.button(600, 150, 'stageFourButton', this.startStageFour, this);
     this.add.sprite(150, 250, 'stageFiveButton');
     this.add.sprite(300, 250, 'stageSixButton');
     this.add.sprite(450, 250, 'stageSevenButton');
@@ -28,6 +30,10 @@ BasicGame.Stage.prototype = {
     this.add.sprite(300, 450, 'stageFourteenButton');
     this.add.sprite(450, 450, 'stageFifteenButton');
     this.add.sprite(600, 450, 'stageSixteenButton');
+
+
+    this.add.button(16, 534, 'back', this.returnMainMenu, this);
+    //this.add.button(584, 16, 'restart', this.restart, this);
   },
 
   update: function() {
@@ -48,5 +54,9 @@ BasicGame.Stage.prototype = {
 
   startStageFour: function(pointer) {
     //this.state.start('Level 1s');
+  },
+
+  returnMainMenu: function(pointer) {
+    this.state.start('MainMenu');
   }
 };

@@ -38,6 +38,11 @@ BasicGame.Preloader.prototype = {
 		this.load.image('stageFourteenButton', 'assets/14.png');
 		this.load.image('stageFifteenButton', 'assets/15.png');
 		this.load.image('stageSixteenButton', 'assets/16.png');
+
+		this.load.image('restart', 'assets/button_restart.png');
+		this.load.image('back', 'assets/button_back.png');
+
+		//this.load.spritesheet();
 		//this.load.atlas('stageButton', 'assets/stages_button.png', 'assets/stages_button.json');
 		this.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
 		// + lots of other required assets here
