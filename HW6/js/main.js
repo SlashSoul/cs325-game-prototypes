@@ -17,6 +17,7 @@ window.onload = function() {
 	game.state.add('LevelTwo', BasicGame.LevelTwo);
 	game.state.add('LevelThree', BasicGame.LevelThree);
 	game.state.add('GameOver', BasicGame.GameOver);
+	//game.state.add('GameUnavailable', Basic.GameUnavailable);
 
 	// Now start the Boot state.
 	game.state.start('Boot');
