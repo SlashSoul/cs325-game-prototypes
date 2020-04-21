@@ -13,6 +13,9 @@ window.onload = function() {
 	game.state.add('Stage', BasicGame.Stage);
 	game.state.add('NextLevel', BasicGame.NextLevel);
 	game.state.add('Game', BasicGame.Game);
+	game.state.add('LevelOne', BasicGame.LevelOne);
+	game.state.add('LevelTwo', BasicGame.LevelTwo);
+	game.state.add('LevelThree', BasicGame.LevelThree);
 	game.state.add('GameOver', BasicGame.GameOver);
 
 	// Now start the Boot state.
