@@ -12,9 +12,9 @@ BasicGame.Stage.prototype = {
     this.add.button(150, 150, 'stageOneButton', this.startStageOne, this);
     this.add.button(300, 150, 'stageTwoButton', this.startStageTwo, this);
     this.add.button(450, 150, 'stageThreeButton', this.startStageThree, this);
-    /*this.add.button(600, 150, 'stageFourButton', this.startStageFour, this);
+    this.add.button(600, 150, 'stageFourButton', this.startStageFour, this);
     this.add.sprite(150, 250, 'stageFiveButton', this.startStageFive, this);
-    this.add.sprite(300, 250, 'stageSixButton', this.startStageSix, this);
+    /*this.add.sprite(300, 250, 'stageSixButton', this.startStageSix, this);
     this.add.sprite(450, 250, 'stageSevenButton', this.startStageSeven, this);
     this.add.sprite(600, 250, 'stageEightButton', this.startStageEight, this);
     this.add.sprite(150, 350, 'stageNineButton', this.startStageNine, this);
