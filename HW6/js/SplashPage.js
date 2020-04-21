@@ -11,14 +11,30 @@ BasicGame.SplashPage.prototype = {
 
     //this.add.text(303, 200, 'Levels', {font: '24px Verdana', fill: '#9999FF'});
 
-    this.add.sprite(150, 150, 'stageButton');
+    //this.add.sprite(150, 150, 'stageButton');
+    this.add.button(150, 150, 'stageButton', this.startStageOne, this, '1');
+    this.add.button(300, 150, 'stageButton', this.startStageTwo, this, '2');
+    this.add.button(450, 150, 'stageButton', this.startStageThree, this, '3');
+    this.add.button(600, 150, 'stageButton', this.startStageFour, this, '4');
   },
 
   update: function() {
 
   },
 
-  startGame: function(pointer) {
+  startStageOne: function(pointer) {
+    this.state.start('Game');
+  },
+
+  startStageTwo: function(pointer) {
+    //this.state.start('Level 1s');
+  },
+
+  startStageThree: function(pointer) {
+    //this.state.start('Level 1s');
+  },
+
+  startStageFour: function(pointer) {
     //this.state.start('Level 1s');
   }
 };
