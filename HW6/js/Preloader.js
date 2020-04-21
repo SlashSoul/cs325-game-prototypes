@@ -22,7 +22,23 @@ BasicGame.Preloader.prototype = {
 		// As this is just a Project Template I've not provided these assets, swap them for your own.
 		this.load.image('titlePage', 'assets/title.jpg');
 		this.load.atlas('playButton', 'assets/play_button.png', 'assets/play_button.json');
-		this.load.atlas('stageButton', 'assets/stages_button.png', 'assets/stages_button.json');
+		this.load.image('stageOneButton', 'assets/1.png');
+		this.load.image('stageTwoButton', 'assets/2.png');
+		this.load.image('stageThreeButton', 'assets/3.png');
+		this.load.image('stageFourButton', 'assets/4.png');
+		this.load.image('stageFiveButton', 'assets/5.png');
+		this.load.image('stageSixButton', 'assets/6.png');
+		this.load.image('stageSevenButton', 'assets/7.png');
+		this.load.image('stageEightButton', 'assets/8.png');
+		this.load.image('stageNineButton', 'assets/9.png');
+		this.load.image('stageTenButton', 'assets/10.png');
+		this.load.image('stageElevenButton', 'assets/11.png');
+		this.load.image('stageTwelveButton', 'assets/12.png');
+		this.load.image('stageThirteenButton', 'assets/13.png');
+		this.load.image('stageFourteenButton', 'assets/14.png');
+		this.load.image('stageFifteenButton', 'assets/15.png');
+		this.load.image('stageSixteenButton', 'assets/16.png');
+		//this.load.atlas('stageButton', 'assets/stages_button.png', 'assets/stages_button.json');
 		this.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
 		// + lots of other required assets here
 			this.load.image('logo', 'assets/phaser.png');
