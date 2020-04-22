@@ -50,7 +50,7 @@ BasicGame.LevelOne.prototype = {
     blocks.create(400, 300, 'block');
 
     this.game.physics.p2.enable([blocks, bricks, player]);
-    //blocks.events.onChildInputDown.add(this.destroyBlock, this);
+    blocks.onChildInputDown.add(this.destroyBlock, this);
     //this.game.input.onDown.add(this.destroyBlock, this);
 
     /*
