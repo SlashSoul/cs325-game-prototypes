@@ -107,7 +107,7 @@ BasicGame.LevelOne.prototype = {
   },
 
   destroyBlock: function() {
-    this.game.text.add(400, 300, "Test!", {font: "24px Verdana", fill: '#9999FF'});
+    this.game.add.text(400, 300, "Test!", {font: "24px Verdana", fill: '#9999FF'});
   },
 
   restartStage: function() {
