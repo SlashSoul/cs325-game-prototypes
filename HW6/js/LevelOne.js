@@ -8,6 +8,7 @@ BasicGame.LevelOne = function(game) {
 var blockCounter;
 var bricksDestroyed;
 var bricks;*/
+var blockCounter;
 var blocks;
 var bricks;
 var blockfx;
@@ -50,6 +51,7 @@ BasicGame.LevelOne.prototype = {
     blocks.create(400, 400, 'block');
     blocks.create(400, 350, 'block');
     blocks.create(400, 300, 'block');
+    blockCounter = 5;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
     blocks.onChildInputDown.add(this.destroyBlock, this);
@@ -116,10 +118,21 @@ BasicGame.LevelOne.prototype = {
     //this.game.add.text(400, 300, "Test!", {font: "24px Verdana", fill: '#9999FF'});
     blockfx.play();
     block.kill();
+    blockCounter -= 1;
+
+    if (blockCounter == 0) {
+      this.game.pause = true;
+      this.add.text(288, 288, 'Level Completed!', {font: '24px Verdana', fill: '#9999FF'});
+      this.add.button(584, 534, 'next', this.nextStage, this);
+    }
   },
 
   hitBrick: function(brick) {
     brickfx.play();
+  },
+
+  nextStage: function() {
+    this.state.start('LevelTwo');
   },
 
   restartStage: function() {
