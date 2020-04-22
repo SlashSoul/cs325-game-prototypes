@@ -48,6 +48,8 @@ BasicGame.LevelOne.prototype = {
     blocks.create(400, 350, 'block');
     blocks.create(400, 300, 'block');
 
+    this.game.physics.p2.enable([blocks, bricks, player]);
+
     //this.game.input.onDown.add(this.destroyBlock, this);
 
     /*
