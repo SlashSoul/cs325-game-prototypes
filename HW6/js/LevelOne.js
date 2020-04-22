@@ -56,7 +56,7 @@ BasicGame.LevelOne.prototype = {
     blockCounter = 5;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
-    player.body.collideWorldBounds = false;
+    //player.body.collideWorldBounds = false;
 
     blocks.onChildInputDown.add(this.destroyBlock, this);
     bricks.onChildInputDown.add(this.hitBrick, this);
