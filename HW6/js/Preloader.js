@@ -46,6 +46,8 @@ BasicGame.Preloader.prototype = {
 		//this.load.spritesheet();
 		//this.load.atlas('stageButton', 'assets/stages_button.png', 'assets/stages_button.json');
 		this.load.audio('titleMusic', ['assets/Poppers and Prosecco.mp3']);
+		this.load.audio('blockfx', ['assets/glass.mp3', 'assets/glass.ogg']);
+		this.load.audio('brickfx', ['assets/punch.mp3', 'assets/punch.ogg']);
 		// + lots of other required assets here
 			this.load.image('logo', 'assets/phaser.png');
 			this.load.image('mountains-bg', 'assets/mountains-bg.png');

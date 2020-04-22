@@ -122,9 +122,9 @@ BasicGame.Game.prototype = {
         //player.body.onBeginContact.add(setDeath, this);
 
 
-        this.blocks.events.onChildInputDown.add(this.destroyBlock, this);
+        //this.blocks.events.onChildInputDown.add(this.destroyBlock, this);
 
-        //this.game.input.onDown.add(this.destroyBlock, this);
+        this.game.input.onDown.add(this.destroyBlock, this);
     },
 
     update: function() {

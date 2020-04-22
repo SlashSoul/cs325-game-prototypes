@@ -34,7 +34,7 @@ BasicGame.Stage.prototype = {
   },
 
   startStageOne: function(pointer) {
-    this.state.start('Game');
+    this.state.start('LevelOne');
   },
 
   startStageTwo: function(pointer) {
