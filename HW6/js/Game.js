@@ -81,6 +81,7 @@ BasicGame.Game.prototype = {
         this.bricks = this.game.add.group();
 
         this.bricks.unbreakable = true;
+        this.player.unbreakable = true;
         this.blocks.inputEnabled = true;
         this.blocks.inputEnableChildren = true;
 
