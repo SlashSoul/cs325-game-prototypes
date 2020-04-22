@@ -46,12 +46,12 @@ BasicGame.LevelOne.prototype = {
     bricks.create(400, 550, 'brick');
 
     blocks.inputEnableChildren = true;
-    blocks.create(400, 500, 'block');
+    /*blocks.create(400, 500, 'block');
     blocks.create(400, 450, 'block');
     blocks.create(400, 400, 'block');
     blocks.create(400, 350, 'block');
     blocks.create(400, 300, 'block');
-    blockCounter = 5;
+    blockCounter = 5;*/
 
     this.game.physics.p2.enable([blocks, bricks, player]);
     blocks.onChildInputDown.add(this.destroyBlock, this);
@@ -141,7 +141,7 @@ BasicGame.LevelOne.prototype = {
     //this.add.text(288, 288, 'Contact checking!', {font: '24px Verdana', fill: '#9999FF'});
     player.checkWorldBounds = true;
     if (player.inWorld == true) {
-      this.setDeath;
+      this.setDeath();
     }
     //player.events.onOutOfBounds.add(this.setDeath, this);
   },
