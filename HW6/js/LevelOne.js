@@ -21,7 +21,7 @@ var restartButton;*/
 
 BasicGame.LevelOne.prototype = {
   create: function() {
-    this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
+    //this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
     this.game.physics.startSystem(Phaser.Physics.P2JS);
     this.game.physics.p2.setImpactEvents(true);
     this.game.physics.p2.gravity.y = 250;
@@ -42,6 +42,8 @@ BasicGame.LevelOne.prototype = {
     blocks.unbreakable = false;
     bricks.unbreakable = true;
 
+    bricks.collideWorldBounds = true;
+    blocks.collideWorldBounds = true;
     bricks.inputEnableChildren = true;
     bricks.create(400, 550, 'brick');
 
