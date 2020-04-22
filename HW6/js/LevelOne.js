@@ -121,7 +121,7 @@ BasicGame.LevelOne.prototype = {
     blockCounter -= 1;
 
     if (blockCounter == 0) {
-      this.game.paused = true;
+      player.paused = true;
       this.add.text(288, 288, 'Level Completed!', {font: '24px Verdana', fill: '#9999FF'});
       this.add.button(584, 534, 'next', this.nextStage, this);
     }
