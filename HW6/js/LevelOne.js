@@ -8,8 +8,11 @@ BasicGame.LevelOne = function(game) {
 var blockCounter;
 var bricksDestroyed;
 var bricks;*/
+var blocks;
+var bricks;
 var blockfx;
 var brickfx;
+var player;
 /*var levelFailed;
 var nextLevel;
 var playerDead;
@@ -29,10 +32,23 @@ BasicGame.LevelOne.prototype = {
     blockfx = this.game.add.audio('blockfx', 0.5, false);
     brickfx = this.game.add.audio('brickfx', 0.5, false);
 
-    /*this.player = this.game.add.sprite(400, 200, 'player');
-    this.blocks = this.game.add.group();
-    this.bricks = this.game.add.group();
+    player = this.game.add.sprite(400, 200, 'player');
+    blocks = this.game.add.group();
+    bricks = this.game.add.group();
 
+    player.unbreakable = true;
+    blocks.unbreakable = false;
+    bricks.unbreakable = true;
+
+    blocks.create(400, 500, 'block');
+    blocks.create(400, 450, 'block');
+    blocks.create(400, 400, 'block');
+    blocks.create(400, 350, 'block');
+    blocks.create(400, 300, 'block');
+
+    //this.game.input.onDown.add(this.destroyBlock, this);
+
+    /*
     this.bricks.unbreakable = true;
     this.player.unbreakable = true;
     this.blocks.inputEnabled = true;
