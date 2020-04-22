@@ -51,6 +51,9 @@ BasicGame.LevelOne.prototype = {
 
     this.game.physics.p2.enable([blocks, bricks, player]);
     blocks.onChildInputDown.add(this.destroyBlock, this);
+    bricks.onChildInputDown.add(this.hitBrick, this);
+
+
     //this.game.input.onDown.add(this.destroyBlock, this);
 
     /*
@@ -108,8 +111,13 @@ BasicGame.LevelOne.prototype = {
 
   destroyBlock: function(block) {
     //this.game.add.text(400, 300, "Test!", {font: "24px Verdana", fill: '#9999FF'});
+    blockfx.play();
     block.kill();
   },
+
+  hitBrick: function(brick) {
+    brickfx.play();
+  }
 
   restartStage: function() {
     this.state.start('LevelOne');
