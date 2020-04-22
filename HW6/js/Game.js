@@ -118,6 +118,8 @@ BasicGame.Game.prototype = {
         //objects.events.onChildInputDown.add(function() { this.destroyObject(); }, this);
         // ==> objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
         //player.body.onBeginContact.add(setDeath, this);
+
+        this.game.input.onDown.add(this.destroyBlock, this);
     },
 
     update: function() {
@@ -156,7 +158,10 @@ BasicGame.Game.prototype = {
     },
 
     destroyBlock: function(pointer) {
-      this.kill();
+      var bodyClicked = this.game.physics.p2.hitTest(pointer.position);
+      if(!bodyClicked[0].parent.sprite.unbreakable) {
+        bodyClicked[0].parent.sprite.kill();
+      }
     }
 
     //destroyObject: function() {
