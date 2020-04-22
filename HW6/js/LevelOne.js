@@ -59,6 +59,9 @@ BasicGame.LevelOne.prototype = {
     player.inputEnabled = true;
     player.events.onInputDown.add(function() { brickfx.play(); });
 
+    player.body.onBeginContact.add(this.checkDeath, this);
+    //onBeginContact
+
     //player.input.onDown.add(this.hitUnbreakable, this);
     //player.body.onBeginContact.add(this.);
 
@@ -132,6 +135,10 @@ BasicGame.LevelOne.prototype = {
 
   hitBrick: function(brick) {
     brickfx.play();
+  },
+
+  checkDeath: function() {
+    this.add.text(288, 288, 'Contact checking!', {font: '24px Verdana', fill: '#9999FF'});
   },
 
   nextStage: function() {
