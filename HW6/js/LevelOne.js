@@ -151,7 +151,7 @@ BasicGame.LevelOne.prototype = {
     //status = false;
     // stop inputs f
     this.add.text(288, 288, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
-  }
+  },
 
   nextStage: function() {
     this.state.start('LevelTwo');
