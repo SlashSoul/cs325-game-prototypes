@@ -56,6 +56,9 @@ BasicGame.LevelOne.prototype = {
     this.game.physics.p2.enable([blocks, bricks, player]);
     blocks.onChildInputDown.add(this.destroyBlock, this);
     bricks.onChildInputDown.add(this.hitBrick, this);
+    player.inputEnabled = true;
+    player.onInputDown.add(function() { brickfx.play(); });
+
     //player.input.onDown.add(this.hitUnbreakable, this);
     //player.body.onBeginContact.add(this.);
 
