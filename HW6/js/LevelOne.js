@@ -139,6 +139,7 @@ BasicGame.LevelOne.prototype = {
 
   checkDeath: function() {
     //this.add.text(288, 288, 'Contact checking!', {font: '24px Verdana', fill: '#9999FF'});
+    player.checkWorldBounds = true;
     player.events.onOutOfBounds.add(this.setDeath, this);
   },
 
