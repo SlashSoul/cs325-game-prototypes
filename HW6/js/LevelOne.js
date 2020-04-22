@@ -46,12 +46,12 @@ BasicGame.LevelOne.prototype = {
     bricks.create(400, 550, 'brick');
 
     blocks.inputEnableChildren = true;
-    /*blocks.create(400, 500, 'block');
+    blocks.create(400, 500, 'block');
     blocks.create(400, 450, 'block');
     blocks.create(400, 400, 'block');
     blocks.create(400, 350, 'block');
     blocks.create(400, 300, 'block');
-    blockCounter = 5;*/
+    blockCounter = 5;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
     blocks.onChildInputDown.add(this.destroyBlock, this);
@@ -148,6 +148,7 @@ BasicGame.LevelOne.prototype = {
 
   setDeath: function() {
     player.paused = true;
+    blocks.inputEnableChildren = false;
     //status = false;
     // stop inputs f
     this.add.text(288, 288, 'Game Over!', {font: '24px Verdana', fill: '#9999FF'});
