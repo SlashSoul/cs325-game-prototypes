@@ -117,7 +117,7 @@ BasicGame.LevelOne.prototype = {
 
   hitBrick: function(brick) {
     brickfx.play();
-  }
+  },
 
   restartStage: function() {
     this.state.start('LevelOne');
