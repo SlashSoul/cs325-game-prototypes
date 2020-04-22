@@ -40,8 +40,9 @@ BasicGame.LevelOne.prototype = {
     blocks.unbreakable = false;
     bricks.unbreakable = true;
 
-    bricks.create(400, 550, 'brick');
+    bricks.create(400, 600, 'brick');
 
+    blocks.create(400, 550, 'block');
     blocks.create(400, 500, 'block');
     blocks.create(400, 450, 'block');
     blocks.create(400, 400, 'block');
