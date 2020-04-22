@@ -33,7 +33,7 @@ BasicGame.LevelOne.prototype = {
     brickfx = this.game.add.audio('brickfx', 0.5, false);
 
     player = this.game.add.sprite(400, 250, 'player');
-    player.inputEnabled = true;
+    //player.inputEnabled = true;
     blocks = this.game.add.group();
     bricks = this.game.add.group();
 
@@ -53,8 +53,8 @@ BasicGame.LevelOne.prototype = {
 
     this.game.physics.p2.enable([blocks, bricks, player]);
     blocks.onChildInputDown.add(this.destroyBlock, this);
-    bricks.onChildInputDown.add(this.hitUnbreakable, this);
-    player.input.onDown.add(this.hitUnbreakable, this);
+    bricks.onChildInputDown.add(this.hitBrick, this);
+    //player.input.onDown.add(this.hitUnbreakable, this);
     //player.body.onBeginContact.add(this.);
 
     //this.game.input.onDown.add(this.destroyBlock, this);
@@ -118,7 +118,7 @@ BasicGame.LevelOne.prototype = {
     block.kill();
   },
 
-  hitUnbreakable: function(brick) {
+  hitBrick: function(brick) {
     brickfx.play();
   },
 
