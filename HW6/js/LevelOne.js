@@ -40,9 +40,9 @@ BasicGame.LevelOne.prototype = {
     blocks.unbreakable = false;
     bricks.unbreakable = true;
 
-    bricks.create(400, 600, 'brick');
+    bricks.create(400, 550, 'brick');
 
-    blocks.create(400, 550, 'block');
+    blocks.inputEnableChildren = true;
     blocks.create(400, 500, 'block');
     blocks.create(400, 450, 'block');
     blocks.create(400, 400, 'block');
@@ -50,7 +50,7 @@ BasicGame.LevelOne.prototype = {
     blocks.create(400, 300, 'block');
 
     this.game.physics.p2.enable([blocks, bricks, player]);
-
+    blocks.events.onChildInputDown.add(this.destroyBlock, this);
     //this.game.input.onDown.add(this.destroyBlock, this);
 
     /*
