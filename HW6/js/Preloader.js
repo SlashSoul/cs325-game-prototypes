@@ -41,6 +41,7 @@ BasicGame.Preloader.prototype = {
 
 		this.load.image('restart', 'assets/button_restart.png');
 		this.load.image('back', 'assets/button_back.png');
+		this.load.image('next', 'assets/button_next.png');
 
 		//this.load.spritesheet();
 		//this.load.atlas('stageButton', 'assets/stages_button.png', 'assets/stages_button.json');
@@ -50,8 +51,8 @@ BasicGame.Preloader.prototype = {
 			this.load.image('mountains-bg', 'assets/mountains-bg.png');
 			this.load.image('ground', 'assets/new-ground.png');
 			this.load.image('player', 'assets/player.png');
-			this.load.image('wall', 'assets/wall.png');
-			this.load.image('object', 'assets/object.png');
+			this.load.image('brick', 'assets/brick.png');
+			this.load.image('block', 'assets/block.png');
 
 	},
 

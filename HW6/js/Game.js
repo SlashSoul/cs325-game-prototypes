@@ -85,11 +85,11 @@ BasicGame.Game.prototype = {
         this.blocks.inputEnabled = true;
         this.blocks.inputEnableChildren = true;
 
-        this.blocks.create(400, 500, 'object');
-        this.blocks.create(400, 450, 'object');
-        this.blocks.create(400, 400, 'object');
-        this.blocks.create(400, 350, 'object');
-        this.blocks.create(400, 300, 'object');
+        this.blocks.create(400, 500, 'block');
+        this.blocks.create(400, 450, 'block');
+        this.blocks.create(400, 400, 'block');
+        this.blocks.create(400, 350, 'block');
+        this.blocks.create(400, 300, 'block');
         /*this.add.button(400, 500, 'object', this.destroyBlock, this);
         this.add.button(400, 450, 'object', this.destroyBlock, this);
         this.add.button(400, 400, 'object', this.destroyBlock, this);
@@ -97,11 +97,11 @@ BasicGame.Game.prototype = {
         this.add.button(400, 300, 'object', this.destroyBlock, this);*/
 
 
-        this.bricks.create(500, 550, 'wall');
-        this.bricks.create(450, 550, 'wall');
-        this.bricks.create(400, 550, 'wall');
-        this.bricks.create(350, 550, 'wall');
-        this.bricks.create(300, 550, 'wall');
+        this.bricks.create(500, 550, 'brick');
+        this.bricks.create(450, 550, 'brick');
+        this.bricks.create(400, 550, 'brick');
+        this.bricks.create(350, 550, 'brick');
+        this.bricks.create(300, 550, 'brick');
 
         //this.add.button(150, 150, 'object', this.destroyBlock, this);
 
@@ -121,7 +121,10 @@ BasicGame.Game.prototype = {
         // ==> objects.onChildInputDown.add(function() { this.destroyObject(); }, this);
         //player.body.onBeginContact.add(setDeath, this);
 
-        this.game.input.onDown.add(this.destroyBlock, this);
+
+        this.blocks.events.onChildInputDown.add(this.destroyBlock, this);
+
+        //this.game.input.onDown.add(this.destroyBlock, this);
     },
 
     update: function() {
