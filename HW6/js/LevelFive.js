@@ -42,7 +42,7 @@ BasicGame.LevelFive.prototype = {
     this.game.physics.p2.setImpactEvents(true);
     this.game.physics.p2.gravity.y = 250;
     this.add.sprite(0, 0, 'mountains-bg');
-    this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
+    this.add.text(16, 16, 'Level 5', {font: '24px Verdana', fill: '#9999FF'});
     this.add.button(16, 534, 'back', this.quitGame, this);
     this.add.button(584, 16, 'restart', this.restartStage, this);
 
