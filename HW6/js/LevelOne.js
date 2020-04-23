@@ -49,7 +49,7 @@ BasicGame.LevelOne.prototype = {
     blockfx = this.game.add.audio('blockfx', 0.5, false);
     brickfx = this.game.add.audio('brickfx', 0.5, false);
 
-    player = this.game.add.sprite(400, 250, 'player');
+    player = this.game.add.sprite(400, 350, 'player');
     blocks = this.game.add.group();
     bricks = this.game.add.group();
 
@@ -59,18 +59,12 @@ BasicGame.LevelOne.prototype = {
 
     bricks.inputEnableChildren = true;
     bricks.create(400, 550, 'brick');
-    bricks.create(450, 550, 'brick');
-    bricks.create(400, 550, 'brick');
-    bricks.create(350, 550, 'brick');
-    bricks.create(300, 550, 'brick');
 
     blocks.inputEnableChildren = true;
     blocks.create(400, 500, 'block');
     blocks.create(400, 450, 'block');
     blocks.create(400, 400, 'block');
-    blocks.create(400, 350, 'block');
-    blocks.create(400, 300, 'block');
-    blockCounter = 5;
+    blockCounter = 3;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
 
