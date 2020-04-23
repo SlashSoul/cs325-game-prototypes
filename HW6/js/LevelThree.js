@@ -126,7 +126,7 @@ BasicGame.LevelThree.prototype = {
   },
 
   quitGame: function() {
-    this.state.start('MainMenu');
+    this.state.start('Stage');
   }
 
 };
