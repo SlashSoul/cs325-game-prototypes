@@ -1,7 +1,6 @@
-v
 "use strict";
 
-BasicGame.LevelOne = function(game) {
+BasicGame.LevelFive = function(game) {
   //  When a State is added to Phaser it automatically has the following properties set on it, even if they already exist:
   /*
   this.game;      //  a reference to the currently running game (Phaser.Game)
@@ -36,7 +35,7 @@ var blockfx;
 var brickfx;
 var player;
 
-BasicGame.LevelOne.prototype = {
+BasicGame.LevelFive.prototype = {
   create: function() {
     this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
     this.game.physics.startSystem(Phaser.Physics.P2JS);
