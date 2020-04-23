@@ -1,3 +1,4 @@
+v
 "use strict";
 
 BasicGame.LevelOne = function(game) {
@@ -49,7 +50,7 @@ BasicGame.LevelOne.prototype = {
     blockfx = this.game.add.audio('blockfx', 0.5, false);
     brickfx = this.game.add.audio('brickfx', 0.5, false);
 
-    player = this.game.add.sprite(400, 500, 'player');
+    player = this.game.add.sprite(400, 150, 'player');
     blocks = this.game.add.group();
     bricks = this.game.add.group();
 
@@ -58,23 +59,18 @@ BasicGame.LevelOne.prototype = {
     bricks.unbreakable = true;
 
     bricks.inputEnableChildren = true;
-    bricks.create(400, 550, 'brick');
+    bricks.create(400, 500, 'brick');
+    bricks.create(400, 400, 'brick');
+    bricks.create(400, 300, 'brick');
+    bricks.create(400, 200, 'brick');
 
     blocks.inputEnableChildren = true;
-    blocks.create(300, 550, 'block');
-    blocks.create(300, 500, 'block');
-    blocks.create(300, 450, 'block');
-    blocks.create(300, 400, 'block');
-    blocks.create(300, 350, 'block');
-    blocks.create(300, 300, 'block');
-    blocks.create(500, 550, 'block');
-    blocks.create(500, 500, 'block');
-    blocks.create(500, 450, 'block');
-    blocks.create(500, 400, 'block');
-    blocks.create(500, 350, 'block');
-    blocks.create(500, 300, 'block');
-    //blocks.create(400, 500, 'block');
-    blockCounter = 12;
+    blocks.create(400, 550, 'block');
+    blocks.create(400, 450, 'block');
+    blocks.create(400, 350, 'block');
+    blocks.create(400, 250, 'block');
+
+    blockCounter = ;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
 
@@ -122,11 +118,11 @@ BasicGame.LevelOne.prototype = {
   },
 
   nextStage: function() {
-    this.state.start('LevelFive');
+    this.state.start('LevelSix');
   },
 
   restartStage: function() {
-    this.state.start('LevelFour');
+    this.state.start('LevelFive');
   },
 
   quitGame: function() {

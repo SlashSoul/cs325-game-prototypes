@@ -64,7 +64,6 @@ BasicGame.LevelOne.prototype = {
     bricks.create(350, 550, 'brick');
     bricks.create(300, 550, 'brick');
 
-
     blocks.inputEnableChildren = true;
     blocks.create(400, 500, 'block');
     blocks.create(400, 450, 'block');

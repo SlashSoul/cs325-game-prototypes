@@ -46,11 +46,11 @@ BasicGame.Stage.prototype = {
   },
 
   startStageFour: function(pointer) {
-    //this.state.start('GameUnavailable');
+    this.state.start('LevelFour');
   },
 
   startStageFive: function(pointer) {
-    //this.state.start('GameUnavailable');
+    this.state.start('LevelFive');
   },
 
   startStageSix: function(pointer) {
