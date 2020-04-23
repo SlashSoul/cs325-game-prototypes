@@ -11,13 +11,9 @@ window.onload = function() {
 	game.state.add('Preloader', BasicGame.Preloader);
 	game.state.add('MainMenu', BasicGame.MainMenu);
 	game.state.add('Stage', BasicGame.Stage);
-	game.state.add('NextLevel', BasicGame.NextLevel);
-	game.state.add('Game', BasicGame.Game);
 	game.state.add('LevelOne', BasicGame.LevelOne);
 	game.state.add('LevelTwo', BasicGame.LevelTwo);
 	game.state.add('LevelThree', BasicGame.LevelThree);
-	game.state.add('GameOver', BasicGame.GameOver);
-	//game.state.add('GameUnavailable', Basic.GameUnavailable);
 
 	// Now start the Boot state.
 	game.state.start('Boot');
