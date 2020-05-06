@@ -116,11 +116,11 @@ BasicGame.LevelThirteen.prototype = {
   },
 
   nextStage: function() {
-    //this.state.start('LevelTwo');
+    this.state.start('LevelFourteen');
   },
 
   restartStage: function() {
-    //this.state.start('LevelOne');
+    this.state.start('LevelThirteen');
   },
 
   quitGame: function() {
