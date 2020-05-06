@@ -49,7 +49,7 @@ BasicGame.LevelSixteen.prototype = {
     blockfx = this.game.add.audio('blockfx', 0.5, false);
     brickfx = this.game.add.audio('brickfx', 0.5, false);
 
-    //player = this.game.add.sprite(400, 350, 'player');
+    player = this.game.add.sprite(400, 400, 'player');
     blocks = this.game.add.group();
     bricks = this.game.add.group();
 
@@ -58,13 +58,16 @@ BasicGame.LevelSixteen.prototype = {
     bricks.unbreakable = true;
 
     bricks.inputEnableChildren = true;
-    //bricks.create(400, 550, 'brick');
+    bricks.create(200, 550, 'brick');
+    bricks.create(300, 550, 'brick');
+    bricks.create(400, 550, 'brick');
+    bricks.create(500, 550, 'brick');
+    bricks.create(600, 550, 'brick');
 
     blocks.inputEnableChildren = true;
-    //blocks.create(400, 500, 'block');
-    //blocks.create(400, 450, 'block');
-    //blocks.create(400, 400, 'block');
-    //blockCounter = 3;
+    blocks.create(400, 500, 'brick');
+    blocks.create(400, 450, 'brick');
+    blockCounter = 2;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
 
