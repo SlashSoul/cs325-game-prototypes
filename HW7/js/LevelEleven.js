@@ -58,6 +58,7 @@ BasicGame.LevelEleven.prototype = {
     bricks.unbreakable = true;
 
     bricks.inputEnableChildren = true;
+    bricks.create(550, 550, 'brick');
     bricks.create(600, 550, 'brick');
 
     blocks.inputEnableChildren = true;
@@ -67,8 +68,7 @@ BasicGame.LevelEleven.prototype = {
     blocks.create(400, 400, 'block');
     blocks.create(450, 550, 'block');
     blocks.create(500, 550, 'block');
-    blocks.create(550, 550, 'block');
-    blockCounter = 7;
+    blockCounter = 6;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
 
