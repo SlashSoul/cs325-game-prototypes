@@ -68,8 +68,7 @@ BasicGame.LevelEleven.prototype = {
     blocks.create(450, 550, 'block');
     blocks.create(500, 550, 'block');
     blocks.create(550, 550, 'block');
-    blocks.create(600, 550, 'blocks');
-    blockCounter = 8;
+    blockCounter = 7;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
 

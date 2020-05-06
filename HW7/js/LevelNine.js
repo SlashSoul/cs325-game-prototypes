@@ -60,7 +60,7 @@ BasicGame.LevelNine.prototype = {
 
     bricks.inputEnableChildren = true;
     bricks.create(300, 350, 'brick');
-    //bricks.create(350, 550, 'brick');
+    bricks.create(350, 350, 'brick');
     bricks.create(400, 350, 'brick');
     bricks.create(450, 350, 'brick');
     bricks.create(500, 350, 'brick');
@@ -70,18 +70,22 @@ BasicGame.LevelNine.prototype = {
     blocks.create(300, 500, 'block');
     blocks.create(300, 450, 'block');
     blocks.create(300, 400, 'block');
+
     blocks.create(350, 550, 'block');
     blocks.create(350, 500, 'block');
     blocks.create(350, 450, 'block');
     blocks.create(350, 400, 'block');
+
     blocks.create(450, 550, 'block');
     blocks.create(450, 500, 'block');
     blocks.create(450, 450, 'block');
     blocks.create(450, 400, 'block');
+
     blocks.create(500, 550, 'block');
     blocks.create(500, 500, 'block');
     blocks.create(500, 450, 'block');
     blocks.create(500, 400, 'block');
+
     blockCounter = 16;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
