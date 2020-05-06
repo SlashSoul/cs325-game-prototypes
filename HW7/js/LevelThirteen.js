@@ -1,9 +1,6 @@
 "use strict";
 
-/**
- *  Change LevelNumber
- **/
-BasicGame.LevelNumber = function(game) {
+BasicGame.LevelThirteen = function(game) {
   //  When a State is added to Phaser it automatically has the following properties set on it, even if they already exist:
   /*
   this.game;      //  a reference to the currently running game (Phaser.Game)
@@ -38,25 +35,21 @@ var blockfx;
 var brickfx;
 var player;
 
-/**
- * Change LevelNumber
- **/
-BasicGame.LevelNumber.prototype = {
+BasicGame.LevelThirteen.prototype = {
   create: function() {
     this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
     this.game.physics.startSystem(Phaser.Physics.P2JS);
     this.game.physics.p2.setImpactEvents(true);
     this.game.physics.p2.gravity.y = 250;
     this.add.sprite(0, 0, 'mountains-bg');
-    this.add.text(16, 16, 'Level 1', {font: '24px Verdana', fill: '#9999FF'});
+    this.add.text(16, 16, 'Level 13', {font: '24px Verdana', fill: '#9999FF'});
     this.add.button(16, 534, 'back', this.quitGame, this);
     this.add.button(584, 16, 'restart', this.restartStage, this);
 
     blockfx = this.game.add.audio('blockfx', 0.5, false);
     brickfx = this.game.add.audio('brickfx', 0.5, false);
 
-    /* Level Management */
-    //player = this.game.add.sprite(400, 350, 'player');
+    player = this.game.add.sprite(400, 350, 'player');
     blocks = this.game.add.group();
     bricks = this.game.add.group();
 
@@ -65,13 +58,17 @@ BasicGame.LevelNumber.prototype = {
     bricks.unbreakable = true;
 
     bricks.inputEnableChildren = true;
-    //bricks.create(400, 550, 'brick');
+    bricks.create(400, 550, 'brick');
 
     blocks.inputEnableChildren = true;
-    //blocks.create(400, 500, 'block');
-    //blocks.create(400, 450, 'block');
-    //blocks.create(400, 400, 'block');
-    //blockCounter = 3;
+    blocks.create(300, 550, 'block');
+    blocks.create(350, 550, 'block');
+    blocks.create(400, 500, 'block');
+    blocks.create(400, 450, 'block');
+    blocks.create(400, 400, 'block');
+    blocks.create(450, 550, 'block');
+    blocks.create(500, 550, 'block');
+    blockCounter = 7;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
 
