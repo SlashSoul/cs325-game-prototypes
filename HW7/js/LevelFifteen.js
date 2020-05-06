@@ -1,9 +1,6 @@
 "use strict";
 
-/**
- *  Change LevelNumber
- **/
-BasicGame.LevelNumber = function(game) {
+BasicGame.LevelFifteen = function(game) {
   //  When a State is added to Phaser it automatically has the following properties set on it, even if they already exist:
   /*
   this.game;      //  a reference to the currently running game (Phaser.Game)
@@ -38,10 +35,7 @@ var blockfx;
 var brickfx;
 var player;
 
-/**
- * Change LevelNumber
- **/
-BasicGame.LevelNumber.prototype = {
+BasicGame.LevelFifteen.prototype = {
   create: function() {
     this.game.world.bounds = new Phaser.Rectangle(0, 0, 800, 600);
     this.game.physics.startSystem(Phaser.Physics.P2JS);
@@ -55,8 +49,7 @@ BasicGame.LevelNumber.prototype = {
     blockfx = this.game.add.audio('blockfx', 0.5, false);
     brickfx = this.game.add.audio('brickfx', 0.5, false);
 
-    /* Level Management */
-    //player = this.game.add.sprite(400, 350, 'player');
+    player = this.game.add.sprite(400, 300, 'player');
     blocks = this.game.add.group();
     bricks = this.game.add.group();
 
@@ -65,13 +58,38 @@ BasicGame.LevelNumber.prototype = {
     bricks.unbreakable = true;
 
     bricks.inputEnableChildren = true;
-    //bricks.create(400, 550, 'brick');
-
     blocks.inputEnableChildren = true;
-    //blocks.create(400, 500, 'block');
-    //blocks.create(400, 450, 'block');
-    //blocks.create(400, 400, 'block');
-    //blockCounter = 3;
+    bricks.create(200, 550, 'brick');
+    blocks.create(200, 500, 'block');
+    bricks.create(200, 450, 'brick');
+    blocks.create(200, 400, 'block');
+    bricks.create(200, 350, 'brick');
+
+    blocks.create(300, 550, 'block');
+    bricks.create(300, 500, 'brick');
+    blocks.create(300, 450, 'block');
+    bricks.create(300, 400, 'brick');
+    blocks.create(300, 350, 'block');
+
+    bricks.create(400, 550, 'brick');
+    blocks.create(400, 500, 'block');
+    bricks.create(400, 450, 'brick');
+    blocks.create(400, 400, 'block');
+    bricks.create(400, 350, 'brick');
+
+    blocks.create(500, 550, 'block');
+    bricks.create(500, 500, 'brick');
+    blocks.create(500, 450, 'block');
+    bricks.create(500, 400, 'brick');
+    blocks.create(500, 350, 'block');
+
+    bricks.create(600, 550, 'brick');
+    blocks.create(600, 500, 'block');
+    bricks.create(600, 450, 'brick');
+    blocks.create(600, 400, 'block');
+    bricks.create(600, 350, 'brick');
+
+    blockCounter = 12;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
 
@@ -119,11 +137,11 @@ BasicGame.LevelNumber.prototype = {
   },
 
   nextStage: function() {
-    //this.state.start('LevelTwo');
+    this.state.start('LevelSixteen');
   },
 
   restartStage: function() {
-    //this.state.start('LevelOne');
+    this.state.start('LevelFifteen');
   },
 
   quitGame: function() {
