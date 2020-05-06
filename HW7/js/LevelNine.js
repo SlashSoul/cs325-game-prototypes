@@ -60,7 +60,7 @@ BasicGame.LevelNine.prototype = {
 
     bricks.inputEnableChildren = true;
     bricks.create(300, 350, 'brick');
-    bricks.create(350, 550, 'brick');
+    //bricks.create(350, 550, 'brick');
     bricks.create(400, 350, 'brick');
     bricks.create(450, 350, 'brick');
     bricks.create(500, 350, 'brick');
