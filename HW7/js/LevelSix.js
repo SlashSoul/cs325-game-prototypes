@@ -58,23 +58,23 @@ BasicGame.LevelSix.prototype = {
     bricks.unbreakable = true;
 
     bricks.inputEnableChildren = true;
-    bricks.create(400, 500, 'block');
-    bricks.create(400, 450, 'block');
-    bricks.create(400, 400, 'block');
+    bricks.create(400, 500, 'brick');
+    bricks.create(400, 450, 'brick');
+    bricks.create(400, 400, 'brick');
 
     blocks.inputEnableChildren = true;
-    blocks.create(250, 500, 'brick');
-    blocks.create(300, 500, 'brick');
-    blocks.create(300, 450, 'brick');
-    blocks.create(350, 500, 'brick');
-    blocks.create(350, 450, 'brick');
-    blocks.create(350, 400, 'brick');
-    blocks.create(450, 500, 'brick');
-    blocks.create(450, 450, 'brick');
-    blocks.create(450, 400, 'brick');
-    blocks.create(500, 500, 'brick');
-    blocks.create(500, 450, 'brick');
-    blocks.create(550, 500, 'brick');
+    blocks.create(250, 500, 'block');
+    blocks.create(300, 500, 'block');
+    blocks.create(300, 450, 'block');
+    blocks.create(350, 500, 'block');
+    blocks.create(350, 450, 'block');
+    blocks.create(350, 400, 'block');
+    blocks.create(450, 500, 'block');
+    blocks.create(450, 450, 'block');
+    blocks.create(450, 400, 'block');
+    blocks.create(500, 500, 'block');
+    blocks.create(500, 450, 'block');
+    blocks.create(550, 500, 'block');
     blockCounter = 12;
 
     this.game.physics.p2.enable([blocks, bricks, player]);
